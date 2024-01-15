@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="上位机, yijingsong">
+    <meta name="keywords" content="c#上位机开发, yijingsong">
     <meta name="description" content="一、C#1.1 编译过程
 C# —- 编译器编译 —-IL中间语言 —- 通过.NET平台的CLR动态转换为机器指令
 
@@ -26,7 +26,7 @@ namespa">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>上位机 | yijingsong</title>
+    <title>c#上位机开发 | yijingsong</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -255,12 +255,12 @@ namespa">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">上位机</h1>
+                    <h1 class="description center-align post-title">c#上位机开发</h1>
                 </div>
             </div>
         </div>
@@ -273,7 +273,15 @@ namespa">
 <main class="post-container content">
 
     
-    <div class="row">
+    <style>
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: scroll;
+    }
+</style>
+
+
+<div class="row">
     <div id="main-content" class="col s12 m12 l9">
         <!-- 文章内容详情 -->
 <div id="artDetail">
@@ -303,7 +311,7 @@ namespa">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-14
+                    2024-01-15
                 </div>
                 
 
@@ -330,7 +338,7 @@ namespa">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、C"><a href="#一、C" class="headerlink" title="一、C#"></a>一、C#</h1><h2 id="1-1-编译过程"><a href="#1-1-编译过程" class="headerlink" title="1.1 编译过程"></a>1.1 编译过程</h2><ul>
+                <h2 id="一、C"><a href="#一、C" class="headerlink" title="一、C#"></a>一、C#</h2><h3 id="1-1-编译过程"><a href="#1-1-编译过程" class="headerlink" title="1.1 编译过程"></a>1.1 编译过程</h3><ul>
 <li><p>C# —- 编译器编译 —-IL中间语言 —- 通过.NET平台的CLR动态转换为机器指令</p>
 </li>
 <li><p>提升开发效率，代码直接转化为机器指令比较耗时</p>
@@ -338,7 +346,7 @@ namespa">
 <li><p>性能较c/c++较低</p>
 </li>
 </ul>
-<h2 id="1-2-代码结构"><a href="#1-2-代码结构" class="headerlink" title="1.2 代码结构"></a>1.2 代码结构</h2><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 命名空间
+<h3 id="1-2-代码结构"><a href="#1-2-代码结构" class="headerlink" title="1.2 代码结构"></a>1.2 代码结构</h3><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 命名空间
 namespace HelloWorldCS
 {
     // 类型
@@ -354,7 +362,7 @@ namespace HelloWorldCS
 
 
 
-<h3 id="1-2-1-命名空间"><a href="#1-2-1-命名空间" class="headerlink" title="1.2 1 命名空间"></a>1.2 1 命名空间</h3><ul>
+<h4 id="1-2-1-命名空间"><a href="#1-2-1-命名空间" class="headerlink" title="1.2 1 命名空间"></a>1.2 1 命名空间</h4><ul>
 <li><p>命名空间在导入时，可取别名<code>using 别名 = 要调用的命名空间</code></p>
 </li>
 <li><p>命名空间使用<code>.</code>标识符，进入命名空间下一级</p>
@@ -362,7 +370,7 @@ namespace HelloWorldCS
 <li><p>全局命名空间<code>using global::要调用的命名空间</code></p>
 </li>
 </ul>
-<h4 id="1-2-1-1-基本命名空间"><a href="#1-2-1-1-基本命名空间" class="headerlink" title="1.2.1.1 基本命名空间"></a>1.2.1.1 基本命名空间</h4><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using System;  // 使用基本的数据类型等
+<h5 id="1-2-1-1-基本命名空间"><a href="#1-2-1-1-基本命名空间" class="headerlink" title="1.2.1.1 基本命名空间"></a>1.2.1.1 基本命名空间</h5><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using System;  // 使用基本的数据类型等
 using System.Collections.Generic;  // 加载泛型等
 using System.ComponentModel;  // 控件组件模型工具
 using System.Data;  // 加载与数据库连接类等有关空间
@@ -374,13 +382,13 @@ using System.Windows.Forms;  // 窗体<span aria-hidden="true" class="line-numbe
 
 
 
-<h4 id="1-2-1-2-命名空间定义"><a href="#1-2-1-2-命名空间定义" class="headerlink" title="1.2.1.2 命名空间定义"></a>1.2.1.2 命名空间定义</h4><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">namespace 空间名{
+<h5 id="1-2-1-2-命名空间定义"><a href="#1-2-1-2-命名空间定义" class="headerlink" title="1.2.1.2 命名空间定义"></a>1.2.1.2 命名空间定义</h5><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">namespace 空间名{
   	
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h2 id="1-3-数据类型"><a href="#1-3-数据类型" class="headerlink" title="1.3 数据类型"></a>1.3 数据类型</h2><h3 id="1-3-1-值类型"><a href="#1-3-1-值类型" class="headerlink" title="1.3.1 值类型"></a>1.3.1 值类型</h3><ul>
+<h3 id="1-3-数据类型"><a href="#1-3-数据类型" class="headerlink" title="1.3 数据类型"></a>1.3 数据类型</h3><h4 id="1-3-1-值类型"><a href="#1-3-1-值类型" class="headerlink" title="1.3.1 值类型"></a>1.3.1 值类型</h4><ul>
 <li><p>从类<code>System.ValueType</code>中派生来</p>
 </li>
 <li><p>值类型变量可以直接分配给一个值</p>
@@ -507,10 +515,10 @@ using System.Windows.Forms;  // 窗体<span aria-hidden="true" class="line-numbe
 </tbody></table>
 </li>
 </ul>
-<h3 id="1-3-2-引用类型"><a href="#1-3-2-引用类型" class="headerlink" title="1.3.2 引用类型"></a>1.3.2 引用类型</h3><ul>
+<h4 id="1-3-2-引用类型"><a href="#1-3-2-引用类型" class="headerlink" title="1.3.2 引用类型"></a>1.3.2 引用类型</h4><ul>
 <li>引用类型指向一个内存位置</li>
 </ul>
-<h3 id="1-3-3-Object类型"><a href="#1-3-3-Object类型" class="headerlink" title="1.3.3 Object类型"></a>1.3.3 Object类型</h3><ul>
+<h4 id="1-3-3-Object类型"><a href="#1-3-3-Object类型" class="headerlink" title="1.3.3 Object类型"></a>1.3.3 Object类型</h4><ul>
 <li>Object类型是所有数据类型的终极基类</li>
 <li>可被分配任何其他类型（值类型、引用类型、预定义类型、自定义类型）的值</li>
 <li>当一个值类型转换位Object类时，称为<strong>装箱</strong>，反之为<strong>拆箱</strong></li>
@@ -520,7 +528,7 @@ obj = 100;    // 装箱<span aria-hidden="true" class="line-numbers-rows"><span>
 
 
 
-<h3 id="1-3-4-String类"><a href="#1-3-4-String类" class="headerlink" title="1.3.4 String类"></a>1.3.4 String类</h3><h4 id="1-3-4-1-拼接字符串"><a href="#1-3-4-1-拼接字符串" class="headerlink" title="1.3.4.1 拼接字符串"></a>1.3.4.1 拼接字符串</h4><ul>
+<h4 id="1-3-4-String类"><a href="#1-3-4-String类" class="headerlink" title="1.3.4 String类"></a>1.3.4 String类</h4><h5 id="1-3-4-1-拼接字符串"><a href="#1-3-4-1-拼接字符串" class="headerlink" title="1.3.4.1 拼接字符串"></a>1.3.4.1 拼接字符串</h5><ul>
 <li><p>使用**<code>+</code>运算符**，对多个<code>string</code>进行拼接</p>
 </li>
 <li><p>会产生一个<strong>新的<code>String</code>对象</strong></p>
@@ -534,7 +542,7 @@ string s = s1 + " " + s2;<span aria-hidden="true" class="line-numbers-rows"><spa
 
 
 
-<h4 id="1-3-4-2-比较字符串"><a href="#1-3-4-2-比较字符串" class="headerlink" title="1.3.4.2 比较字符串"></a>1.3.4.2 比较字符串</h4><ul>
+<h5 id="1-3-4-2-比较字符串"><a href="#1-3-4-2-比较字符串" class="headerlink" title="1.3.4.2 比较字符串"></a>1.3.4.2 比较字符串</h5><ul>
 <li><p>使用**<code>==</code>比较运算符**</p>
 </li>
 <li><p>**<code>Equals()</code>**方法</p>
@@ -581,7 +589,7 @@ public int CompareTo(string strB)<span aria-hidden="true" class="line-numbers-ro
 
 
 
-<h4 id="1-3-4-3-格式化字符串"><a href="#1-3-4-3-格式化字符串" class="headerlink" title="1.3.4.3 格式化字符串"></a>1.3.4.3 格式化字符串</h4><ul>
+<h5 id="1-3-4-3-格式化字符串"><a href="#1-3-4-3-格式化字符串" class="headerlink" title="1.3.4.3 格式化字符串"></a>1.3.4.3 格式化字符串</h5><ul>
 <li><code>String</code>类提供了一个静态<code>Format()</code>方法，将字符串格式化为指定格式</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">/*
@@ -637,7 +645,7 @@ Console.WriteLine(dTime.ToString("Y")); // 转换为年月
 
 
 
-<h4 id="1-3-4-4-截取字符串"><a href="#1-3-4-4-截取字符串" class="headerlink" title="1.3.4.4 截取字符串"></a>1.3.4.4 截取字符串</h4><ul>
+<h5 id="1-3-4-4-截取字符串"><a href="#1-3-4-4-截取字符串" class="headerlink" title="1.3.4.4 截取字符串"></a>1.3.4.4 截取字符串</h5><ul>
 <li><code>Substring()</code>方法，截取指定位置和指定长度的子字符串</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">/*
@@ -650,7 +658,7 @@ public string Substring(int startIndex, int length)<span aria-hidden="true" clas
 
 
 
-<h4 id="1-3-4-5-分割字符串"><a href="#1-3-4-5-分割字符串" class="headerlink" title="1.3.4.5 分割字符串"></a>1.3.4.5 分割字符串</h4><ul>
+<h5 id="1-3-4-5-分割字符串"><a href="#1-3-4-5-分割字符串" class="headerlink" title="1.3.4.5 分割字符串"></a>1.3.4.5 分割字符串</h5><ul>
 <li><code>Split()</code>方法，分割字符串，返回字符串数组对象</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">/*
@@ -680,7 +688,7 @@ for(int i = 0; i&lt;splitstring.Length; i++
 
 
 
-<h4 id="1-3-4-6-插入字符"><a href="#1-3-4-6-插入字符" class="headerlink" title="1.3.4.6 插入字符"></a>1.3.4.6 插入字符</h4><ul>
+<h5 id="1-3-4-6-插入字符"><a href="#1-3-4-6-插入字符" class="headerlink" title="1.3.4.6 插入字符"></a>1.3.4.6 插入字符</h5><ul>
 <li><code>Insert()</code>方法，向字符串任意位置插入新元素</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">/*
@@ -706,7 +714,7 @@ public string PadRight(int totalWidth, char paddingChar)<span aria-hidden="true"
 
 
 
-<h4 id="1-3-4-7-删除字符串"><a href="#1-3-4-7-删除字符串" class="headerlink" title="1.3.4.7 删除字符串"></a>1.3.4.7 删除字符串</h4><ul>
+<h5 id="1-3-4-7-删除字符串"><a href="#1-3-4-7-删除字符串" class="headerlink" title="1.3.4.7 删除字符串"></a>1.3.4.7 删除字符串</h5><ul>
 <li><code>Remove()</code>方法</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 两种重载方法
@@ -720,7 +728,7 @@ public String Remove(int startIndex, int count)  // 删除指定个数字符<spa
 
 
 
-<h4 id="1-3-4-8-复制字符串"><a href="#1-3-4-8-复制字符串" class="headerlink" title="1.3.4.8 复制字符串"></a>1.3.4.8 复制字符串</h4><ul>
+<h5 id="1-3-4-8-复制字符串"><a href="#1-3-4-8-复制字符串" class="headerlink" title="1.3.4.8 复制字符串"></a>1.3.4.8 复制字符串</h5><ul>
 <li><code>Copy()</code>和<code>CopyTo()</code>，分别复制到另一个字符串或<code>Char[]</code></li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public static string Copy(string str)
@@ -736,7 +744,7 @@ public void CopyTo(int sourceIndex, cahr[] destination, int destinationIndex, in
 
 
 
-<h4 id="1-3-4-9-替换字符串"><a href="#1-3-4-9-替换字符串" class="headerlink" title="1.3.4.9 替换字符串"></a>1.3.4.9 替换字符串</h4><ul>
+<h5 id="1-3-4-9-替换字符串"><a href="#1-3-4-9-替换字符串" class="headerlink" title="1.3.4.9 替换字符串"></a>1.3.4.9 替换字符串</h5><ul>
 <li><code>Replace()</code>方法，替换字符或字符串</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public string Replace(char OChar, char NChar)
@@ -745,19 +753,19 @@ public string Replace(string OValue, string NValue)<span aria-hidden="true" clas
 
 
 
-<h3 id="1-3-5-数组"><a href="#1-3-5-数组" class="headerlink" title="1.3.5 数组"></a>1.3.5 数组</h3><ul>
+<h4 id="1-3-5-数组"><a href="#1-3-5-数组" class="headerlink" title="1.3.5 数组"></a>1.3.5 数组</h4><ul>
 <li>一组相同数据类型的数据序列</li>
 <li><code>String</code>类型本身就是由<code>char</code>类型组成的数组</li>
 </ul>
-<h4 id="1-3-3-1-初始化数组"><a href="#1-3-3-1-初始化数组" class="headerlink" title="1.3.3.1 初始化数组"></a>1.3.3.1 初始化数组</h4><ul>
+<h5 id="1-3-3-1-初始化数组"><a href="#1-3-3-1-初始化数组" class="headerlink" title="1.3.3.1 初始化数组"></a>1.3.3.1 初始化数组</h5><ul>
 <li>声明一个长度为2的<code>String</code>数组，<code>string a = new string[2];</code></li>
 <li>声明并初始化，<code>string a = new string[2]{"你干嘛","哎哟"}</code></li>
 </ul>
-<h3 id="1-3-6-正则表达式"><a href="#1-3-6-正则表达式" class="headerlink" title="1.3.6 正则表达式"></a>1.3.6 正则表达式</h3><ul>
+<h4 id="1-3-6-正则表达式"><a href="#1-3-6-正则表达式" class="headerlink" title="1.3.6 正则表达式"></a>1.3.6 正则表达式</h4><ul>
 <li>作用：查找符合某些复杂规则的字符串</li>
 <li>实质：正则表达式是记录文本规则的代码</li>
 </ul>
-<h4 id="1-3-6-1-行定位符"><a href="#1-3-6-1-行定位符" class="headerlink" title="1.3.6.1 行定位符"></a>1.3.6.1 行定位符</h4><ul>
+<h5 id="1-3-6-1-行定位符"><a href="#1-3-6-1-行定位符" class="headerlink" title="1.3.6.1 行定位符"></a>1.3.6.1 行定位符</h5><ul>
 <li><p>用来描述字符串的边界</p>
 </li>
 <li><p><code>^</code>和<code>$</code>分别用于表示行的开始和结尾</p>
@@ -770,7 +778,7 @@ public string Replace(string OValue, string NValue)<span aria-hidden="true" clas
 <li><p>若<code>tm</code>可出现在字符串任意部位，正则表达式可直接写为<code>tm</code></p>
 </li>
 </ul>
-<h4 id="1-3-6-2-元字符"><a href="#1-3-6-2-元字符" class="headerlink" title="1.3.6.2 元字符"></a>1.3.6.2 元字符</h4><ul>
+<h5 id="1-3-6-2-元字符"><a href="#1-3-6-2-元字符" class="headerlink" title="1.3.6.2 元字符"></a>1.3.6.2 元字符</h5><ul>
 <li><p>常用元字符</p>
 <table>
 <thead>
@@ -811,7 +819,7 @@ public string Replace(string OValue, string NValue)<span aria-hidden="true" clas
 </ul>
 </li>
 </ul>
-<h4 id="1-3-6-3-限位符"><a href="#1-3-6-3-限位符" class="headerlink" title="1.3.6.3 限位符"></a>1.3.6.3 限位符</h4><ul>
+<h5 id="1-3-6-3-限位符"><a href="#1-3-6-3-限位符" class="headerlink" title="1.3.6.3 限位符"></a>1.3.6.3 限位符</h5><ul>
 <li><p>匹配指定数量的字符</p>
 </li>
 <li><p>常用限位符</p>
@@ -859,7 +867,7 @@ public string Replace(string OValue, string NValue)<span aria-hidden="true" clas
 </ul>
 </li>
 </ul>
-<h4 id="1-3-6-4-自定义字符"><a href="#1-3-6-4-自定义字符" class="headerlink" title="1.3.6.4 自定义字符"></a>1.3.6.4 自定义字符</h4><ul>
+<h5 id="1-3-6-4-自定义字符"><a href="#1-3-6-4-自定义字符" class="headerlink" title="1.3.6.4 自定义字符"></a>1.3.6.4 自定义字符</h5><ul>
 <li>使用<code>[]</code>，匹配指定字符<ul>
 <li>例，要匹配元音字母，<code>[aeiou]</code>，该表达式即可匹配任意一个元音字母</li>
 </ul>
@@ -869,26 +877,26 @@ public string Replace(string OValue, string NValue)<span aria-hidden="true" clas
 </ul>
 </li>
 </ul>
-<h4 id="1-3-6-5-选择字符"><a href="#1-3-6-5-选择字符" class="headerlink" title="1.3.6.5 选择字符"></a>1.3.6.5 选择字符</h4><ul>
+<h5 id="1-3-6-5-选择字符"><a href="#1-3-6-5-选择字符" class="headerlink" title="1.3.6.5 选择字符"></a>1.3.6.5 选择字符</h5><ul>
 <li>在面对身份证的匹配时，身份证号码长度为15或18，如果15位则全是数字；如果为18位，则前17位为数字最后一位是校验位，既可以是数字也可以是字符X或x</li>
 <li>该匹配规则隐含选择逻辑，使用字符<code>|</code>来实现<ul>
 <li><code>(^\d{15}$)|(^\d{18}$)|(^\d{17}(X|x)$)</code></li>
 </ul>
 </li>
 </ul>
-<h4 id="1-3-6-6-转义字符"><a href="#1-3-6-6-转义字符" class="headerlink" title="1.3.6.6 转义字符"></a>1.3.6.6 转义字符</h4><ul>
+<h5 id="1-3-6-6-转义字符"><a href="#1-3-6-6-转义字符" class="headerlink" title="1.3.6.6 转义字符"></a>1.3.6.6 转义字符</h5><ul>
 <li>当需要匹配<code>.</code>、<code>?</code>、<code>\</code>等字符时，由于正则表达式已有相应含有，可通过转义字符转换为普通字符<ul>
 <li>例，需要匹配127.0.0.1这样的IP地址，可使用<code>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}</code>进行匹配</li>
 </ul>
 </li>
 </ul>
-<h4 id="1-3-6-7-分组"><a href="#1-3-6-7-分组" class="headerlink" title="1.3.6.7 分组"></a>1.3.6.7 分组</h4><ul>
+<h5 id="1-3-6-7-分组"><a href="#1-3-6-7-分组" class="headerlink" title="1.3.6.7 分组"></a>1.3.6.7 分组</h5><ul>
 <li>使用小括号<code>()</code>，其除了可以改变限定符的作用范围，还可以进行分组<ul>
 <li>例，<code>(\.[0-9]{1,3}){3}</code>，对分组<code>\.[0-9]{1,3}</code>进行3次重复操作</li>
 </ul>
 </li>
 </ul>
-<h4 id="1-3-6-8-使用正则表达式"><a href="#1-3-6-8-使用正则表达式" class="headerlink" title="1.3.6.8 使用正则表达式"></a>1.3.6.8 使用正则表达式</h4><ul>
+<h5 id="1-3-6-8-使用正则表达式"><a href="#1-3-6-8-使用正则表达式" class="headerlink" title="1.3.6.8 使用正则表达式"></a>1.3.6.8 使用正则表达式</h5><ul>
 <li>借助<code>System.Text.RegularExpression</code>命名空间下的<code>Regex</code>类</li>
 <li>该类有许多静态方法<ul>
 <li><code>IsMatch()</code>，指示正则表达式在输入字符串中是否找到匹配项</li>
@@ -899,11 +907,11 @@ public string Replace(string OValue, string NValue)<span aria-hidden="true" clas
 </ul>
 </li>
 </ul>
-<h3 id="1-3-7-哈希表"><a href="#1-3-7-哈希表" class="headerlink" title="1.3.7 哈希表"></a>1.3.7 哈希表</h3><ul>
+<h4 id="1-3-7-哈希表"><a href="#1-3-7-哈希表" class="headerlink" title="1.3.7 哈希表"></a>1.3.7 哈希表</h4><ul>
 <li>集合类型，类似于python字典，键值对</li>
 <li>哈希表每一个元素都是存储在<code>DictionaryEntry</code>对象中的键值对，键不能为空，值可用</li>
 </ul>
-<h4 id="1-3-7-1-构造函数"><a href="#1-3-7-1-构造函数" class="headerlink" title="1.3.7.1 构造函数"></a>1.3.7.1 构造函数</h4><ul>
+<h5 id="1-3-7-1-构造函数"><a href="#1-3-7-1-构造函数" class="headerlink" title="1.3.7.1 构造函数"></a>1.3.7.1 构造函数</h5><ul>
 <li><code>Hashtable()</code>构造方法创建<code>Hashtable</code>对象</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 使用默认的初始容量、加载因子、哈希代码来创建实例
@@ -914,13 +922,13 @@ public Hashtable(int capacity)<span aria-hidden="true" class="line-numbers-rows"
 
 
 
-<h4 id="1-3-7-2-Hashtable属性"><a href="#1-3-7-2-Hashtable属性" class="headerlink" title="1.3.7.2 Hashtable属性"></a>1.3.7.2 Hashtable属性</h4><ul>
+<h5 id="1-3-7-2-Hashtable属性"><a href="#1-3-7-2-Hashtable属性" class="headerlink" title="1.3.7.2 Hashtable属性"></a>1.3.7.2 Hashtable属性</h5><ul>
 <li><code>Count</code>：获取键值对数目</li>
 <li><code>Item</code>：获取或设置与指定键相关联的值</li>
 <li><code>Keys</code>：获取<code>Hashtable</code>中键的<code>ICollection</code></li>
 <li><code>Values</code>：获取值的<code>ICollection</code></li>
 </ul>
-<h4 id="1-3-7-3-添加元素"><a href="#1-3-7-3-添加元素" class="headerlink" title="1.3.7.3 添加元素"></a>1.3.7.3 添加元素</h4><ul>
+<h5 id="1-3-7-3-添加元素"><a href="#1-3-7-3-添加元素" class="headerlink" title="1.3.7.3 添加元素"></a>1.3.7.3 添加元素</h5><ul>
 <li><code>Add()</code>，添加键值对</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 参数 value可为空
@@ -938,7 +946,7 @@ Console.WriteLine(hash,Count);
 
 
 
-<h4 id="1-3-7-4-删除元素"><a href="#1-3-7-4-删除元素" class="headerlink" title="1.3.7.4 删除元素"></a>1.3.7.4 删除元素</h4><ul>
+<h5 id="1-3-7-4-删除元素"><a href="#1-3-7-4-删除元素" class="headerlink" title="1.3.7.4 删除元素"></a>1.3.7.4 删除元素</h5><ul>
 <li><code>Clear()</code>和<code>Remove()</code></li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// Clear()，清空Hashtable
@@ -950,7 +958,7 @@ public virtual void Remove(Object key)<span aria-hidden="true" class="line-numbe
 
 
 
-<h4 id="1-3-7-5-遍历哈希表"><a href="#1-3-7-5-遍历哈希表" class="headerlink" title="1.3.7.5 遍历哈希表"></a>1.3.7.5 遍历哈希表</h4><ul>
+<h5 id="1-3-7-5-遍历哈希表"><a href="#1-3-7-5-遍历哈希表" class="headerlink" title="1.3.7.5 遍历哈希表"></a>1.3.7.5 遍历哈希表</h5><ul>
 <li>因为哈希表元素是键值对，所以要使用<code>DictionaryEntry</code>结构进行遍历，其表示一个键值对的集合</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 遍历哈希表，假设哈希表中已有元素
@@ -961,7 +969,7 @@ foreach(DictionaryEntry dic in hash)
 
 
 
-<h4 id="1-3-7-6-查找元素"><a href="#1-3-7-6-查找元素" class="headerlink" title="1.3.7.6 查找元素"></a>1.3.7.6 查找元素</h4><ul>
+<h5 id="1-3-7-6-查找元素"><a href="#1-3-7-6-查找元素" class="headerlink" title="1.3.7.6 查找元素"></a>1.3.7.6 查找元素</h5><ul>
 <li><code>Contains()、ContainsKey()、ContainsValue()</code></li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 寻找指定 键
@@ -975,11 +983,11 @@ public virtual bool ContainsValue(Object Value)<span aria-hidden="true" class="l
 
 
 
-<h2 id="1-4-类与对象"><a href="#1-4-类与对象" class="headerlink" title="1.4 类与对象"></a>1.4 类与对象</h2><h3 id="1-4-1-类"><a href="#1-4-1-类" class="headerlink" title="1.4.1 类"></a>1.4.1 类</h3><ul>
+<h3 id="1-4-类与对象"><a href="#1-4-类与对象" class="headerlink" title="1.4 类与对象"></a>1.4 类与对象</h3><h4 id="1-4-1-类"><a href="#1-4-1-类" class="headerlink" title="1.4.1 类"></a>1.4.1 类</h4><ul>
 <li>类是一种数据类型，包含<strong>数据成员</strong>（常量和变量）、<strong>函数成员</strong>（方法、属性、事件、索引器、运算符、构造函数和析构函数）和<strong>嵌套类型</strong></li>
 <li>==类可在不同源文件之间进行拆分==</li>
 </ul>
-<h4 id="1-4-1-1-类的声明"><a href="#1-4-1-1-类的声明" class="headerlink" title="1.4.1.1 类的声明"></a>1.4.1.1 类的声明</h4><ul>
+<h5 id="1-4-1-1-类的声明"><a href="#1-4-1-1-类的声明" class="headerlink" title="1.4.1.1 类的声明"></a>1.4.1.1 类的声明</h5><ul>
 <li>类的声明</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">访问修饰符 class 类名
@@ -989,7 +997,7 @@ public virtual bool ContainsValue(Object Value)<span aria-hidden="true" class="l
 
 
 
-<h4 id="1-4-1-2-构造函数和析构函数"><a href="#1-4-1-2-构造函数和析构函数" class="headerlink" title="1.4.1.2 构造函数和析构函数"></a>1.4.1.2 构造函数和析构函数</h4><ul>
+<h5 id="1-4-1-2-构造函数和析构函数"><a href="#1-4-1-2-构造函数和析构函数" class="headerlink" title="1.4.1.2 构造函数和析构函数"></a>1.4.1.2 构造函数和析构函数</h5><ul>
 <li><p>对象的生命周期从构造函数开始，析构函数结束</p>
 </li>
 <li><p>构造函数：用于对对象进行初始化，实例化对象时自动调用</p>
@@ -1040,7 +1048,7 @@ public class demo
 
 
 
-<h4 id="1-4-1-3-属性"><a href="#1-4-1-3-属性" class="headerlink" title="1.4.1.3 属性"></a>1.4.1.3 属性</h4><ul>
+<h5 id="1-4-1-3-属性"><a href="#1-4-1-3-属性" class="headerlink" title="1.4.1.3 属性"></a>1.4.1.3 属性</h5><ul>
 <li><p>对象拥有的所有特征，在类中表示时称为类的属性</p>
 </li>
 <li><p>属性可以像使用公共数据成员一样使用，但它实际上是一种称为“访问器”的特殊方法，其指定了属性值被读取或写入时要执行的语句。通过该机制，可以把读取、写入对象的某些特性于操作关联起来</p>
@@ -1076,7 +1084,7 @@ public int Age
 
 
 
-<h4 id="1-4-1-4-方法"><a href="#1-4-1-4-方法" class="headerlink" title="1.4.1.4 方法"></a>1.4.1.4 方法</h4><ul>
+<h5 id="1-4-1-4-方法"><a href="#1-4-1-4-方法" class="headerlink" title="1.4.1.4 方法"></a>1.4.1.4 方法</h5><ul>
 <li><p>声明方法时，除了可以使用访问修饰符外，还可以使用<code>new、static、virtual、override、sealed、abstract、extern</code>等修饰符</p>
 </li>
 <li><p>关于新修饰符</p>
@@ -1169,20 +1177,20 @@ public static void Main()
 
 
 
-<h3 id="1-4-2-对象"><a href="#1-4-2-对象" class="headerlink" title="1.4.2 对象"></a>1.4.2 对象</h3><h4 id="1-4-2-1-对象的创建"><a href="#1-4-2-1-对象的创建" class="headerlink" title="1.4.2.1 对象的创建"></a>1.4.2.1 对象的创建</h4><ul>
+<h4 id="1-4-2-对象"><a href="#1-4-2-对象" class="headerlink" title="1.4.2 对象"></a>1.4.2 对象</h4><h5 id="1-4-2-1-对象的创建"><a href="#1-4-2-1-对象的创建" class="headerlink" title="1.4.2.1 对象的创建"></a>1.4.2.1 对象的创建</h5><ul>
 <li>使用<code>new</code>关键字，如有一个<code>demo</code>类，实例化，<code>demo a = new demo()</code></li>
 </ul>
-<h4 id="1-4-2-2-访问对象的属性和行为"><a href="#1-4-2-2-访问对象的属性和行为" class="headerlink" title="1.4.2.2 访问对象的属性和行为"></a>1.4.2.2 访问对象的属性和行为</h4><ul>
+<h5 id="1-4-2-2-访问对象的属性和行为"><a href="#1-4-2-2-访问对象的属性和行为" class="headerlink" title="1.4.2.2 访问对象的属性和行为"></a>1.4.2.2 访问对象的属性和行为</h5><ul>
 <li>使用<code>.</code>操作符调用类的成员变量和成员方法</li>
 </ul>
-<h4 id="1-4-2-3-对象销毁"><a href="#1-4-2-3-对象销毁" class="headerlink" title="1.4.2.3 对象销毁"></a>1.4.2.3 对象销毁</h4><ul>
+<h5 id="1-4-2-3-对象销毁"><a href="#1-4-2-3-对象销毁" class="headerlink" title="1.4.2.3 对象销毁"></a>1.4.2.3 对象销毁</h5><ul>
 <li>有以下两种情况时，会被<code>.NET</code>垃圾回收器视为垃圾并进行回收<ul>
 <li>对象引用超过其作用范围，</li>
 <li>将对象赋值为<code>null</code></li>
 </ul>
 </li>
 </ul>
-<h3 id="1-4-3-静态类及其成员"><a href="#1-4-3-静态类及其成员" class="headerlink" title="1.4.3 静态类及其成员"></a>1.4.3 静态类及其成员</h3><ul>
+<h4 id="1-4-3-静态类及其成员"><a href="#1-4-3-静态类及其成员" class="headerlink" title="1.4.3 静态类及其成员"></a>1.4.3 静态类及其成员</h4><ul>
 <li><p>当属性和方法被修饰为<code>static</code>时，它们不属任一实例对象，直接通过类名进行调用</p>
 </li>
 <li><p>c# 不支持静态局部变量，==不能在方法中声明静态变量==</p>
@@ -1202,7 +1210,7 @@ public static void Main()
 <li><p>静态类会进行密封，<strong>无法继承</strong>，它们不能继承自任何的类或接口（<strong>除了Object</strong>）</p>
 </li>
 </ul>
-<h3 id="1-4-4-this关键字"><a href="#1-4-4-this关键字" class="headerlink" title="1.4.4 this关键字"></a>1.4.4 this关键字</h3><ul>
+<h4 id="1-4-4-this关键字"><a href="#1-4-4-this关键字" class="headerlink" title="1.4.4 this关键字"></a>1.4.4 this关键字</h4><ul>
 <li><p><code>this</code>引用的是本类的一个对象</p>
 </li>
 <li><p>当局部变量或方法参数覆盖了成员变量时，就需要添加关键字<code>this</code>，来明确引用的是类成员还是局部变量或方法参数</p>
@@ -1224,7 +1232,7 @@ public static void Main()
 
 
 
-<h3 id="1-4-5-继承"><a href="#1-4-5-继承" class="headerlink" title="1.4.5 继承"></a>1.4.5 继承</h3><h4 id="1-4-5-1-继承的实现"><a href="#1-4-5-1-继承的实现" class="headerlink" title="1.4.5.1 继承的实现"></a>1.4.5.1 继承的实现</h4><ul>
+<h4 id="1-4-5-继承"><a href="#1-4-5-继承" class="headerlink" title="1.4.5 继承"></a>1.4.5 继承</h4><h5 id="1-4-5-1-继承的实现"><a href="#1-4-5-1-继承的实现" class="headerlink" title="1.4.5.1 继承的实现"></a>1.4.5.1 继承的实现</h5><ul>
 <li><p>基本思想：基于某个父类的扩展，指定出一个新的子类（派生类）</p>
 </li>
 <li><p>子类可以继承父类原有的属性和方法，也可以增加父类不具备的属性和方法，或者重写父类的方法</p>
@@ -1244,7 +1252,7 @@ public class Pad:Computer  // Pad继承于Computer
 
 
 
-<h4 id="1-4-5-2-base关键字"><a href="#1-4-5-2-base关键字" class="headerlink" title="1.4.5.2 base关键字"></a>1.4.5.2 base关键字</h4><ul>
+<h5 id="1-4-5-2-base关键字"><a href="#1-4-5-2-base关键字" class="headerlink" title="1.4.5.2 base关键字"></a>1.4.5.2 base关键字</h5><ul>
 <li><p>当子类对父类成员方法进行重写后，若要访问父类原有的方法，需要使用关键字<code>base</code>，使用方法同<code>this</code></p>
 <ul>
 <li>==重写父类方法时，修饰权限只能变大或者不变，变小访问权限是错误的==</li>
@@ -1274,10 +1282,10 @@ public JHInfo(string jhid, string tradecode, string fullname):base(tradecode,ful
 
 
 
-<h4 id="1-4-5-3-继承中的构造-x2F-析构函数"><a href="#1-4-5-3-继承中的构造-x2F-析构函数" class="headerlink" title="1.4.5.3 继承中的构造/析构函数"></a>1.4.5.3 继承中的构造/析构函数</h4><ul>
+<h5 id="1-4-5-3-继承中的构造-析构函数"><a href="#1-4-5-3-继承中的构造-析构函数" class="headerlink" title="1.4.5.3 继承中的构造/析构函数"></a>1.4.5.3 继承中的构造/析构函数</h5><ul>
 <li>调用顺序，构造函数从最顶层父类依次调用到子类，析构函数反之<img src="./assets/image-20231107213904383-1705156191266-1.png" alt="image-20231107213904383" style="zoom:50%;"></li>
 </ul>
-<h3 id="1-4-6-多态"><a href="#1-4-6-多态" class="headerlink" title="1.4.6 多态"></a>1.4.6 多态</h3><h4 id="1-4-6-1-重写虚方法"><a href="#1-4-6-1-重写虚方法" class="headerlink" title="1.4.6.1 重写虚方法"></a>1.4.6.1 重写虚方法</h4><ul>
+<h4 id="1-4-6-多态"><a href="#1-4-6-多态" class="headerlink" title="1.4.6 多态"></a>1.4.6 多态</h4><h5 id="1-4-6-1-重写虚方法"><a href="#1-4-6-1-重写虚方法" class="headerlink" title="1.4.6.1 重写虚方法"></a>1.4.6.1 重写虚方法</h5><ul>
 <li><p>方法默认情况下不是虚拟的，除构造函数外，其他方法可以显式地声明为<code>virtual</code></p>
 </li>
 <li><p>在方法前面加上关键字<code>virtual</code>，则该方法称为虚方法</p>
@@ -1306,7 +1314,7 @@ public override void Move()
 
 
 
-<h4 id="1-4-6-2-方法重载"><a href="#1-4-6-2-方法重载" class="headerlink" title="1.4.6.2 方法重载"></a>1.4.6.2 方法重载</h4><ul>
+<h5 id="1-4-6-2-方法重载"><a href="#1-4-6-2-方法重载" class="headerlink" title="1.4.6.2 方法重载"></a>1.4.6.2 方法重载</h5><ul>
 <li><p>指的是方法名相同，但参数的数据类型、个数和顺序不同的方法</p>
 </li>
 <li><p>当类中有两种以上同名方法（重载），需清楚要调用哪种方法</p>
@@ -1332,7 +1340,7 @@ public int Add(int x, int y, int z)
 
 
 
-<h3 id="1-4-7-结构"><a href="#1-4-7-结构" class="headerlink" title="1.4.7 结构"></a>1.4.7 结构</h3><ul>
+<h4 id="1-4-7-结构"><a href="#1-4-7-结构" class="headerlink" title="1.4.7 结构"></a>1.4.7 结构</h4><ul>
 <li>值类型，用来封装一组相关变量</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">结构修饰符 struct 结构名
@@ -1397,7 +1405,7 @@ static void Main(string[] args)
 
 
 
-<h2 id="1-5-控制台应用程序"><a href="#1-5-控制台应用程序" class="headerlink" title="1.5 控制台应用程序"></a>1.5 控制台应用程序</h2><h3 id="1-5-1-主要语句"><a href="#1-5-1-主要语句" class="headerlink" title="1.5.1 主要语句"></a>1.5.1 主要语句</h3><ul>
+<h3 id="1-5-控制台应用程序"><a href="#1-5-控制台应用程序" class="headerlink" title="1.5 控制台应用程序"></a>1.5 控制台应用程序</h3><h4 id="1-5-1-主要语句"><a href="#1-5-1-主要语句" class="headerlink" title="1.5.1 主要语句"></a>1.5.1 主要语句</h4><ul>
 <li><strong>打印</strong></li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 打印且换行
@@ -1418,7 +1426,7 @@ System.Console.ReadLine();<span aria-hidden="true" class="line-numbers-rows"><sp
 
 
 
-<h3 id="1-5-2-示例"><a href="#1-5-2-示例" class="headerlink" title="1.5.2 示例"></a>1.5.2 示例</h3><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using System;
+<h4 id="1-5-2-示例"><a href="#1-5-2-示例" class="headerlink" title="1.5.2 示例"></a>1.5.2 示例</h4><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using System;
 
 namespace fund
 {
@@ -1438,17 +1446,17 @@ namespace fund
 
 
 
-<h2 id="1-6-文件操作"><a href="#1-6-文件操作" class="headerlink" title="1.6 文件操作"></a>1.6 文件操作</h2><ul>
+<h3 id="1-6-文件操作"><a href="#1-6-文件操作" class="headerlink" title="1.6 文件操作"></a>1.6 文件操作</h3><ul>
 <li>使用命名空间<code>using System.IO;</code></li>
 </ul>
-<h3 id="1-6-1-获取文件"><a href="#1-6-1-获取文件" class="headerlink" title="1.6.1 获取文件"></a>1.6.1 获取文件</h3><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 获取对应路径下的文件
+<h4 id="1-6-1-获取文件"><a href="#1-6-1-获取文件" class="headerlink" title="1.6.1 获取文件"></a>1.6.1 获取文件</h4><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 获取对应路径下的文件
 string path = @"C:\Users\echo\Desktop";
 DirectoryInfo root = new DirectoryInfo(path);
 FileInfo[] files = root.GetFiles();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h3 id="1-6-2-删除指定文件"><a href="#1-6-2-删除指定文件" class="headerlink" title="1.6.2 删除指定文件"></a>1.6.2 删除指定文件</h3><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 遍历文件集合
+<h4 id="1-6-2-删除指定文件"><a href="#1-6-2-删除指定文件" class="headerlink" title="1.6.2 删除指定文件"></a>1.6.2 删除指定文件</h4><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 遍历文件集合
 for (int i = 0; i &lt; files.Length; i++)
 {
 	FileInfo fi = files[i];
@@ -1468,7 +1476,7 @@ for (int i = 0; i &lt; files.Length; i++)
 
 
 
-<h3 id="1-6-3-更改文件名"><a href="#1-6-3-更改文件名" class="headerlink" title="1.6.3 更改文件名"></a>1.6.3 更改文件名</h3><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 文件改名
+<h4 id="1-6-3-更改文件名"><a href="#1-6-3-更改文件名" class="headerlink" title="1.6.3 更改文件名"></a>1.6.3 更改文件名</h4><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 文件改名
 bool isHave = fi.Name.Contains("123");  // 也可参数补全文件后缀，删更改指定文件类型的文件名
 if (isHave)
 {
@@ -1482,7 +1490,7 @@ if (isHave)
 
 
 
-<h2 id="1-7-随机数"><a href="#1-7-随机数" class="headerlink" title="1.7 随机数"></a>1.7 随机数</h2><h3 id="1-7-1-Random类"><a href="#1-7-1-Random类" class="headerlink" title="1.7.1 Random类"></a>1.7.1 Random类</h3><ul>
+<h3 id="1-7-随机数"><a href="#1-7-随机数" class="headerlink" title="1.7 随机数"></a>1.7 随机数</h3><h4 id="1-7-1-Random类"><a href="#1-7-1-Random类" class="headerlink" title="1.7.1 Random类"></a>1.7.1 Random类</h4><ul>
 <li>通过<code>Random</code>类产生，该类并非静态类，所以必须通过实例化产生</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 实例化一个random类，并产生1-33的随机整数
@@ -1491,7 +1499,7 @@ a.Next(1,34);<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 
 
 
-<h3 id="1-7-2-例程1-–-双色球"><a href="#1-7-2-例程1-–-双色球" class="headerlink" title="1.7.2 例程1 – 双色球"></a>1.7.2 例程1 – 双色球</h3><ul>
+<h4 id="1-7-2-例程1-–-双色球"><a href="#1-7-2-例程1-–-双色球" class="headerlink" title="1.7.2 例程1 – 双色球"></a>1.7.2 例程1 – 双色球</h4><ul>
 <li><p>具体代码文件见<code>D:\Program Files\Microsoft Visual Studio\projects\start\write</code></p>
 </li>
 <li><p>以双色球开奖为例，6个红色球取值为1-33，1个蓝色球取值为1-16</p>
@@ -1555,7 +1563,7 @@ private void button2_Click(object sender, EventArgs e)
 <ul>
 <li>效果如下<img src="./assets/双色球-1705156191295-3.gif" alt="双色球" style="zoom: 33%;"></li>
 </ul>
-<h3 id="1-7-3-例程2-–-按键图片切换"><a href="#1-7-3-例程2-–-按键图片切换" class="headerlink" title="1.7.3 例程2 – 按键图片切换"></a>1.7.3 例程2 – 按键图片切换</h3><ul>
+<h4 id="1-7-3-例程2-–-按键图片切换"><a href="#1-7-3-例程2-–-按键图片切换" class="headerlink" title="1.7.3 例程2 – 按键图片切换"></a>1.7.3 例程2 – 按键图片切换</h4><ul>
 <li><p>具体代码文件见<code>D:\Program Files\Microsoft Visual Studio\projects\start\write2</code></p>
 </li>
 <li><p>每次按键，随机切换图片</p>
@@ -1588,7 +1596,7 @@ private void button2_Click(object sender, EventArgs e)
 <ul>
 <li>效果如下<img src="/./assets/%E6%8C%89%E9%94%AE%E5%9B%BE%E7%89%87%E5%88%87%E6%8D%A2-1705156191295-4.gif" alt="按键图片切换"></li>
 </ul>
-<h2 id="1-8-访问修饰符"><a href="#1-8-访问修饰符" class="headerlink" title="1.8 访问修饰符"></a>1.8 访问修饰符</h2><ul>
+<h3 id="1-8-访问修饰符"><a href="#1-8-访问修饰符" class="headerlink" title="1.8 访问修饰符"></a>1.8 访问修饰符</h3><ul>
 <li><p>所有的<strong>类型及其成员</strong>都具有可访问性级别</p>
 </li>
 <li><p><strong>程序集</strong>通过编译单个或多个<code>.cs</code>文件产生的<code>.dll</code>或<code>.exe</code></p>
@@ -1611,7 +1619,7 @@ private void button2_Click(object sender, EventArgs e)
 </ul>
 </li>
 </ul>
-<h2 id="1-9-字段"><a href="#1-9-字段" class="headerlink" title="1.9 字段"></a>1.9 字段</h2><ul>
+<h3 id="1-9-字段"><a href="#1-9-字段" class="headerlink" title="1.9 字段"></a>1.9 字段</h3><ul>
 <li>什么是字段<ul>
 <li>字段(field)是一种表示与对象或类型（类与结构体）相关联的变量</li>
 <li>字段是类型的成员，也被称为“成员变量”</li>
@@ -1624,7 +1632,7 @@ private void button2_Click(object sender, EventArgs e)
 </ul>
 </li>
 </ul>
-<h2 id="1-10-属性"><a href="#1-10-属性" class="headerlink" title="1.10 属性"></a>1.10 属性</h2><h1 id="二、控件及事件-–-B站刘金玉视频总结"><a href="#二、控件及事件-–-B站刘金玉视频总结" class="headerlink" title="二、控件及事件 – B站刘金玉视频总结"></a>二、控件及事件 – B站刘金玉视频总结</h1><h2 id="2-1-控件简介"><a href="#2-1-控件简介" class="headerlink" title="2.1 控件简介"></a>2.1 控件简介</h2><ul>
+<h3 id="1-10-属性"><a href="#1-10-属性" class="headerlink" title="1.10 属性"></a>1.10 属性</h3><h2 id="二、控件及事件-–-B站刘金玉视频总结"><a href="#二、控件及事件-–-B站刘金玉视频总结" class="headerlink" title="二、控件及事件 – B站刘金玉视频总结"></a>二、控件及事件 – B站刘金玉视频总结</h2><h3 id="2-1-控件简介"><a href="#2-1-控件简介" class="headerlink" title="2.1 控件简介"></a>2.1 控件简介</h3><ul>
 <li>所有的控件都是对象，对象三要素<strong>属性、方法、事件</strong></li>
 <li>当控件从工具箱被拖到form窗体后，变成实例对象</li>
 <li>控件分类<ul>
@@ -1640,7 +1648,7 @@ private void button2_Click(object sender, EventArgs e)
 </li>
 <li>控件基本操作：点选控件 =&gt; 更改其属性</li>
 </ul>
-<h2 id="2-2-Form窗体"><a href="#2-2-Form窗体" class="headerlink" title="2.2 Form窗体"></a>2.2 Form窗体</h2><h3 id="2-2-1-基本介绍"><a href="#2-2-1-基本介绍" class="headerlink" title="2.2.1 基本介绍"></a>2.2.1 基本介绍</h3><ul>
+<h3 id="2-2-Form窗体"><a href="#2-2-Form窗体" class="headerlink" title="2.2 Form窗体"></a>2.2 Form窗体</h3><h4 id="2-2-1-基本介绍"><a href="#2-2-1-基本介绍" class="headerlink" title="2.2.1 基本介绍"></a>2.2.1 基本介绍</h4><ul>
 <li><p><code>Form1.cs[设计]</code> 文件：可视化窗体界面</p>
 </li>
 <li><p><code>Form1.cs</code> 文件：后台代码界面</p>
@@ -1655,7 +1663,7 @@ private void button2_Click(object sender, EventArgs e)
 </ul>
 </li>
 </ul>
-<h3 id="2-2-2-例程-–-Form窗体控制"><a href="#2-2-2-例程-–-Form窗体控制" class="headerlink" title="2.2.2 例程 – Form窗体控制"></a>2.2.2 例程 – Form窗体控制</h3><ul>
+<h4 id="2-2-2-例程-–-Form窗体控制"><a href="#2-2-2-例程-–-Form窗体控制" class="headerlink" title="2.2.2 例程 – Form窗体控制"></a>2.2.2 例程 – Form窗体控制</h4><ul>
 <li><p>具体代码文件见<code>D:\Program Files\Microsoft Visual Studio\projects\start\控件</code></p>
 </li>
 <li><p>以两按钮分别控制Form窗体背景颜色及标题</p>
@@ -1681,17 +1689,17 @@ private void button2_Click(object sender, EventArgs e)
 <ul>
 <li>效果如下<img src="./assets/form窗体控制-1705156191295-7.gif" alt="form窗体控制" style="zoom:33%;"></li>
 </ul>
-<h2 id="2-3-鼠标事件"><a href="#2-3-鼠标事件" class="headerlink" title="2.3 鼠标事件"></a>2.3 鼠标事件</h2><ul>
+<h3 id="2-3-鼠标事件"><a href="#2-3-鼠标事件" class="headerlink" title="2.3 鼠标事件"></a>2.3 鼠标事件</h3><ul>
 <li><p>具体代码文件见<code>D:\Program Files\Microsoft Visual Studio\projects\start\Mouse</code></p>
 </li>
 <li><p>以<code>PictureBox</code>显示本地图片，通过鼠标触发<code>Click、MouseClick、DoubleClick、MouseHover事件</code></p>
 </li>
 </ul>
-<h3 id="2-3-1-PictureBox显示图片"><a href="#2-3-1-PictureBox显示图片" class="headerlink" title="2.3.1 PictureBox显示图片"></a>2.3.1 PictureBox显示图片</h3><ul>
+<h4 id="2-3-1-PictureBox显示图片"><a href="#2-3-1-PictureBox显示图片" class="headerlink" title="2.3.1 PictureBox显示图片"></a>2.3.1 PictureBox显示图片</h4><ul>
 <li>拖动该控件到<code>Form1</code>窗体内</li>
 <li>找到<code>Image</code>属性，通过<code>...</code>导入本地图片即可</li>
 </ul>
-<h3 id="2-3-2-例程1-–-Click事件"><a href="#2-3-2-例程1-–-Click事件" class="headerlink" title="2.3.2 例程1 – Click事件"></a>2.3.2 例程1 – Click事件</h3><ul>
+<h4 id="2-3-2-例程1-–-Click事件"><a href="#2-3-2-例程1-–-Click事件" class="headerlink" title="2.3.2 例程1 – Click事件"></a>2.3.2 例程1 – Click事件</h4><ul>
 <li><p>任意<strong>单击</strong>事件，包括鼠标、键盘等</p>
 </li>
 <li><p>点击后通过<code>MessageBox</code>进行提示</p>
@@ -1706,7 +1714,7 @@ private void pictureBox1_Click(object sender, EventArgs e)
 <ul>
 <li>效果如下<img src="./assets/Click事件-1705156191295-8.gif" alt="Click事件" style="zoom:33%;"></li>
 </ul>
-<h3 id="2-3-3-例程2-–-MouseClick事件"><a href="#2-3-3-例程2-–-MouseClick事件" class="headerlink" title="2.3.3 例程2 – MouseClick事件"></a>2.3.3 例程2 – MouseClick事件</h3><ul>
+<h4 id="2-3-3-例程2-–-MouseClick事件"><a href="#2-3-3-例程2-–-MouseClick事件" class="headerlink" title="2.3.3 例程2 – MouseClick事件"></a>2.3.3 例程2 – MouseClick事件</h4><ul>
 <li><strong>鼠标单击</strong>事件</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -1719,7 +1727,7 @@ private void pictureBox1_Click(object sender, EventArgs e)
 <ul>
 <li>效果如下<img src="/./assets/MouseClick%E4%BA%8B%E4%BB%B6-1705156191295-9.gif" alt="MouseClick事件"></li>
 </ul>
-<h3 id="2-3-4-例程3-–-DoubleClick事件"><a href="#2-3-4-例程3-–-DoubleClick事件" class="headerlink" title="2.3.4 例程3 – DoubleClick事件"></a>2.3.4 例程3 – DoubleClick事件</h3><ul>
+<h4 id="2-3-4-例程3-–-DoubleClick事件"><a href="#2-3-4-例程3-–-DoubleClick事件" class="headerlink" title="2.3.4 例程3 – DoubleClick事件"></a>2.3.4 例程3 – DoubleClick事件</h4><ul>
 <li><p>任意<strong>双击</strong>事件（双击包含单击事件，当同时存在单击事件时，只触发单击事件）</p>
 </li>
 <li><p>同样通过<code>MessageBox</code>提示</p>
@@ -1733,7 +1741,7 @@ private void pictureBox1_Click(object sender, EventArgs e)
 <ul>
 <li>效果如下<img src="./assets/DoubleClick事件-1705156191295-10.gif" alt="DoubleClick事件" style="zoom:33%;"></li>
 </ul>
-<h3 id="2-3-5-例程4-–-MouseHover事件"><a href="#2-3-5-例程4-–-MouseHover事件" class="headerlink" title="2.3.5 例程4 – MouseHover事件"></a>2.3.5 例程4 – MouseHover事件</h3><ul>
+<h4 id="2-3-5-例程4-–-MouseHover事件"><a href="#2-3-5-例程4-–-MouseHover事件" class="headerlink" title="2.3.5 例程4 – MouseHover事件"></a>2.3.5 例程4 – MouseHover事件</h4><ul>
 <li>当鼠标移动到上方时触发</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">private void pictureBox1_MouseHover(object sender, EventArgs e)
@@ -1744,26 +1752,26 @@ private void pictureBox1_Click(object sender, EventArgs e)
 <ul>
 <li>效果如下<img src="./assets/MouseHover事件-1705156191295-11.gif" alt="MouseHover事件" style="zoom:33%;"></li>
 </ul>
-<h2 id="2-4-多窗体"><a href="#2-4-多窗体" class="headerlink" title="2.4 多窗体"></a>2.4 多窗体</h2><h3 id="2-4-1-创建启动窗体"><a href="#2-4-1-创建启动窗体" class="headerlink" title="2.4.1 创建启动窗体"></a>2.4.1 创建启动窗体</h3><ul>
+<h3 id="2-4-多窗体"><a href="#2-4-多窗体" class="headerlink" title="2.4 多窗体"></a>2.4 多窗体</h3><h4 id="2-4-1-创建启动窗体"><a href="#2-4-1-创建启动窗体" class="headerlink" title="2.4.1 创建启动窗体"></a>2.4.1 创建启动窗体</h4><ul>
 <li>创建一个登录界面，点击登陆后（此处不对账号密码进行判断），跳转界面</li>
 <li>登录界面<code>Form1</code>如下图所示<ul>
 <li><img src="./assets/image-20231029181612428-1705156191295-12.png" alt="image-20231029181612428" style="zoom: 50%;"></li>
 </ul>
 </li>
 </ul>
-<h3 id="2-4-2-创建跳转窗体"><a href="#2-4-2-创建跳转窗体" class="headerlink" title="2.4.2 创建跳转窗体"></a>2.4.2 创建跳转窗体</h3><ul>
+<h4 id="2-4-2-创建跳转窗体"><a href="#2-4-2-创建跳转窗体" class="headerlink" title="2.4.2 创建跳转窗体"></a>2.4.2 创建跳转窗体</h4><ul>
 <li>跳转窗体界面<code>Form2</code>如下图所示<ul>
 <li><img src="./assets/image-20231029182144541-1705156191295-13.png" alt="image-20231029182144541" style="zoom: 50%;"></li>
 </ul>
 </li>
 </ul>
-<h3 id="2-4-3-跳转"><a href="#2-4-3-跳转" class="headerlink" title="2.4.3 跳转"></a>2.4.3 跳转</h3><ul>
+<h4 id="2-4-3-跳转"><a href="#2-4-3-跳转" class="headerlink" title="2.4.3 跳转"></a>2.4.3 跳转</h4><ul>
 <li><p>具体代码文件见<code>D:\Program Files\Microsoft Visual Studio\projects\start\MutipleForm</code></p>
 </li>
 <li><p>点击启动界面的<code>登录</code>按钮后，跳转到新窗体</p>
 </li>
 </ul>
-<h4 id="2-4-3-1-例程1-–-跳转-不关闭原窗口"><a href="#2-4-3-1-例程1-–-跳转-不关闭原窗口" class="headerlink" title="2.4.3.1 例程1 – 跳转-不关闭原窗口"></a>2.4.3.1 例程1 – 跳转-不关闭原窗口</h4><ul>
+<h5 id="2-4-3-1-例程1-–-跳转-不关闭原窗口"><a href="#2-4-3-1-例程1-–-跳转-不关闭原窗口" class="headerlink" title="2.4.3.1 例程1 – 跳转-不关闭原窗口"></a>2.4.3.1 例程1 – 跳转-不关闭原窗口</h5><ul>
 <li>双击<code>Form1</code>登录按钮，生成<code>Click</code>事件</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 登录弹窗
@@ -1776,7 +1784,7 @@ private void button2_Click(object sender, EventArgs e)
 <ul>
 <li>实现效果如下图，此时，关闭<code>Form1</code>，<code>Form2</code>也自动关闭（因为<code>Form2</code>在<code>Form1</code>类内部生成，视作<code>Form1</code>窗体的一部分）；反之需逐一关闭<img src="/./assets/%E8%B7%B3%E8%BD%AC-%E4%B8%8D%E5%85%B3%E9%97%AD%E5%8E%9F%E7%AA%97%E5%8F%A3-1705156191295-14.gif" alt="跳转-不关闭原窗口"></li>
 </ul>
-<h4 id="2-4-3-2-例程2-–-跳转-隐藏原窗口"><a href="#2-4-3-2-例程2-–-跳转-隐藏原窗口" class="headerlink" title="2.4.3.2 例程2 – 跳转-隐藏原窗口"></a>2.4.3.2 例程2 – 跳转-隐藏原窗口</h4><ul>
+<h5 id="2-4-3-2-例程2-–-跳转-隐藏原窗口"><a href="#2-4-3-2-例程2-–-跳转-隐藏原窗口" class="headerlink" title="2.4.3.2 例程2 – 跳转-隐藏原窗口"></a>2.4.3.2 例程2 – 跳转-隐藏原窗口</h5><ul>
 <li><p>隐藏窗口后，该窗口仍然占据内存空间，正常运行，需通过任务管理器进行关闭！！！</p>
 </li>
 <li><p>修改<code>button2_Click</code>方法</p>
@@ -1795,7 +1803,7 @@ private void button2_Click(object sender, EventArgs e)
 <ul>
 <li>效果如下<img src="./assets/跳转-隐藏原窗口-1705156191295-15.gif" alt="跳转-隐藏原窗口" style="zoom:33%;"></li>
 </ul>
-<h4 id="2-4-3-3-例程3-–-跳转-关闭原窗口"><a href="#2-4-3-3-例程3-–-跳转-关闭原窗口" class="headerlink" title="2.4.3.3 例程3 – 跳转-关闭原窗口"></a>2.4.3.3 例程3 – 跳转-关闭原窗口</h4><ul>
+<h5 id="2-4-3-3-例程3-–-跳转-关闭原窗口"><a href="#2-4-3-3-例程3-–-跳转-关闭原窗口" class="headerlink" title="2.4.3.3 例程3 – 跳转-关闭原窗口"></a>2.4.3.3 例程3 – 跳转-关闭原窗口</h5><ul>
 <li><p>扩展</p>
 <ul>
 <li><p>窗体<code>ShowDialog()</code>方法，默认使用模态方式</p>
@@ -1871,11 +1879,11 @@ private void button2_Click(object sender, EventArgs e)
 <ul>
 <li>效果如下<img src="/./assets/%E8%B7%B3%E8%BD%AC-%E5%85%B3%E9%97%AD%E5%8E%9F%E7%AA%97%E5%8F%A3-Application.Run()%E6%96%B9%E6%B3%95.gif" alt="跳转-关闭原窗口-Application.Run(./../../../../Typora/Projects/上位机/assets/跳转-关闭原窗口-Application.Run()方法.gif)方法"></li>
 </ul>
-<h2 id="2-5-复选框及复选框列表"><a href="#2-5-复选框及复选框列表" class="headerlink" title="2.5 复选框及复选框列表"></a>2.5 复选框及复选框列表</h2><ul>
+<h3 id="2-5-复选框及复选框列表"><a href="#2-5-复选框及复选框列表" class="headerlink" title="2.5 复选框及复选框列表"></a>2.5 复选框及复选框列表</h3><ul>
 <li><code>CheckBox</code>复选框控件</li>
 <li><code>CheckBoxList</code>复选框列表控件：内含多个复选框控件（需要自行配置）</li>
 </ul>
-<h3 id="2-5-1-CheckBox控件"><a href="#2-5-1-CheckBox控件" class="headerlink" title="2.5.1 CheckBox控件"></a>2.5.1 CheckBox控件</h3><ul>
+<h4 id="2-5-1-CheckBox控件"><a href="#2-5-1-CheckBox控件" class="headerlink" title="2.5.1 CheckBox控件"></a>2.5.1 CheckBox控件</h4><ul>
 <li><p>图例：<img src="./assets/image-20231030181830622-1705156191295-17.png" alt="image-20231030181830622" style="zoom:50%;"></p>
 </li>
 <li><p><code>CheckBox.Checked</code>属性：获取该复选框有没有被勾选</p>
@@ -1883,7 +1891,7 @@ private void button2_Click(object sender, EventArgs e)
 <li><p><code>CheckBox.Text</code>属性：获取该复选框文本内容</p>
 </li>
 </ul>
-<h3 id="2-5-2-CheckBoxList控件"><a href="#2-5-2-CheckBoxList控件" class="headerlink" title="2.5.2 CheckBoxList控件"></a>2.5.2 CheckBoxList控件</h3><ul>
+<h4 id="2-5-2-CheckBoxList控件"><a href="#2-5-2-CheckBoxList控件" class="headerlink" title="2.5.2 CheckBoxList控件"></a>2.5.2 CheckBoxList控件</h4><ul>
 <li>选择时，首先会定位，然后才能选中</li>
 <li><code>CheckBoxList.SelectItem</code>属性：获取当前选中项</li>
 <li><code>checkedListBox.Items.Add(string)</code>：<strong>动态添加</strong>选项</li>
@@ -1891,7 +1899,7 @@ private void button2_Click(object sender, EventArgs e)
 <li><code>ItemCheck</code>事件：当复选框被勾选时触发</li>
 <li><code>SelectedIndexChanged</code>事件：未勾选选项，选中选项标题时就会触发</li>
 </ul>
-<h2 id="2-6-时钟"><a href="#2-6-时钟" class="headerlink" title="2.6 时钟"></a>2.6 时钟</h2><ul>
+<h3 id="2-6-时钟"><a href="#2-6-时钟" class="headerlink" title="2.6 时钟"></a>2.6 时钟</h3><ul>
 <li><p>时间单位<code>ms</code></p>
 </li>
 <li><p>作用：对有规律的事物进行输出，每隔指定时间，对一程序进行输出</p>
@@ -1916,7 +1924,7 @@ private void timer1_Tick(object sender, EventArgs e)
 
 
 
-<h2 id="2-7-图片"><a href="#2-7-图片" class="headerlink" title="2.7 图片"></a>2.7 图片</h2><h3 id="2-7-1-PictureBox控件"><a href="#2-7-1-PictureBox控件" class="headerlink" title="2.7.1 PictureBox控件"></a>2.7.1 PictureBox控件</h3><ul>
+<h3 id="2-7-图片"><a href="#2-7-图片" class="headerlink" title="2.7 图片"></a>2.7 图片</h3><h4 id="2-7-1-PictureBox控件"><a href="#2-7-1-PictureBox控件" class="headerlink" title="2.7.1 PictureBox控件"></a>2.7.1 PictureBox控件</h4><ul>
 <li><p><code>PictureBox</code>控件</p>
 </li>
 <li><p><code>Picture.SizeMode</code>属性，更改图片显示拉伸情况</p>
@@ -1958,7 +1966,7 @@ private void timer1_Tick(object sender, EventArgs e)
 
 
 
-<h3 id="2-7-2-例程1-–-猫咪避障"><a href="#2-7-2-例程1-–-猫咪避障" class="headerlink" title="2.7.2 例程1 – 猫咪避障"></a>2.7.2 例程1 – 猫咪避障</h3><ul>
+<h4 id="2-7-2-例程1-–-猫咪避障"><a href="#2-7-2-例程1-–-猫咪避障" class="headerlink" title="2.7.2 例程1 – 猫咪避障"></a>2.7.2 例程1 – 猫咪避障</h4><ul>
 <li><p>具体代码文件见<code>D:\Program Files\Microsoft Visual Studio\projects\start\plane</code></p>
 </li>
 <li><p>通过使用<code>MouseDown、MouseUp、MouseMove</code>三个事件，实现鼠标拖动猫咪避障</p>
@@ -2017,7 +2025,7 @@ int oldY = 0;<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <ul>
 <li>效果如下<img src="/./assets/%E7%8C%AB%E5%92%AA%E9%81%BF%E9%9A%9C-1705156191295-18.gif" alt="猫咪避障"></li>
 </ul>
-<h3 id="2-7-3-例程2-–-画布软件"><a href="#2-7-3-例程2-–-画布软件" class="headerlink" title="2.7.3 例程2 – 画布软件"></a>2.7.3 例程2 – 画布软件</h3><ul>
+<h4 id="2-7-3-例程2-–-画布软件"><a href="#2-7-3-例程2-–-画布软件" class="headerlink" title="2.7.3 例程2 – 画布软件"></a>2.7.3 例程2 – 画布软件</h4><ul>
 <li><p>具体代码文件见<code>D:\Program Files\Microsoft Visual Studio\projects\start\draw</code></p>
 </li>
 <li><p>同样使用<code>MouseDown、MouseUp、MouseMove、ButtonClick</code>事件实现复制粘贴图片、画笔绘图操作</p>
@@ -2151,33 +2159,33 @@ private void button2_Click(object sender, EventArgs e)
 <ul>
 <li>效果如下<img src="/./assets/%E7%94%BB%E5%9B%BE%E8%BD%AF%E4%BB%B6-1705156191296-20.gif" alt="画图软件"></li>
 </ul>
-<h2 id="2-8、Chart图表控件"><a href="#2-8、Chart图表控件" class="headerlink" title="2.8、Chart图表控件"></a>2.8、Chart图表控件</h2><h3 id="2-8-1-界面布局"><a href="#2-8-1-界面布局" class="headerlink" title="2.8.1 界面布局"></a>2.8.1 界面布局</h3><ul>
+<h3 id="2-8、Chart图表控件"><a href="#2-8、Chart图表控件" class="headerlink" title="2.8、Chart图表控件"></a>2.8、Chart图表控件</h3><h4 id="2-8-1-界面布局"><a href="#2-8-1-界面布局" class="headerlink" title="2.8.1 界面布局"></a>2.8.1 界面布局</h4><ul>
 <li><code>Tablelayout</code>容器控件</li>
 <li>每个单元格默认放置一个控件</li>
 <li>更好地规划界面</li>
 </ul>
-<h3 id="2-8-2-图表界面简介"><a href="#2-8-2-图表界面简介" class="headerlink" title="2.8.2 图表界面简介"></a>2.8.2 图表界面简介</h3><ul>
+<h4 id="2-8-2-图表界面简介"><a href="#2-8-2-图表界面简介" class="headerlink" title="2.8.2 图表界面简介"></a>2.8.2 图表界面简介</h4><ul>
 <li><code>Chart</code>控件</li>
 <li>关键属性的配置，如标题、坐标系、图例</li>
 </ul>
-<h3 id="2-8-3-例程-–-图像绘制"><a href="#2-8-3-例程-–-图像绘制" class="headerlink" title="2.8.3 例程 – 图像绘制"></a>2.8.3 例程 – 图像绘制</h3><ul>
+<h4 id="2-8-3-例程-–-图像绘制"><a href="#2-8-3-例程-–-图像绘制" class="headerlink" title="2.8.3 例程 – 图像绘制"></a>2.8.3 例程 – 图像绘制</h4><ul>
 <li>具体代码文件见<code>D:\Program Files\Microsoft Visual Studio\projects\start\chart</code></li>
 </ul>
-<h4 id="2-8-3-1-界面布局"><a href="#2-8-3-1-界面布局" class="headerlink" title="2.8.3.1 界面布局"></a>2.8.3.1 界面布局</h4><ul>
+<h5 id="2-8-3-1-界面布局"><a href="#2-8-3-1-界面布局" class="headerlink" title="2.8.3.1 界面布局"></a>2.8.3.1 界面布局</h5><ul>
 <li>在Form内，任意放置容器控件<code>TableLayoutPanel</code></li>
 <li>修改属性<code>Dock</code>，填充方式，此处选用<code>Fill</code>，如下图所示<ul>
 <li><img src="./assets/image-20231028175453329-1705156191296-21.png" alt="image-20231028175453329" style="zoom: 25%;"></li>
 </ul>
 </li>
 </ul>
-<h4 id="2-8-3-2-插入图形界面"><a href="#2-8-3-2-插入图形界面" class="headerlink" title="2.8.3.2 插入图形界面"></a>2.8.3.2 插入图形界面</h4><ul>
+<h5 id="2-8-3-2-插入图形界面"><a href="#2-8-3-2-插入图形界面" class="headerlink" title="2.8.3.2 插入图形界面"></a>2.8.3.2 插入图形界面</h5><ul>
 <li>在<code>TableLayoutPanel</code>任一单元格内放置<code>Chart</code>图形控件</li>
 <li>同样修改填充属性<code>Dock</code>，全填充<code>Fill</code>，效果如图<ul>
 <li><img src="./assets/image-20231028180056717-1705156191296-22.png" alt="image-20231028180056717" style="zoom: 25%;"></li>
 </ul>
 </li>
 </ul>
-<h5 id="2-8-3-2-1-图表类属性-Titels"><a href="#2-8-3-2-1-图表类属性-Titels" class="headerlink" title="2.8.3.2.1 图表类属性-Titels"></a>2.8.3.2.1 图表类属性-Titels</h5><ul>
+<h6 id="2-8-3-2-1-图表类属性-Titels"><a href="#2-8-3-2-1-图表类属性-Titels" class="headerlink" title="2.8.3.2.1 图表类属性-Titels"></a>2.8.3.2.1 图表类属性-Titels</h6><ul>
 <li><p>点击<code>...</code>打开<code>Titles</code>集合编辑器</p>
 <ul>
 <li><img src="./assets/image-20231028181107970-1705156191296-23.png" alt="image-20231028181107970" style="zoom:25%;"></li>
@@ -2190,7 +2198,7 @@ private void button2_Click(object sender, EventArgs e)
 </ul>
 </li>
 </ul>
-<h5 id="2-8-3-2-2-图标类属性-Series"><a href="#2-8-3-2-2-图标类属性-Series" class="headerlink" title="2.8.3.2.2 图标类属性-Series"></a>2.8.3.2.2 图标类属性-Series</h5><ul>
+<h6 id="2-8-3-2-2-图标类属性-Series"><a href="#2-8-3-2-2-图标类属性-Series" class="headerlink" title="2.8.3.2.2 图标类属性-Series"></a>2.8.3.2.2 图标类属性-Series</h6><ul>
 <li><p>可设置图像类型，如条形图、曲线图、扇形图</p>
 </li>
 <li><p>同样点击<code>...</code>打开<code>Series</code>集合编辑器</p>
@@ -2204,10 +2212,10 @@ private void button2_Click(object sender, EventArgs e)
 </ul>
 </li>
 </ul>
-<h5 id="2-8-3-2-3-图标类属性-Legends"><a href="#2-8-3-2-3-图标类属性-Legends" class="headerlink" title="2.8.3.2.3 图标类属性-Legends"></a>2.8.3.2.3 图标类属性-Legends</h5><h4 id="2-8-3-3-数据传入"><a href="#2-8-3-3-数据传入" class="headerlink" title="2.8.3.3 数据传入"></a>2.8.3.3 数据传入</h4><ul>
+<h6 id="2-8-3-2-3-图标类属性-Legends"><a href="#2-8-3-2-3-图标类属性-Legends" class="headerlink" title="2.8.3.2.3 图标类属性-Legends"></a>2.8.3.2.3 图标类属性-Legends</h6><h5 id="2-8-3-3-数据传入"><a href="#2-8-3-3-数据传入" class="headerlink" title="2.8.3.3 数据传入"></a>2.8.3.3 数据传入</h5><ul>
 <li>主要函数<code>chart1.Series[0].Points.Add(数据序列);</code></li>
 </ul>
-<h5 id="2-8-3-3-1-Form窗体Load事件"><a href="#2-8-3-3-1-Form窗体Load事件" class="headerlink" title="2.8.3.3.1 Form窗体Load事件"></a>2.8.3.3.1 Form窗体Load事件</h5><ul>
+<h6 id="2-8-3-3-1-Form窗体Load事件"><a href="#2-8-3-3-1-Form窗体Load事件" class="headerlink" title="2.8.3.3.1 Form窗体Load事件"></a>2.8.3.3.1 Form窗体Load事件</h6><ul>
 <li><p>使用<code>Form</code>窗体<code>Load</code>事件（窗体加载完成时，就绘制好图线）</p>
 </li>
 <li><p>双击<code>Load</code>事件，在<code>Form1_Load</code>方法中随机产生10个数据，窗体加载完成就绘制出完整图形</p>
@@ -2227,7 +2235,7 @@ private void button2_Click(object sender, EventArgs e)
 
 
 
-<h5 id="2-8-3-3-2-Timer组件"><a href="#2-8-3-3-2-Timer组件" class="headerlink" title="2.8.3.3.2 Timer组件"></a>2.8.3.3.2 Timer组件</h5><ul>
+<h6 id="2-8-3-3-2-Timer组件"><a href="#2-8-3-3-2-Timer组件" class="headerlink" title="2.8.3.3.2 Timer组件"></a>2.8.3.3.2 Timer组件</h6><ul>
 <li><p>行为属性<code>Enable</code>：启动<code>timer</code>计时，必须设置为<code>True</code>才会启动</p>
 </li>
 <li><p>行为属性<code>Interval</code>：时间间隔，单位ms，此例设置为500</p>
@@ -2252,7 +2260,7 @@ private void button2_Click(object sender, EventArgs e)
 
 
 
-<h5 id="2-8-3-3-3-数据点取值可视化"><a href="#2-8-3-3-3-数据点取值可视化" class="headerlink" title="2.8.3.3.3 数据点取值可视化"></a>2.8.3.3.3 数据点取值可视化</h5><ul>
+<h6 id="2-8-3-3-3-数据点取值可视化"><a href="#2-8-3-3-3-数据点取值可视化" class="headerlink" title="2.8.3.3.3 数据点取值可视化"></a>2.8.3.3.3 数据点取值可视化</h6><ul>
 <li><p>在<code>Timer</code>组件基础上进行代码的修改</p>
 </li>
 <li><p>首先引入<code>using System.Windows.Forms.DataVisualization.Charting; </code></p>
@@ -2284,7 +2292,7 @@ private void button2_Click(object sender, EventArgs e)
 
 
 
-<h4 id="2-8-3-4-同数据-多图展示"><a href="#2-8-3-4-同数据-多图展示" class="headerlink" title="2.8.3.4 同数据-多图展示"></a>2.8.3.4 同数据-多图展示</h4><ul>
+<h5 id="2-8-3-4-同数据-多图展示"><a href="#2-8-3-4-同数据-多图展示" class="headerlink" title="2.8.3.4 同数据-多图展示"></a>2.8.3.4 同数据-多图展示</h5><ul>
 <li>在6.3.3.3代码基础上修改，通过for循环同时绘制4个图表</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">private void timer1_Tick(object sender, EventArgs e)
@@ -2317,12 +2325,12 @@ private void button2_Click(object sender, EventArgs e)
 <ul>
 <li>效果如下<img src="/./assets/chart%E5%9B%BE%E8%A1%A8-1705156191296-25.gif" alt="chart图表"></li>
 </ul>
-<h2 id="2-9-右键菜单及打开文件对话框"><a href="#2-9-右键菜单及打开文件对话框" class="headerlink" title="2.9 右键菜单及打开文件对话框"></a>2.9 右键菜单及打开文件对话框</h2><h3 id="2-9-1-右键菜单"><a href="#2-9-1-右键菜单" class="headerlink" title="2.9.1 右键菜单"></a>2.9.1 右键菜单</h3><ul>
+<h3 id="2-9-右键菜单及打开文件对话框"><a href="#2-9-右键菜单及打开文件对话框" class="headerlink" title="2.9 右键菜单及打开文件对话框"></a>2.9 右键菜单及打开文件对话框</h3><h4 id="2-9-1-右键菜单"><a href="#2-9-1-右键菜单" class="headerlink" title="2.9.1 右键菜单"></a>2.9.1 右键菜单</h4><ul>
 <li>使用控件<code>ContexMenuStrip</code>，设置好菜单选项</li>
 <li><code>Form窗体、PictureBox等控件</code>，有个<code>ContextMenuStrip</code>行为属性，可在控件内启用相应的右键菜单功能</li>
 <li>设置好的<strong>每一个菜单选项，都是一个子控件</strong>，拥有自己的属性方法及触发事件</li>
 </ul>
-<h3 id="2-9-2-打开文件对话框"><a href="#2-9-2-打开文件对话框" class="headerlink" title="2.9.2 打开文件对话框"></a>2.9.2 打开文件对话框</h3><ul>
+<h4 id="2-9-2-打开文件对话框"><a href="#2-9-2-打开文件对话框" class="headerlink" title="2.9.2 打开文件对话框"></a>2.9.2 打开文件对话框</h4><ul>
 <li>使用控件<code>openFileDialog</code><ul>
 <li><code>openFileDialog.Title</code>属性，设置对话框<strong>标题</strong></li>
 <li><code>openFileDialog.Filter</code>属性，设置文件<strong>类型过滤</strong></li>
@@ -2332,7 +2340,7 @@ private void button2_Click(object sender, EventArgs e)
 </ul>
 </li>
 </ul>
-<h3 id="2-9-3-例程-–-右键菜单更换图片"><a href="#2-9-3-例程-–-右键菜单更换图片" class="headerlink" title="2.9.3 例程 – 右键菜单更换图片"></a>2.9.3 例程 – 右键菜单更换图片</h3><ul>
+<h4 id="2-9-3-例程-–-右键菜单更换图片"><a href="#2-9-3-例程-–-右键菜单更换图片" class="headerlink" title="2.9.3 例程 – 右键菜单更换图片"></a>2.9.3 例程 – 右键菜单更换图片</h4><ul>
 <li><p><code>具体代码文件见D:\Program Files\Microsoft Visual Studio\projects\start\RightMenu</code></p>
 </li>
 <li><p>界面设计如下</p>
@@ -2382,7 +2390,7 @@ private void 你干嘛ToolStripMenuItem_Click(object sender, EventArgs e)
 <ul>
 <li>效果展示<img src="./assets/右键菜单更换图片-1705156191296-27.gif" alt="右键菜单更换图片" style="zoom: 33%;"></li>
 </ul>
-<h2 id="2-10-（本节因没有本地用户和组，无法进行操作学习！！！！）"><a href="#2-10-（本节因没有本地用户和组，无法进行操作学习！！！！）" class="headerlink" title="2.10 （本节因没有本地用户和组，无法进行操作学习！！！！）"></a>2.10 （本节因没有本地用户和组，无法进行操作学习！！！！）</h2><h3 id="2-10-1-下拉列表"><a href="#2-10-1-下拉列表" class="headerlink" title="2.10.1 下拉列表"></a>2.10.1 下拉列表</h3><ul>
+<h3 id="2-10-（本节因没有本地用户和组，无法进行操作学习！！！！）"><a href="#2-10-（本节因没有本地用户和组，无法进行操作学习！！！！）" class="headerlink" title="2.10 （本节因没有本地用户和组，无法进行操作学习！！！！）"></a>2.10 （本节因没有本地用户和组，无法进行操作学习！！！！）</h3><h4 id="2-10-1-下拉列表"><a href="#2-10-1-下拉列表" class="headerlink" title="2.10.1 下拉列表"></a>2.10.1 下拉列表</h4><ul>
 <li><code>ComboBox</code>控件，下拉列表<ul>
 <li><code>ComboBox.DropDownStyle</code>属性，设置下拉列表样式，可用取值分别为</li>
 <li><code>ComboBox.Items.Add()</code>方法，添加项</li>
@@ -2392,10 +2400,10 @@ private void 你干嘛ToolStripMenuItem_Click(object sender, EventArgs e)
 </ul>
 </li>
 </ul>
-<h3 id="2-10-2"><a href="#2-10-2" class="headerlink" title="2.10.2"></a>2.10.2</h3><ul>
+<h4 id="2-10-2"><a href="#2-10-2" class="headerlink" title="2.10.2"></a>2.10.2</h4><ul>
 <li><code>directoryEntry</code>控件</li>
 </ul>
-<h2 id="2-11-系统语音功能及日期时间"><a href="#2-11-系统语音功能及日期时间" class="headerlink" title="2.11 系统语音功能及日期时间"></a>2.11 系统语音功能及日期时间</h2><h3 id="2-11-1-语音功能"><a href="#2-11-1-语音功能" class="headerlink" title="2.11.1 语音功能"></a>2.11.1 语音功能</h3><ul>
+<h3 id="2-11-系统语音功能及日期时间"><a href="#2-11-系统语音功能及日期时间" class="headerlink" title="2.11 系统语音功能及日期时间"></a>2.11 系统语音功能及日期时间</h3><h4 id="2-11-1-语音功能"><a href="#2-11-1-语音功能" class="headerlink" title="2.11.1 语音功能"></a>2.11.1 语音功能</h4><ul>
 <li>本质上是调用系统的<code>tts</code>功能（将<strong>文本转为语音</strong>的功能，<code>tts</code>在<code>com</code>组件中有）</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 核心代码
@@ -2405,7 +2413,7 @@ spVoice.Speak("Text To Speech 语音朗读文本技术");<span aria-hidden="true
 
 
 
-<h3 id="2-11-2-日期时间"><a href="#2-11-2-日期时间" class="headerlink" title="2.11.2 日期时间"></a>2.11.2 日期时间</h3><ul>
+<h4 id="2-11-2-日期时间"><a href="#2-11-2-日期时间" class="headerlink" title="2.11.2 日期时间"></a>2.11.2 日期时间</h4><ul>
 <li><p><code>dateTimePicker</code>控件</p>
 <ul>
 <li><p><code>Format</code>属性，设置日期格式</p>
@@ -2420,7 +2428,7 @@ yyyy年MM月dd日 HH:mm:ss<span aria-hidden="true" class="line-numbers-rows"><sp
 
 
 
-<h3 id="2-11-3-例程-–-个性语音闹钟"><a href="#2-11-3-例程-–-个性语音闹钟" class="headerlink" title="2.11.3 例程 – 个性语音闹钟"></a>2.11.3 例程 – 个性语音闹钟</h3><ul>
+<h4 id="2-11-3-例程-–-个性语音闹钟"><a href="#2-11-3-例程-–-个性语音闹钟" class="headerlink" title="2.11.3 例程 – 个性语音闹钟"></a>2.11.3 例程 – 个性语音闹钟</h4><ul>
 <li><p><code>具体代码文件见D:\Program Files\Microsoft Visual Studio\projects\start\Voice</code></p>
 </li>
 <li><p>搭建界面如下</p>
@@ -2481,12 +2489,12 @@ yyyy年MM月dd日 HH:mm:ss<span aria-hidden="true" class="line-numbers-rows"><sp
 </ul>
 </li>
 </ul>
-<h2 id="2-12-列表视图"><a href="#2-12-列表视图" class="headerlink" title="2.12 列表视图"></a>2.12 列表视图</h2><h3 id="2-12-1-comboBox、listBox、listView的区别"><a href="#2-12-1-comboBox、listBox、listView的区别" class="headerlink" title="2.12.1 comboBox、listBox、listView的区别"></a>2.12.1 comboBox、listBox、listView的区别</h3><ul>
+<h3 id="2-12-列表视图"><a href="#2-12-列表视图" class="headerlink" title="2.12 列表视图"></a>2.12 列表视图</h3><h4 id="2-12-1-comboBox、listBox、listView的区别"><a href="#2-12-1-comboBox、listBox、listView的区别" class="headerlink" title="2.12.1 comboBox、listBox、listView的区别"></a>2.12.1 comboBox、listBox、listView的区别</h4><ul>
 <li><code>comboBox</code>控件：下拉列表，有下拉、滚动条、下拉+输入三种模式</li>
 <li><code>listBox</code>控件：单行项目记录</li>
 <li><code>listView</code>控件：简单的项目行，表格的感觉</li>
 </ul>
-<h3 id="2-12-2-配置listView"><a href="#2-12-2-配置listView" class="headerlink" title="2.12.2 配置listView"></a>2.12.2 配置listView</h3><ul>
+<h4 id="2-12-2-配置listView"><a href="#2-12-2-配置listView" class="headerlink" title="2.12.2 配置listView"></a>2.12.2 配置listView</h4><ul>
 <li><code>Columns</code>属性：设置列标题<ul>
 <li>添加成员后通过<code>Text</code>设置<strong>列标题</strong>名</li>
 <li>同时通过<code>TextAlign</code>设置居中状态</li>
@@ -2506,7 +2514,7 @@ yyyy年MM月dd日 HH:mm:ss<span aria-hidden="true" class="line-numbers-rows"><sp
 </ul>
 </li>
 </ul>
-<h3 id="2-12-3-例程1-–-表格记录软件"><a href="#2-12-3-例程1-–-表格记录软件" class="headerlink" title="2.12.3 例程1 – 表格记录软件"></a>2.12.3 例程1 – 表格记录软件</h3><ul>
+<h4 id="2-12-3-例程1-–-表格记录软件"><a href="#2-12-3-例程1-–-表格记录软件" class="headerlink" title="2.12.3 例程1 – 表格记录软件"></a>2.12.3 例程1 – 表格记录软件</h4><ul>
 <li><p><code>具体代码文件见D:\Program Files\Microsoft Visual Studio\projects\start\listView</code></p>
 </li>
 <li><p>界面搭建如下</p>
@@ -2594,7 +2602,7 @@ private void button2_Click(object sender, EventArgs e)
 </ul>
 </li>
 </ul>
-<h3 id="2-12-4-例程2-–-图片上传软件"><a href="#2-12-4-例程2-–-图片上传软件" class="headerlink" title="2.12.4  例程2 – 图片上传软件"></a>2.12.4  例程2 – 图片上传软件</h3><ul>
+<h4 id="2-12-4-例程2-–-图片上传软件"><a href="#2-12-4-例程2-–-图片上传软件" class="headerlink" title="2.12.4  例程2 – 图片上传软件"></a>2.12.4  例程2 – 图片上传软件</h4><ul>
 <li><p><code>具体代码文件见D:\Program Files\Microsoft Visual Studio\projects\start\listView</code></p>
 </li>
 <li><p>界面搭建如下</p>
@@ -2696,22 +2704,22 @@ private void button3_Click(object sender, EventArgs e)
 </ul>
 </li>
 </ul>
-<h2 id="2-13-状态栏及富文本框"><a href="#2-13-状态栏及富文本框" class="headerlink" title="2.13 状态栏及富文本框"></a>2.13 状态栏及富文本框</h2><ul>
+<h3 id="2-13-状态栏及富文本框"><a href="#2-13-状态栏及富文本框" class="headerlink" title="2.13 状态栏及富文本框"></a>2.13 状态栏及富文本框</h3><ul>
 <li><code>menuStrip</code>控件，搭建界面菜单</li>
 <li><code>fontDialog</code>控件，字体对话框</li>
 <li><code>colorDialog</code>控件，颜色对话框</li>
 <li></li>
 </ul>
-<h3 id="2-13-1-状态栏"><a href="#2-13-1-状态栏" class="headerlink" title="2.13.1 状态栏"></a>2.13.1 状态栏</h3><ul>
+<h4 id="2-13-1-状态栏"><a href="#2-13-1-状态栏" class="headerlink" title="2.13.1 状态栏"></a>2.13.1 状态栏</h4><ul>
 <li><code>statusStrip</code>控件</li>
 </ul>
-<h3 id="2-13-2-富文本框"><a href="#2-13-2-富文本框" class="headerlink" title="2.13.2 富文本框"></a>2.13.2 富文本框</h3><ul>
+<h4 id="2-13-2-富文本框"><a href="#2-13-2-富文本框" class="headerlink" title="2.13.2 富文本框"></a>2.13.2 富文本框</h4><ul>
 <li><code>richTextBox</code>控件</li>
 </ul>
-<h3 id="2-13-3-例程-–-个性化记事本"><a href="#2-13-3-例程-–-个性化记事本" class="headerlink" title="2.13.3 例程 – 个性化记事本"></a>2.13.3 例程 – 个性化记事本</h3><ul>
+<h4 id="2-13-3-例程-–-个性化记事本"><a href="#2-13-3-例程-–-个性化记事本" class="headerlink" title="2.13.3 例程 – 个性化记事本"></a>2.13.3 例程 – 个性化记事本</h4><ul>
 <li>==有bug，不知道怎么解决！！！==</li>
 </ul>
-<h1 id="三、开发例子-–-B站刘金玉视频总结"><a href="#三、开发例子-–-B站刘金玉视频总结" class="headerlink" title="三、开发例子 – B站刘金玉视频总结"></a>三、开发例子 – B站刘金玉视频总结</h1><h2 id="3-1-简易谷歌浏览器开发"><a href="#3-1-简易谷歌浏览器开发" class="headerlink" title="3.1 简易谷歌浏览器开发"></a>3.1 简易谷歌浏览器开发</h2><h3 id="3-1-1-主要内容"><a href="#3-1-1-主要内容" class="headerlink" title="3.1.1 主要内容"></a>3.1.1 主要内容</h3><ul>
+<h2 id="三、开发例子-–-B站刘金玉视频总结"><a href="#三、开发例子-–-B站刘金玉视频总结" class="headerlink" title="三、开发例子 – B站刘金玉视频总结"></a>三、开发例子 – B站刘金玉视频总结</h2><h3 id="3-1-简易谷歌浏览器开发"><a href="#3-1-简易谷歌浏览器开发" class="headerlink" title="3.1 简易谷歌浏览器开发"></a>3.1 简易谷歌浏览器开发</h3><h4 id="3-1-1-主要内容"><a href="#3-1-1-主要内容" class="headerlink" title="3.1.1 主要内容"></a>3.1.1 主要内容</h4><ul>
 <li><p><code>WebBrowser</code>控件，默认调用IE浏览器作为内核，但该内核已经久远，会报错</p>
 </li>
 <li><p><code>cefsharp</code>，第三方控件，通过<code>管理NuGet程序包</code>下载，使用Chrome内核</p>
@@ -2726,7 +2734,7 @@ using CefSharp.WinForms;<span aria-hidden="true" class="line-numbers-rows"><span
 
 
 
-<h3 id="3-1-2-实现过程"><a href="#3-1-2-实现过程" class="headerlink" title="3.1.2 实现过程"></a>3.1.2 实现过程</h3><ul>
+<h4 id="3-1-2-实现过程"><a href="#3-1-2-实现过程" class="headerlink" title="3.1.2 实现过程"></a>3.1.2 实现过程</h4><ul>
 <li><p>具体代码见<code>D:\Program Files\Microsoft Visual Studio\projects\start\Brower</code></p>
 </li>
 <li><p>搭建界面布局如下</p>
@@ -2800,10 +2808,10 @@ private void button4_Click(object sender, EventArgs e)
 
 
 
-<h2 id="3-2-超市商品分类树"><a href="#3-2-超市商品分类树" class="headerlink" title="3.2 超市商品分类树"></a>3.2 超市商品分类树</h2><h3 id="3-2-1-主要内容"><a href="#3-2-1-主要内容" class="headerlink" title="3.2.1 主要内容"></a>3.2.1 主要内容</h3><ul>
+<h3 id="3-2-超市商品分类树"><a href="#3-2-超市商品分类树" class="headerlink" title="3.2 超市商品分类树"></a>3.2 超市商品分类树</h3><h4 id="3-2-1-主要内容"><a href="#3-2-1-主要内容" class="headerlink" title="3.2.1 主要内容"></a>3.2.1 主要内容</h4><ul>
 <li><code>treeView</code>树形控件，根节点，子节点</li>
 </ul>
-<h3 id="3-2-2-实现过程"><a href="#3-2-2-实现过程" class="headerlink" title="3.2.2 实现过程"></a>3.2.2 实现过程</h3><ul>
+<h4 id="3-2-2-实现过程"><a href="#3-2-2-实现过程" class="headerlink" title="3.2.2 实现过程"></a>3.2.2 实现过程</h4><ul>
 <li><p>具体代码见<code>D:\Program Files\Microsoft Visual Studio\projects\start\TreeView</code></p>
 </li>
 <li><p>搭建界面如下</p>
@@ -2873,10 +2881,10 @@ private void button4_Click(object sender, EventArgs e)
 
 
 
-<h2 id="3-3-红绿灯交通模拟-–-调用线程"><a href="#3-3-红绿灯交通模拟-–-调用线程" class="headerlink" title="3.3 红绿灯交通模拟 – 调用线程"></a>3.3 红绿灯交通模拟 – 调用线程</h2><h3 id="3-3-1-主要内容"><a href="#3-3-1-主要内容" class="headerlink" title="3.3.1 主要内容"></a>3.3.1 主要内容</h3><ul>
+<h3 id="3-3-红绿灯交通模拟-–-调用线程"><a href="#3-3-红绿灯交通模拟-–-调用线程" class="headerlink" title="3.3 红绿灯交通模拟 – 调用线程"></a>3.3 红绿灯交通模拟 – 调用线程</h3><h4 id="3-3-1-主要内容"><a href="#3-3-1-主要内容" class="headerlink" title="3.3.1 主要内容"></a>3.3.1 主要内容</h4><ul>
 <li><code>backgroundWorker</code>后台线程</li>
 </ul>
-<h3 id="3-3-2-实现过程"><a href="#3-3-2-实现过程" class="headerlink" title="3.3.2 实现过程"></a>3.3.2 实现过程</h3><ul>
+<h4 id="3-3-2-实现过程"><a href="#3-3-2-实现过程" class="headerlink" title="3.3.2 实现过程"></a>3.3.2 实现过程</h4><ul>
 <li><p>具体代码见<code>D:\Program Files\Microsoft Visual Studio\projects\start\Traffic</code></p>
 </li>
 <li><p>搭建界面</p>
@@ -2983,11 +2991,11 @@ private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
 
 
 
-<h2 id="3-4-屏幕滚动文字"><a href="#3-4-屏幕滚动文字" class="headerlink" title="3.4 屏幕滚动文字"></a>3.4 屏幕滚动文字</h2><h3 id="3-4-1主要内容"><a href="#3-4-1主要内容" class="headerlink" title="3.4.1主要内容"></a>3.4.1主要内容</h3><ul>
+<h3 id="3-4-屏幕滚动文字"><a href="#3-4-屏幕滚动文字" class="headerlink" title="3.4 屏幕滚动文字"></a>3.4 屏幕滚动文字</h3><h4 id="3-4-1主要内容"><a href="#3-4-1主要内容" class="headerlink" title="3.4.1主要内容"></a>3.4.1主要内容</h4><ul>
 <li>通过使用<code>System.IO</code>命名空间下的<code>StreamWrite</code>类进行文件写入</li>
 <li>使用<code>Fill.ReanAllText()</code>方法读取文件</li>
 </ul>
-<h3 id="3-4-2-实现过程"><a href="#3-4-2-实现过程" class="headerlink" title="3.4.2 实现过程"></a>3.4.2 实现过程</h3><ul>
+<h4 id="3-4-2-实现过程"><a href="#3-4-2-实现过程" class="headerlink" title="3.4.2 实现过程"></a>3.4.2 实现过程</h4><ul>
 <li><p>具体代码见<code>D:\Program Files\Microsoft Visual Studio\projects\start\Screen</code></p>
 </li>
 <li><p>界面搭建如下</p>
@@ -3058,7 +3066,7 @@ private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
 
 
 
-<h2 id="3-5-掩码规则验证及信息提示"><a href="#3-5-掩码规则验证及信息提示" class="headerlink" title="3.5 掩码规则验证及信息提示"></a>3.5 掩码规则验证及信息提示</h2><h3 id="3-5-1-主要内容"><a href="#3-5-1-主要内容" class="headerlink" title="3.5.1 主要内容"></a>3.5.1 主要内容</h3><ul>
+<h3 id="3-5-掩码规则验证及信息提示"><a href="#3-5-掩码规则验证及信息提示" class="headerlink" title="3.5 掩码规则验证及信息提示"></a>3.5 掩码规则验证及信息提示</h3><h4 id="3-5-1-主要内容"><a href="#3-5-1-主要内容" class="headerlink" title="3.5.1 主要内容"></a>3.5.1 主要内容</h4><ul>
 <li><code>maskedTextBox</code>掩码控件<ul>
 <li><code>mask</code>属性设置掩码格式</li>
 <li><code>AsciOnly</code>属性设置是否开启格式验证，若不合格输入不了</li>
@@ -3066,7 +3074,7 @@ private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
 </li>
 <li><code>toolTip</code>提示控件</li>
 </ul>
-<h3 id="3-5-2-实现过程"><a href="#3-5-2-实现过程" class="headerlink" title="3.5.2 实现过程"></a>3.5.2 实现过程</h3><ul>
+<h4 id="3-5-2-实现过程"><a href="#3-5-2-实现过程" class="headerlink" title="3.5.2 实现过程"></a>3.5.2 实现过程</h4><ul>
 <li><p>具体代码见<code>D:\Program Files\Microsoft Visual Studio\projects\start\Mask</code></p>
 </li>
 <li><p>界面搭建如下</p>
@@ -3144,7 +3152,7 @@ private void radioButton1_CheckedChanged(object sender, EventArgs e)
 
 
 
-<h1 id="四、一些有意思的操作"><a href="#四、一些有意思的操作" class="headerlink" title="四、一些有意思的操作"></a>四、一些有意思的操作</h1><h2 id="4-1-文件对话框"><a href="#4-1-文件对话框" class="headerlink" title="4.1 文件对话框"></a>4.1 文件对话框</h2><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">OpenFileDialog ofd = new OpenFileDialog();
+<h2 id="四、一些有意思的操作"><a href="#四、一些有意思的操作" class="headerlink" title="四、一些有意思的操作"></a>四、一些有意思的操作</h2><h3 id="4-1-文件对话框"><a href="#4-1-文件对话框" class="headerlink" title="4.1 文件对话框"></a>4.1 文件对话框</h3><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">OpenFileDialog ofd = new OpenFileDialog();
 ofd.Title = "请选择音乐文件";
 ofd.InitialDirectory = @"C:\Users\echo\Desktop\Music";
 ofd.Multiselect = true;
@@ -3153,7 +3161,7 @@ ofd.ShowDialog();<span aria-hidden="true" class="line-numbers-rows"><span></span
 
 
 
-<h2 id="4-2-音乐播放"><a href="#4-2-音乐播放" class="headerlink" title="4.2 音乐播放"></a>4.2 音乐播放</h2><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">SoundPlayer sp = new SoundPlayer();
+<h3 id="4-2-音乐播放"><a href="#4-2-音乐播放" class="headerlink" title="4.2 音乐播放"></a>4.2 音乐播放</h3><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">SoundPlayer sp = new SoundPlayer();
 sp.SoundLocation = "xxx";
 sp.Play();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
@@ -3161,11 +3169,11 @@ sp.Play();<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 
 
 
-<h1 id="五、VS快捷键"><a href="#五、VS快捷键" class="headerlink" title="五、VS快捷键"></a>五、VS快捷键</h1><ul>
+<h2 id="五、VS快捷键"><a href="#五、VS快捷键" class="headerlink" title="五、VS快捷键"></a>五、VS快捷键</h2><ul>
 <li><code>Ctrl+鼠标左键点击函数名</code>：跳转该函数具体定义</li>
 <li><code>Ctrl+}</code>：切换光标在代码块标识符<code>{}</code>的位置</li>
 </ul>
-<h1 id="六、TCP-x2F-IP通信"><a href="#六、TCP-x2F-IP通信" class="headerlink" title="六、TCP/IP通信"></a>六、TCP/IP通信</h1><ul>
+<h2 id="六、TCP-IP通信"><a href="#六、TCP-IP通信" class="headerlink" title="六、TCP/IP通信"></a>六、TCP/IP通信</h2><ul>
 <li><p>上位机是客户端，下位机是服务器，客户端发送命令，服务端做出响应</p>
 </li>
 <li><p>通过<code>TCP</code>传送接收数据时，必须先使用协议和网络地址信息初始化套接字，然后才能进行通信</p>
@@ -3188,7 +3196,7 @@ sp.Play();<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 </ul>
 </li>
 </ul>
-<h2 id="6-1-进程"><a href="#6-1-进程" class="headerlink" title="6.1 进程"></a>6.1 进程</h2><ul>
+<h3 id="6-1-进程"><a href="#6-1-进程" class="headerlink" title="6.1 进程"></a>6.1 进程</h3><ul>
 <li><p>进程是操作系统中的一个<strong>执行实例</strong></p>
 </li>
 <li><p>进程是程序的一次执行过程，是一个<strong>程序</strong>与其<strong>关联数据</strong>以及<strong>系统资源</strong>的总称</p>
@@ -3214,13 +3222,13 @@ p.Start();<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 
 
 
-<h2 id="6-2-线程"><a href="#6-2-线程" class="headerlink" title="6.2 线程"></a>6.2 线程</h2><ul>
+<h3 id="6-2-线程"><a href="#6-2-线程" class="headerlink" title="6.2 线程"></a>6.2 线程</h3><ul>
 <li>线程是进程内的一个独立执行流，是操作<strong>系统调度的基本单位</strong></li>
 <li><strong>一个进程可以包含多个线程</strong>，它们共享进程的资源，但拥有各自的执行路径和局部变量</li>
 <li>线程是轻量级的执行单元，相比于进程，线程的<strong>创建、销毁和切换成本更低</strong></li>
 <li>程序<strong>任何动作的响应</strong>都是由线程完成的</li>
 </ul>
-<h3 id="6-2-1-主要函数"><a href="#6-2-1-主要函数" class="headerlink" title="6.2.1 主要函数"></a>6.2.1 主要函数</h3><ul>
+<h4 id="6-2-1-主要函数"><a href="#6-2-1-主要函数" class="headerlink" title="6.2.1 主要函数"></a>6.2.1 主要函数</h4><ul>
 <li>线程主要函数分别是<code>Start()</code>和<code>Abort()</code><ul>
 <li><code>Start()</code>：告诉cpu线程已经准好了，可以随时被执行，但是具体执行时间由cpu决定</li>
 <li><code>Abort()</code>：终止线程</li>
@@ -3231,7 +3239,7 @@ p.Start();<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 </ul>
 </li>
 </ul>
-<h3 id="6-2-2-关于线程的一些问题"><a href="#6-2-2-关于线程的一些问题" class="headerlink" title="6.2.2 关于线程的一些问题"></a>6.2.2 关于线程的一些问题</h3><ul>
+<h4 id="6-2-2-关于线程的一些问题"><a href="#6-2-2-关于线程的一些问题" class="headerlink" title="6.2.2 关于线程的一些问题"></a>6.2.2 关于线程的一些问题</h4><ul>
 <li><p>进程与线程的关系？</p>
 <ul>
 <li>一个进程包含多个线程</li>
@@ -3371,7 +3379,7 @@ private void PlayGame()
 
 
 
-<h3 id="6-2-3-多线程"><a href="#6-2-3-多线程" class="headerlink" title="6.2.3 多线程"></a>6.2.3 多线程</h3><ul>
+<h4 id="6-2-3-多线程"><a href="#6-2-3-多线程" class="headerlink" title="6.2.3 多线程"></a>6.2.3 多线程</h4><ul>
 <li>多个执行流同时运行</li>
 <li>实际还是单线程，但对CPU进行了时间切片，在每个时间片内执行一个线程</li>
 <li>如何实现多线程？<ul>
@@ -3384,7 +3392,7 @@ private void PlayGame()
 </ul>
 </li>
 </ul>
-<h4 id="6-2-3-1-基于委托的异步编程"><a href="#6-2-3-1-基于委托的异步编程" class="headerlink" title="6.2.3.1 基于委托的异步编程"></a>6.2.3.1 基于委托的异步编程</h4><ul>
+<h5 id="6-2-3-1-基于委托的异步编程"><a href="#6-2-3-1-基于委托的异步编程" class="headerlink" title="6.2.3.1 基于委托的异步编程"></a>6.2.3.1 基于委托的异步编程</h5><ul>
 <li><p>异步编程是建立在<strong>委托</strong>的基础上</p>
 </li>
 <li><p>异步调用的每个方法，都是在<strong>独立的进程</strong>中执行的</p>
@@ -3401,7 +3409,7 @@ private void PlayGame()
 <li><p><code>D:\Program Files\Microsoft Visual Studio\projects\异步-多线程\多线程\Study1</code></p>
 </li>
 </ul>
-<h5 id="6-2-3-1-1-示例"><a href="#6-2-3-1-1-示例" class="headerlink" title="6.2.3.1.1 示例"></a>6.2.3.1.1 示例</h5><ul>
+<h6 id="6-2-3-1-1-示例"><a href="#6-2-3-1-1-示例" class="headerlink" title="6.2.3.1.1 示例"></a>6.2.3.1.1 示例</h6><ul>
 <li>先声明一个<code>random</code>对象</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 后续模拟线程耗时
@@ -3454,7 +3462,7 @@ private void AutoCallBack(IAsyncResult result)
 
 
 
-<h5 id="6-2-3-1-2-一些问题"><a href="#6-2-3-1-2-一些问题" class="headerlink" title="6.2.3.1.2 一些问题"></a>6.2.3.1.2 一些问题</h5><ul>
+<h6 id="6-2-3-1-2-一些问题"><a href="#6-2-3-1-2-一些问题" class="headerlink" title="6.2.3.1.2 一些问题"></a>6.2.3.1.2 一些问题</h6><ul>
 <li><code>Operation.BeginInvoke(i*10,AutoCallBack,i);</code>中的标识参数<code>i</code>有什么用？<ul>
 <li>将不同的 <code>i</code> 传递给异步操作，<strong>标识线程</strong>，以便<strong>在异步操作完成后</strong>能够在回调函数中<strong>识别是哪个线程完成了</strong></li>
 </ul>
@@ -3464,10 +3472,10 @@ private void AutoCallBack(IAsyncResult result)
 </ul>
 </li>
 </ul>
-<h4 id="6-2-3-2-基于Thread多线程"><a href="#6-2-3-2-基于Thread多线程" class="headerlink" title="6.2.3.2 基于Thread多线程"></a>6.2.3.2 基于Thread多线程</h4><ul>
+<h5 id="6-2-3-2-基于Thread多线程"><a href="#6-2-3-2-基于Thread多线程" class="headerlink" title="6.2.3.2 基于Thread多线程"></a>6.2.3.2 基于Thread多线程</h5><ul>
 <li><code>D:\Program Files\Microsoft Visual Studio\projects\异步-多线程\多线程\Threads</code></li>
 </ul>
-<h5 id="6-2-3-2-1-跨线程调用控件"><a href="#6-2-3-2-1-跨线程调用控件" class="headerlink" title="6.2.3.2.1 跨线程调用控件"></a>6.2.3.2.1 跨线程调用控件</h5><ul>
+<h6 id="6-2-3-2-1-跨线程调用控件"><a href="#6-2-3-2-1-跨线程调用控件" class="headerlink" title="6.2.3.2.1 跨线程调用控件"></a>6.2.3.2.1 跨线程调用控件</h6><ul>
 <li><p>前面记<code>Thread</code>，此处新增==跨线程调用控件==的方法</p>
 <ul>
 <li><p><code>Control.CheckForIllegalCrossThreadCalls = false;</code>取消跨线程检测，尽量不用</p>
@@ -3560,11 +3568,11 @@ private void btnRead_Click(object sender, EventArgs e)
 
 
 
-<h5 id="6-2-3-2-2-跨控件访问数据库"><a href="#6-2-3-2-2-跨控件访问数据库" class="headerlink" title="6.2.3.2.2 跨控件访问数据库"></a>6.2.3.2.2 跨控件访问数据库</h5><ul>
+<h6 id="6-2-3-2-2-跨控件访问数据库"><a href="#6-2-3-2-2-跨控件访问数据库" class="headerlink" title="6.2.3.2.2 跨控件访问数据库"></a>6.2.3.2.2 跨控件访问数据库</h6><ul>
 <li><code>D:\Program Files\Microsoft Visual Studio\projects\异步-多线程\多线程\ThreadDataBase</code></li>
 </ul>
 <p>先把数据库学了来！！！！！</p>
-<h2 id="6-3-Socket"><a href="#6-3-Socket" class="headerlink" title="6.3 Socket"></a>6.3 Socket</h2><h3 id="6-3-1-关于Socket的一些问题"><a href="#6-3-1-关于Socket的一些问题" class="headerlink" title="6.3.1 关于Socket的一些问题"></a>6.3.1 关于Socket的一些问题</h3><ul>
+<h3 id="6-3-Socket"><a href="#6-3-Socket" class="headerlink" title="6.3 Socket"></a>6.3 Socket</h3><h4 id="6-3-1-关于Socket的一些问题"><a href="#6-3-1-关于Socket的一些问题" class="headerlink" title="6.3.1 关于Socket的一些问题"></a>6.3.1 关于Socket的一些问题</h4><ul>
 <li><p>怎么理解Socket</p>
 <ul>
 <li>人通过 <strong>电话</strong> 进行通信，==程序通过 Socket 来通==，套接字就是程序间的电话机</li>
@@ -3611,7 +3619,7 @@ private void btnRead_Click(object sender, EventArgs e)
 
 
 
-### 6.3.2 Socket通信流程
+#### 6.3.2 Socket通信流程
 
 - Socket通信流程图
 
@@ -3648,7 +3656,7 @@ private void btnRead_Click(object sender, EventArgs e)
 </ul>
 </li>
 </ul>
-<h4 id="6-3-2-1-服务端"><a href="#6-3-2-1-服务端" class="headerlink" title="6.3.2.1 服务端"></a>6.3.2.1 服务端</h4><ul>
+<h5 id="6-3-2-1-服务端"><a href="#6-3-2-1-服务端" class="headerlink" title="6.3.2.1 服务端"></a>6.3.2.1 服务端</h5><ul>
 <li><strong>创建</strong>一个负责<strong>监听的Socket</strong></li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 创建监Socket，初始化地址簇、套接字类型、协议类型
@@ -3753,7 +3761,7 @@ private void btnSend_Click(object sender, EvenArgs e)
 
 
 
-<h4 id="6-3-2-2-客户端"><a href="#6-3-2-2-客户端" class="headerlink" title="6.3.2.2 客户端"></a>6.3.2.2 客户端</h4><ul>
+<h5 id="6-3-2-2-客户端"><a href="#6-3-2-2-客户端" class="headerlink" title="6.3.2.2 客户端"></a>6.3.2.2 客户端</h5><ul>
 <li>创建<strong>客户端Socket</strong>，并连接指定终结点</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 做全局变量
@@ -3801,7 +3809,7 @@ private btnSend_Click(object sender, EventArgs e)
 
 
 
-<h3 id="6-4-3-基于Socket的聊天程序"><a href="#6-4-3-基于Socket的聊天程序" class="headerlink" title="6.4.3 基于Socket的聊天程序"></a>6.4.3 基于Socket的聊天程序</h3><h4 id="6-4-3-1-实现功能"><a href="#6-4-3-1-实现功能" class="headerlink" title="6.4.3.1 实现功能"></a>6.4.3.1 实现功能</h4><ul>
+<h4 id="6-4-3-基于Socket的聊天程序"><a href="#6-4-3-基于Socket的聊天程序" class="headerlink" title="6.4.3 基于Socket的聊天程序"></a>6.4.3 基于Socket的聊天程序</h4><h5 id="6-4-3-1-实现功能"><a href="#6-4-3-1-实现功能" class="headerlink" title="6.4.3.1 实现功能"></a>6.4.3.1 实现功能</h5><ul>
 <li>传送文件</li>
 <li>判断接收数据是文件还是文字</li>
 <li>设计协议<ul>
@@ -3811,7 +3819,7 @@ private btnSend_Click(object sender, EventArgs e)
 </ul>
 </li>
 </ul>
-<h4 id="6-4-3-2-服务器"><a href="#6-4-3-2-服务器" class="headerlink" title="6.4.3.2 服务器"></a>6.4.3.2 服务器</h4><ul>
+<h5 id="6-4-3-2-服务器"><a href="#6-4-3-2-服务器" class="headerlink" title="6.4.3.2 服务器"></a>6.4.3.2 服务器</h5><ul>
 <li>创建<code>socketWatch</code><strong>监听连接</strong></li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">private void btnStart_Click(object sender, EventArgs e)
@@ -3949,7 +3957,7 @@ private void btnSendFile_Click(object sender, EventArgs e)
 
 
 
-<h4 id="6-4-3-3-客户端"><a href="#6-4-3-3-客户端" class="headerlink" title="6.4.3.3 客户端"></a>6.4.3.3 客户端</h4><ul>
+<h5 id="6-4-3-3-客户端"><a href="#6-4-3-3-客户端" class="headerlink" title="6.4.3.3 客户端"></a>6.4.3.3 客户端</h5><ul>
 <li><strong>连接服务器</strong></li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">private void btnConnect_Click(object sender, EventArgs e)
@@ -4043,7 +4051,7 @@ private void btnSendFile_Click(object sender, EventArgs e)
 
 
 
-<h2 id="6-4-委托"><a href="#6-4-委托" class="headerlink" title="6.4 委托"></a>6.4 委托</h2><h3 id="6-4-1-关于委托的一些问题"><a href="#6-4-1-关于委托的一些问题" class="headerlink" title="6.4.1 关于委托的一些问题"></a>6.4.1 关于委托的一些问题</h3><ul>
+<h3 id="6-4-委托"><a href="#6-4-委托" class="headerlink" title="6.4 委托"></a>6.4 委托</h3><h4 id="6-4-1-关于委托的一些问题"><a href="#6-4-1-关于委托的一些问题" class="headerlink" title="6.4.1 关于委托的一些问题"></a>6.4.1 关于委托的一些问题</h4><ul>
 <li>为什么要使用委托<ul>
 <li>为了将一个方法作为参数传递给另一个方法，此时传递的的方法应是委托类型</li>
 </ul>
@@ -4054,7 +4062,7 @@ private void btnSendFile_Click(object sender, EventArgs e)
 </ul>
 </li>
 </ul>
-<h3 id="6-4-2-委托的使用"><a href="#6-4-2-委托的使用" class="headerlink" title="6.4.2 委托的使用"></a>6.4.2 委托的使用</h3><h4 id="6-4-2-1-基本使用"><a href="#6-4-2-1-基本使用" class="headerlink" title="6.4.2.1 基本使用"></a>6.4.2.1 基本使用</h4><ul>
+<h4 id="6-4-2-委托的使用"><a href="#6-4-2-委托的使用" class="headerlink" title="6.4.2 委托的使用"></a>6.4.2 委托的使用</h4><h5 id="6-4-2-1-基本使用"><a href="#6-4-2-1-基本使用" class="headerlink" title="6.4.2.1 基本使用"></a>6.4.2.1 基本使用</h5><ul>
 <li>有两个<strong>签名一致</strong>的函数</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public static void SayHiChinese(string name)
@@ -4097,7 +4105,7 @@ public static void Test(string name, DelSayHi del)
     del(name);
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="6-4-2-2-匿名函数"><a href="#6-4-2-2-匿名函数" class="headerlink" title="6.4.2.2 匿名函数"></a>6.4.2.2 匿名函数</h4><ul>
+<h5 id="6-4-2-2-匿名函数"><a href="#6-4-2-2-匿名函数" class="headerlink" title="6.4.2.2 匿名函数"></a>6.4.2.2 匿名函数</h5><ul>
 <li><p>当某个方法只需要执行一次的时候，可用将方法写成匿名函数</p>
 </li>
 <li><p>以前文代码为例</p>
@@ -4117,7 +4125,7 @@ DelSayHi del = (string name) =&gt; {Console.WriteLine("早上好"+name);};<span 
 
 
 
-<h4 id="6-4-2-3-泛型委托"><a href="#6-4-2-3-泛型委托" class="headerlink" title="6.4.2.3 泛型委托"></a>6.4.2.3 泛型委托</h4><ul>
+<h5 id="6-4-2-3-泛型委托"><a href="#6-4-2-3-泛型委托" class="headerlink" title="6.4.2.3 泛型委托"></a>6.4.2.3 泛型委托</h5><ul>
 <li><p>求任意数组的最大值（int[] 为数值最大，string[] 为长度最长）</p>
 </li>
 <li><p><strong>初始代码</strong></p>
@@ -4254,7 +4262,7 @@ public static void Main(string[] args)
 
 
 
-<h4 id="6-4-2-4-Lambda表达式"><a href="#6-4-2-4-Lambda表达式" class="headerlink" title="6.4.2.4 Lambda表达式"></a>6.4.2.4 Lambda表达式</h4><ul>
+<h5 id="6-4-2-4-Lambda表达式"><a href="#6-4-2-4-Lambda表达式" class="headerlink" title="6.4.2.4 Lambda表达式"></a>6.4.2.4 Lambda表达式</h5><ul>
 <li><code>Lambda表达式</code>本质上还是<code>匿名函数</code></li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">DelCompare del = (string name) =&gt; {Console.WriteLine(name)};<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -4271,7 +4279,7 @@ foreach(var item in list)
 
 
 
-<h2 id="6-5-事件"><a href="#6-5-事件" class="headerlink" title="6.5 事件"></a>6.5 事件</h2><h3 id="6-5-1-关于事件的一些问题"><a href="#6-5-1-关于事件的一些问题" class="headerlink" title="6.5.1 关于事件的一些问题"></a>6.5.1 关于事件的一些问题</h3><ul>
+<h3 id="6-5-事件"><a href="#6-5-事件" class="headerlink" title="6.5 事件"></a>6.5 事件</h3><h4 id="6-5-1-关于事件的一些问题"><a href="#6-5-1-关于事件的一些问题" class="headerlink" title="6.5.1 关于事件的一些问题"></a>6.5.1 关于事件的一些问题</h4><ul>
 <li>==委托与事件的区别==<ul>
 <li>委托是对方法的引用，而事件是一种特殊的委托，用于实现观察者模式，方便对象在状态变化时通知其他对象</li>
 <li>委托不安全，事件的本质是一个安全的委托</li>
@@ -4282,7 +4290,7 @@ foreach(var item in list)
 </ul>
 </li>
 </ul>
-<h3 id="6-5-2-事件的使用"><a href="#6-5-2-事件的使用" class="headerlink" title="6.5.2 事件的使用"></a>6.5.2 事件的使用</h3><h4 id="6-5-2-1-基本使用"><a href="#6-5-2-1-基本使用" class="headerlink" title="6.5.2.1 基本使用"></a>6.5.2.1 基本使用</h4><ul>
+<h4 id="6-5-2-事件的使用"><a href="#6-5-2-事件的使用" class="headerlink" title="6.5.2 事件的使用"></a>6.5.2 事件的使用</h4><h5 id="6-5-2-1-基本使用"><a href="#6-5-2-1-基本使用" class="headerlink" title="6.5.2.1 基本使用"></a>6.5.2.1 基本使用</h5><ul>
 <li><p>以按键播放音乐为例</p>
 </li>
 <li><p>创建<code>PlayMusic</code>类，并在其中<strong>定义委托事件</strong></p>
@@ -4343,10 +4351,10 @@ public void Test()
 
 
 
-<h2 id="6-6-关于文件"><a href="#6-6-关于文件" class="headerlink" title="6.6 关于文件"></a>6.6 关于文件</h2><h3 id="6-6-1-File-类"><a href="#6-6-1-File-类" class="headerlink" title="6.6.1 File 类"></a>6.6.1 File 类</h3><ul>
+<h3 id="6-6-关于文件"><a href="#6-6-关于文件" class="headerlink" title="6.6 关于文件"></a>6.6 关于文件</h3><h4 id="6-6-1-File-类"><a href="#6-6-1-File-类" class="headerlink" title="6.6.1 File 类"></a>6.6.1 File 类</h4><ul>
 <li>用于==读小文件==，因为<code>File</code>类是一下读完问文本，所以在读大文件会对内存造成较大的负荷</li>
 </ul>
-<h4 id="6-6-1-1-基本操作"><a href="#6-6-1-1-基本操作" class="headerlink" title="6.6.1.1 基本操作"></a>6.6.1.1 基本操作</h4><ul>
+<h5 id="6-6-1-1-基本操作"><a href="#6-6-1-1-基本操作" class="headerlink" title="6.6.1.1 基本操作"></a>6.6.1.1 基本操作</h5><ul>
 <li><strong>创建</strong>文件</li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">File.Create(@"C:\Users\echo\Desktop\new.txt");<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -4368,7 +4376,7 @@ public void Test()
 
 
 
-<h4 id="6-6-1-2-读取文本"><a href="#6-6-1-2-读取文本" class="headerlink" title="6.6.1.2 读取文本"></a>6.6.1.2 读取文本</h4><ul>
+<h5 id="6-6-1-2-读取文本"><a href="#6-6-1-2-读取文本" class="headerlink" title="6.6.1.2 读取文本"></a>6.6.1.2 读取文本</h5><ul>
 <li><p><code>ReadAllBytes()</code>可读取任何文件（文本、图片、音乐等），需要转为字节；后两个方法<code>ReadAllLines()</code>和<code>ReanAllText()</code>，只能读文本文件</p>
 </li>
 <li><p>将文本<strong>读取为字节</strong></p>
@@ -4399,7 +4407,7 @@ Console.WriteLine(str);<span aria-hidden="true" class="line-numbers-rows"><span>
 
 
 
-<h4 id="6-6-1-3-写入文本"><a href="#6-6-1-3-写入文本" class="headerlink" title="6.6.1.3 写入文本"></a>6.6.1.3 写入文本</h4><ul>
+<h5 id="6-6-1-3-写入文本"><a href="#6-6-1-3-写入文本" class="headerlink" title="6.6.1.3 写入文本"></a>6.6.1.3 写入文本</h5><ul>
 <li><strong>覆盖写入字节</strong></li>
 </ul>
 <pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 读取时，如果没有对应文件，会自行创建；有的话，进行覆盖
@@ -4413,132 +4421,164 @@ File.WriteAllBytes(@"C:\Users\echo\Desktop\new.txt",buffer);
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li><p><strong>覆盖按行写入</strong></p>
-</li>
-<li><pre class=" language-c#"><code class="language-c#">string[] str = new string[] {"sdf","jklj"};
+<li><strong>覆盖按行写入</strong></li>
+</ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">string[] str = new string[] {"sdf","jklj"};
 File.WriteAllLines(@"C:\Users\echo\Desktop\new.txt",str);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<pre class="line-numbers language-none"><code class="language-none">
-- **覆盖全部写入**
-
-  - ```c#
-    string str = "gakjfhlahfl";
-    File.WriteAllText(@"C:\Users\echo\Desktop\new.txt",str);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
-</li>
-<li><p><strong>追加写入</strong></p>
 <ul>
-<li><pre class=" language-c#"><code class="language-c#">File.AppendAllText();
+<li><strong>覆盖全部写入</strong></li>
+</ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">string str = "gakjfhlahfl";
+File.WriteAllText(@"C:\Users\echo\Desktop\new.txt",str);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li><strong>追加写入</strong></li>
+</ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">File.AppendAllText();
 File.AppendAllLines();
-File.AppendText();
-<pre class="line-numbers language-none"><code class="language-none">
-  - 
+File.AppendText();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 
-### 6.6.2 编码简介
-
-- 文本文件编码，文本文件有不同的存储方式，将字符串以特定的形式保存为二进制就是编码
-  - 编码有`UTF8（web）、ASCII（字母、数字、音标）、Unicode（包含各种字体，但是解析慢）、GB2312（简体字）、Big5（简体 + 繁体字）`
-  - `Unicode = UTF7 + UTF8 + UTF32`
-- 文本**乱码**原因
-  - 产生乱码的原因是  保存文件  时所采用的编码格式与  打开文件  时的编码格式不一样
-
-
-
-### 6.6.3 FileStream 类
-
-- 读取文件时，是一点一点去读，不会对内存造成压力
-- `FileStream`用于==操作字节==
-- `FileStream`不会被垃圾回收机制处理，需要手动释放流所占用的内存
-
-
-
-#### 6.6.3.1 读取
-
-- 读小文件
-
-  - ```c#
-    // 创建FileStream对象
-    // FileMode：对文件要进行的操作
-    // FileAccess；对文本内容要进行的操作
-    FileStream fsRead = new FileStream(@"C:\Users\echo\Desktop\new.txt",FileMode.OpenOrCreate,FileAccess.Read);
-    
-    // 创建 byte[] 去接收读取到的字节信息
-    byte[] buffer = new byte[1024 * 1024 * 5];
-    
-    // 返回实际 读取到的有效字节数
-    int r =fsRead.Read(buffer,0,buffer.Length);
-    
-    // 将字节数组中每一个元素按照指定编码格式解码为字符串
-    string s = Encoding.Default.GetString(buffer,0,r);
-    
-    // 关闭流，释放流所占用的资源
-    fsRead.Close();
-    fsRead.Dispose();
-    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
+<h4 id="6-6-2-编码简介"><a href="#6-6-2-编码简介" class="headerlink" title="6.6.2 编码简介"></a>6.6.2 编码简介</h4><ul>
+<li>文本文件编码，文本文件有不同的存储方式，将字符串以特定的形式保存为二进制就是编码<ul>
+<li>编码有<code>UTF8（web）、ASCII（字母、数字、音标）、Unicode（包含各种字体，但是解析慢）、GB2312（简体字）、Big5（简体 + 繁体字）</code></li>
+<li><code>Unicode = UTF7 + UTF8 + UTF32</code></li>
+</ul>
 </li>
-<li></li>
+<li>文本<strong>乱码</strong>原因<ul>
+<li>产生乱码的原因是  保存文件  时所采用的编码格式与  打开文件  时的编码格式不一样</li>
 </ul>
 </li>
 </ul>
-<h4 id="6-6-3-2-写入"><a href="#6-6-3-2-写入" class="headerlink" title="6.6.3.2 写入"></a>6.6.3.2 写入</h4><ul>
-<li><p><strong>自动释放流</strong>的写法</p>
-<ul>
-<li><p>```c#<br>// 自动释放流<br>using(FileStream name = new FileStream())<br>{</p>
-<p>}</p>
-<pre class="line-numbers language-none"><code class="language-none">
-- ```c#
-  using(FileStream fsWrite = new FileStream(@"C:\Users\echo\Desktop\new.txt",FileMode.OpenOrCreate,FileAccess.Write))
-  {
-      string str = "oaflalfjklaj";
-      byte[] buffer = Encoding.Default.GetBytes(str);
-      fsWrite.Write(buffer,0,buffer.Length);
-  }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<h4 id="6-6-3-FileStream-类"><a href="#6-6-3-FileStream-类" class="headerlink" title="6.6.3 FileStream 类"></a>6.6.3 FileStream 类</h4><ul>
+<li>读取文件时，是一点一点去读，不会对内存造成压力</li>
+<li><code>FileStream</code>用于==操作字节==</li>
+<li><code>FileStream</code>不会被垃圾回收机制处理，需要手动释放流所占用的内存</li>
 </ul>
-</li>
+<h5 id="6-6-3-1-读取"><a href="#6-6-3-1-读取" class="headerlink" title="6.6.3.1 读取"></a>6.6.3.1 读取</h5><ul>
+<li>读小文件</li>
 </ul>
-<h4 id="6-6-3-3-基于FileStream的多媒体文件复制"><a href="#6-6-3-3-基于FileStream的多媒体文件复制" class="headerlink" title="6.6.3.3 基于FileStream的多媒体文件复制"></a>6.6.3.3 基于FileStream的多媒体文件复制</h4><ul>
-<li><p><code>CopyFile</code>方法</p>
-<ul>
-<li>```c#<br>// 传入源文件路径、复制文件路径<br>public static void CopyFile(string source,string target)<br>{<br>// 首次创建一个负责读取的流<br>using (FileStream fsRead = new FileStream(source,FileMode.Open,FileAccess.Read))<br>{<br>    // 创建写入流<br>    using (FileStream fsWrite = new FileStream(target,FileMode.OpenOrCreate,FileAccess.Write))<br>    {<br>        byte[] buffer = new byte[1024 * 1024 * 5];<br><br>        // 因为文件可能会比较大，所以循环读取<br>        while (true)<br>        {<br>            // Read：读取相应字节长度，然后将文件流的位置移动到已读取位置之后<br>            int r = fsRead.Read(buffer, 0, buffer.Length);<br><br>            // 读取完成<br>            if(r == 0)<br>            {<br>                break;<br>            }<br><br>            // 追加写入<br>            fsWrite.Write(buffer, 0, r);<br><br>        }<br>    }<br>}<br>}<pre class="line-numbers language-none"><code class="language-none">
-- `Main()`方法
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 创建FileStream对象
+// FileMode：对文件要进行的操作
+// FileAccess；对文本内容要进行的操作
+FileStream fsRead = new FileStream(@"C:\Users\echo\Desktop\new.txt",FileMode.OpenOrCreate,FileAccess.Read);
 
-  - ```c#
-    static void Main(string[] args)
+// 创建 byte[] 去接收读取到的字节信息
+byte[] buffer = new byte[1024 * 1024 * 5];
+
+// 返回实际 读取到的有效字节数
+int r =fsRead.Read(buffer,0,buffer.Length);
+
+// 将字节数组中每一个元素按照指定编码格式解码为字符串
+string s = Encoding.Default.GetString(buffer,0,r);
+
+// 关闭流，释放流所占用的资源
+fsRead.Close();
+fsRead.Dispose();
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="6-6-3-2-写入"><a href="#6-6-3-2-写入" class="headerlink" title="6.6.3.2 写入"></a>6.6.3.2 写入</h5><ul>
+<li><strong>自动释放流</strong>的写法</li>
+</ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 自动释放流
+using(FileStream name = new FileStream())
+{
+    
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using(FileStream fsWrite = new FileStream(@"C:\Users\echo\Desktop\new.txt",FileMode.OpenOrCreate,FileAccess.Write))
+{
+    string str = "oaflalfjklaj";
+    byte[] buffer = Encoding.Default.GetBytes(str);
+    fsWrite.Write(buffer,0,buffer.Length);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h5 id="6-6-3-3-基于FileStream的多媒体文件复制"><a href="#6-6-3-3-基于FileStream的多媒体文件复制" class="headerlink" title="6.6.3.3 基于FileStream的多媒体文件复制"></a>6.6.3.3 基于FileStream的多媒体文件复制</h5><ul>
+<li><code>CopyFile</code>方法</li>
+</ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 传入源文件路径、复制文件路径
+public static void CopyFile(string source,string target)
+{
+    // 首次创建一个负责读取的流
+    using (FileStream fsRead = new FileStream(source,FileMode.Open,FileAccess.Read))
     {
-        string source = @"C:\Users\echo\Desktop\Music\解解的神仙现场 - 海阔天空 - 邓紫棋 (2023时光音乐会老友记现场).wav";
-        string target = @"C:\Users\echo\Desktop\解解的神仙现场.wav";
-        CopyFile(source, target);
-        Console.WriteLine("复制成功");
-    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+        // 创建写入流
+        using (FileStream fsWrite = new FileStream(target,FileMode.OpenOrCreate,FileAccess.Write))
+        {
+            byte[] buffer = new byte[1024 * 1024 * 5];
+
+            // 因为文件可能会比较大，所以循环读取
+            while (true)
+            {
+                // Read：读取相应字节长度，然后将文件流的位置移动到已读取位置之后
+                int r = fsRead.Read(buffer, 0, buffer.Length);
+
+                // 读取完成
+                if(r == 0)
+                {
+                    break;
+                }
+				
+                // 追加写入
+                fsWrite.Write(buffer, 0, r);
+
+            }
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><code>Main()</code>方法</li>
 </ul>
-</li>
-</ul>
-<h3 id="6-6-4-StreamReader和StreamWriter"><a href="#6-6-4-StreamReader和StreamWriter" class="headerlink" title="6.6.4 StreamReader和StreamWriter"></a>6.6.4 StreamReader和StreamWriter</h3><ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">static void Main(string[] args)
+{
+    string source = @"C:\Users\echo\Desktop\Music\解解的神仙现场 - 海阔天空 - 邓紫棋 (2023时光音乐会老友记现场).wav";
+    string target = @"C:\Users\echo\Desktop\解解的神仙现场.wav";
+    CopyFile(source, target);
+    Console.WriteLine("复制成功");
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="6-6-4-StreamReader和StreamWriter"><a href="#6-6-4-StreamReader和StreamWriter" class="headerlink" title="6.6.4 StreamReader和StreamWriter"></a>6.6.4 StreamReader和StreamWriter</h4><ul>
 <li>操作字符、文本</li>
 </ul>
-<h4 id="6-6-4-1-StreamReader"><a href="#6-6-4-1-StreamReader" class="headerlink" title="6.6.4.1 StreamReader"></a>6.6.4.1 StreamReader</h4><ul>
-<li>```c#<br>using (StreamReader sr = new StreamReader(@”C:\Users\echo\Desktop\解解的神仙现场.txt”, Encoding.Default))<br>{<br>// 当没有读到文本末尾，循环打印读取到的行<br>while (!sr.EndOfStream)<br>{<br>    Console.WriteLine(sr.ReadLine());<br>}<br>}<pre class="line-numbers language-none"><code class="language-none">
+<h5 id="6-6-4-1-StreamReader"><a href="#6-6-4-1-StreamReader" class="headerlink" title="6.6.4.1 StreamReader"></a>6.6.4.1 StreamReader</h5><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using (StreamReader sr = new StreamReader(@"C:\Users\echo\Desktop\解解的神仙现场.txt", Encoding.Default))
+{
+    // 当没有读到文本末尾，循环打印读取到的行
+    while (!sr.EndOfStream)
+    {
+        Console.WriteLine(sr.ReadLine());
+    }
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-####  6.6.4.2 StreamWriter
 
-- ```c#
-  // 不存在的文件，会自行创建
-  using (StreamWriter sw = new StreamWriter(@"C:\Users\echo\Desktop\new.txt",true))
-  {
-      // 会覆盖源文本
-      // 添加一个 true 后，不会进行覆盖
-      sw.WriteLine("你赶紧的卡");
-  }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
-<h1 id="七、SQL数据库"><a href="#七、SQL数据库" class="headerlink" title="七、SQL数据库"></a>七、SQL数据库</h1><ul>
+<h5 id="6-6-4-2-StreamWriter"><a href="#6-6-4-2-StreamWriter" class="headerlink" title="6.6.4.2 StreamWriter"></a>6.6.4.2 StreamWriter</h5><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 不存在的文件，会自行创建
+using (StreamWriter sw = new StreamWriter(@"C:\Users\echo\Desktop\new.txt",true))
+{
+    // 会覆盖源文本
+    // 添加一个 true 后，不会进行覆盖
+    sw.WriteLine("你赶紧的卡");
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="七、SQL数据库"><a href="#七、SQL数据库" class="headerlink" title="七、SQL数据库"></a>七、SQL数据库</h2><ul>
 <li>存储数据的仓库</li>
 <li><strong>增删改查</strong></li>
 </ul>
-<h2 id="7-1-SQLServer使用"><a href="#7-1-SQLServer使用" class="headerlink" title="7.1 SQLServer使用"></a>7.1 SQLServer使用</h2><h3 id="7-1-1-创建登录名"><a href="#7-1-1-创建登录名" class="headerlink" title="7.1.1 创建登录名"></a>7.1.1 创建登录名</h3><ul>
+<h3 id="7-1-SQLServer使用"><a href="#7-1-SQLServer使用" class="headerlink" title="7.1 SQLServer使用"></a>7.1 SQLServer使用</h3><h4 id="7-1-1-创建登录名"><a href="#7-1-1-创建登录名" class="headerlink" title="7.1.1 创建登录名"></a>7.1.1 创建登录名</h4><ul>
 <li><p>创建<code>SQL Server</code>身份，设置用户名和密码<img src="./assets/image-20240108190413092-1705156191297-37.png" alt="image-20240108190413092" style="zoom: 50%;"></p>
 </li>
 <li><p><code>服务器角色</code>，服务器名最大权限为<code>sysadmin</code>，要作为管理员身份对数据库进行使用，可以将其勾选上<img src="./assets/image-20240108190723983-1705156191297-38.png" alt="image-20240108190723983" style="zoom: 50%;"></p>
@@ -4546,7 +4586,7 @@ File.AppendText();
 <li><p>带  ×  的账户，可通过<code>双击</code>，并将<code>强制实施密码策略</code>取消勾选，并将<code>状态/登录名</code>勾选为<code>启动</code></p>
 </li>
 </ul>
-<h3 id="7-1-2-登录SQL账户"><a href="#7-1-2-登录SQL账户" class="headerlink" title="7.1.2 登录SQL账户"></a>7.1.2 登录SQL账户</h3><ul>
+<h4 id="7-1-2-登录SQL账户"><a href="#7-1-2-登录SQL账户" class="headerlink" title="7.1.2 登录SQL账户"></a>7.1.2 登录SQL账户</h4><ul>
 <li><p>创建好登录名后，首先修改<code>服务器身份验证</code>，选中<code>服务器</code>，右键<code>属性</code>，点击<code>安全性</code>，勾选<code>SQL Server 和 Windows 身份验证模式</code></p>
 </li>
 <li><p>然后电脑底部搜索框搜索<code>SQL</code>，进入<code>SQL Server 网络配置</code>，进入<code>MSSQLSERVER 的协议</code>，启用<code>Named Pipes</code>和<code>TCP/IP</code></p>
@@ -4564,13 +4604,13 @@ File.AppendText();
 </ul>
 </li>
 </ul>
-<h3 id="7-1-3-创建数据库"><a href="#7-1-3-创建数据库" class="headerlink" title="7.1.3 创建数据库"></a>7.1.3 创建数据库</h3><ul>
+<h4 id="7-1-3-创建数据库"><a href="#7-1-3-创建数据库" class="headerlink" title="7.1.3 创建数据库"></a>7.1.3 创建数据库</h4><ul>
 <li>选中<code>数据库</code>文件夹，右键<code>新建数据库</code></li>
 <li>设置<code>数据库名称</code>，自动生成<code>数据库文件（数据文件 和 日志文件）</code></li>
 <li>对于两个数据库文件，可以自定义<code>初始大小（初始内存）</code>，并设置<code>增长大小（当文件内容长度超过初始大小后，自动增加内存）</code>，另外可更改 数据库文件 <code>存放路径</code></li>
 <li>如，建立一个名为 <u>SQL学习测试</u> 的数据库，初始内存大小及增长 使用默认参数，文件路径改为 <u>D:\Program Files\Microsoft SQL Server\学习测试\数据库</u><img src="./assets/image-20240108200949234-1705156191297-39.png" alt="image-20240108200949234" style="zoom: 33%;"></li>
 </ul>
-<h3 id="7-1-4-删除数据库"><a href="#7-1-4-删除数据库" class="headerlink" title="7.1.4 删除数据库"></a>7.1.4 删除数据库</h3><ul>
+<h4 id="7-1-4-删除数据库"><a href="#7-1-4-删除数据库" class="headerlink" title="7.1.4 删除数据库"></a>7.1.4 删除数据库</h4><ul>
 <li><p>==删除数据库文件==，直接删除是删除不了的，因为数据库有一个监听端口，创建一个数据库就会自动建立一个监听连接，数据库被管理起来<img src="./assets/image-20240108201202870-1705156191297-40.png" alt="image-20240108201202870" style="zoom:50%;"></p>
 </li>
 <li><p>若要删除，首先选中 数据库 文件夹，右键<code>任务 -&gt; 分离</code>，并勾选<code>删除连接</code>，点击<code>确认</code>，移除该数据库<img src="/./assets/image-20240108201621911-1705156191297-41.png" alt="image-20240108201621911"></p>
@@ -4578,149 +4618,194 @@ File.AppendText();
 <li><p>移除之后，便可对两个<code>数据库文件</code>进行删除</p>
 </li>
 </ul>
-<h3 id="7-1-5-还原数据库"><a href="#7-1-5-还原数据库" class="headerlink" title="7.1.5 还原数据库"></a>7.1.5 还原数据库</h3><ul>
+<h4 id="7-1-5-还原数据库"><a href="#7-1-5-还原数据库" class="headerlink" title="7.1.5 还原数据库"></a>7.1.5 还原数据库</h4><ul>
 <li>若<code>数据文件</code>还存在，通过选中<code>数据库</code>，右键<code>附加</code>，然后<code>添加</code>，选择<code>.mdf</code>文件，<code>确认</code>即可还原<img src="/./assets/image-20240108202327547-1705156191297-42.png" alt="image-20240108202327547"></li>
 </ul>
-<h3 id="7-1-6-新建表"><a href="#7-1-6-新建表" class="headerlink" title="7.1.6 新建表"></a>7.1.6 新建表</h3><ul>
+<h4 id="7-1-6-新建表"><a href="#7-1-6-新建表" class="headerlink" title="7.1.6 新建表"></a>7.1.6 新建表</h4><ul>
 <li><p>选中<code>数据库</code>下的<code>表</code>文件夹，右键<code>新建 -&gt; 表</code>，设置<code>列名</code>等<img src="./assets/image-20240108205049779-1705156191297-43.png" alt="image-20240108205049779" style="zoom:50%;"></p>
 </li>
 <li><p>录入数据<img src="./../../../../Typora/Projects/上位机/assets/image-20240108205259257.png" alt="image-20240108205259257" style="zoom: 33%;"><img src="./assets/image-20240108205432705-1705156191297-45.png" alt="image-20240108205432705" style="zoom: 33%;"></p>
 </li>
 </ul>
-<h3 id="7-1-7-使用SQL脚本"><a href="#7-1-7-使用SQL脚本" class="headerlink" title="7.1.7 使用SQL脚本"></a>7.1.7 使用SQL脚本</h3><ul>
+<h4 id="7-1-7-使用SQL脚本"><a href="#7-1-7-使用SQL脚本" class="headerlink" title="7.1.7 使用SQL脚本"></a>7.1.7 使用SQL脚本</h4><ul>
 <li><p>首先进入脚本界面，选中数据库，并<code>新建查询</code><img src="./assets/image-20240108205832210-1705156191297-46.png" alt="image-20240108205832210" style="zoom: 50%;"></p>
 </li>
 <li><p>一些脚本代码</p>
 <ul>
-<li><p>启动数据库</p>
+<li>启动数据库</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">/*
+-- 启动指定数据库
+	-- use 数据库名
+	-- go
+*/
+
+// 下面代码为 SQL 语言，之后的代码也一样
+use SQL学习测试
+go<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li>```sql<br>– 启动指定数据库<br>– use 数据库名<br>– go<br>use SQL学习测试<br>go<pre class="line-numbers language-none"><code class="language-none">
-- 添加数据
-
-  - ```sql
-    -- 添加  insert into ，into这个关键词可以省略
-    
-    insert Product([ProductNo], [ProductName], [ProductImage], [Price])
-    values(1002,'华为','image/xxx.jpg',9000)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>添加数据</li>
 </ul>
-</li>
-<li><p>删除数据</p>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// -- 添加  insert into ，into这个关键词可以省略
+
+// SQL 语言
+insert Product([ProductNo], [ProductName], [ProductImage], [Price])
+values(1002,'华为','image/xxx.jpg',9000)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>```sql<br>– 删除 delete from，from这个关键词也可以省略</p>
-<p>delete Product<br>where productName=’华为’   – where 关键词是条件</p>
-<pre class="line-numbers language-none"><code class="language-none">
-
-- 修改数据
-
-  - ```sql
-    -- 修改 update
-    
-    update Product
-    set productname='华为mate40',productimage='image/huawei.jpg',price=10000
-    where productNo=1003<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>删除数据</li>
 </ul>
-</li>
-<li><p>查询数据</p>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// -- 删除 delete from，from这个关键词也可以省略
+
+// SQL 语言
+delete Product
+where productName='华为'   -- where 关键词是条件
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <ul>
-<li><p>```sql<br>– 查询 select … from …</p>
-<p>select * from Product  – * 代表所有列</p>
-<p>select [ProductNo], [ProductName] from Product  – 查询指定列<br>where not productno=1001  – 逻辑关键词 not and or 举例：where prductno=1003 or price&gt;5000</p>
-<pre class="line-numbers language-none"><code class="language-none">
-
-
-### 7.1.8 数据关联
-
-#### 7.1.8.1 创建数据关联关系
-
-- 选中表格，右键`关系`，`添加`一个关系
-- 在`常规`里，选中`表和列规范`的`...`，设置主键表和外键表
-- 并将`在创建或重新启用时检查现有数据`设置为`否`
-
-&lt;img src="./assets/image-20240109165325630-1705156191297-47.png" alt="image-20240109165325630" style="zoom:33%;" /&gt;
-
-
-
-#### 7.1.8.2 关联表查询
-
-- 一些查询代码示例
-
-  - 外联接
-
-    - ```sql
-      -- 外联接 inner join
-      
-      -- as 关键字可以进行重命名
-      -- 表格也可以取别名 如：Product a
-      select [ProductNo] as 编号, [ProductName], [ProductImage], [Price], a.[typeId], b.typeName
-      
-      -- 对表格取别名
-      from Product a 
-      inner join ProductType b
-      on(a.typeId = b.typeId)
-      
-      -- 如果还有表需要关联检索，继续写 inner join... on...
-      -- inner join otherTable
-      -- on(a.ProductName=otherTable.Name)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>修改数据</li>
 </ul>
-</li>
-<li><p>内联接</p>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// -- 修改 update
+
+// SQL 语言
+update Product
+set productname='华为mate40',productimage='image/huawei.jpg',price=10000
+where productNo=1003<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <ul>
-<li>```sql<br>– 左外联接 left join    以左表为基准进行匹配，匹配到了就显示，没匹配到就不显示<br>select [ProductNo], [ProductName], [ProductImage], [Price], Product.[typeId], ProductType.typeName<br>from ProductType left join Product<br>on(Product.typeId = ProductType.typeId)<pre class="line-numbers language-none"><code class="language-none">
-- ```sql
-  -- 右外联接 right join
-  select [ProductNo], [ProductName], [ProductImage], [Price], Product.[typeId], ProductType.typeName
-  from ProductType right join Product
-  on(Product.typeId = ProductType.typeId)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>查询数据</li>
+</ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// -- 查询 select ... from ...
+
+// SQL 语言
+select * from Product  -- * 代表所有列
+
+select [ProductNo], [ProductName] from Product  -- 查询指定列
+where not productno=1001  -- 逻辑关键词 not and or 举例：where prductno=1003 or price&gt;5000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="7-1-8-数据关联"><a href="#7-1-8-数据关联" class="headerlink" title="7.1.8 数据关联"></a>7.1.8 数据关联</h4><h5 id="7-1-8-1-创建数据关联关系"><a href="#7-1-8-1-创建数据关联关系" class="headerlink" title="7.1.8.1 创建数据关联关系"></a>7.1.8.1 创建数据关联关系</h5><ul>
+<li>选中表格，右键<code>关系</code>，<code>添加</code>一个关系</li>
+<li>在<code>常规</code>里，选中<code>表和列规范</code>的<code>...</code>，设置主键表和外键表</li>
+<li>并将<code>在创建或重新启用时检查现有数据</code>设置为<code>否</code></li>
+</ul>
+<img src="./assets/image-20240109165325630-1705156191297-47.png" alt="image-20240109165325630" style="zoom:33%;">
+
+
+
+<h5 id="7-1-8-2-关联表查询"><a href="#7-1-8-2-关联表查询" class="headerlink" title="7.1.8.2 关联表查询"></a>7.1.8.2 关联表查询</h5><ul>
+<li><p>一些查询代码示例</p>
+<ul>
+<li>外联接</li>
 </ul>
 </li>
 </ul>
-</li>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// -- 外联接 inner join
+
+// -- as 关键字可以进行重命名
+// -- 表格也可以取别名 如：Product a
+
+// SQL 语言
+select [ProductNo] as 编号, [ProductName], [ProductImage], [Price], a.[typeId], b.typeName
+
+// -- 对表格取别名
+from Product a 
+inner join ProductType b
+on(a.typeId = b.typeId)
+
+// -- 如果还有表需要关联检索，继续写 inner join... on...
+// -- inner join otherTable
+// -- on(a.ProductName=otherTable.Name)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>内联接</li>
 </ul>
-<h3 id="7-1-9-聚合函数"><a href="#7-1-9-聚合函数" class="headerlink" title="7.1.9 聚合函数"></a>7.1.9 聚合函数</h3><ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// -- 左外联接 left join    以左表为基准进行匹配，匹配到了就显示，没匹配到就不显示
+
+// SQL 语言
+select [ProductNo], [ProductName], [ProductImage], [Price], Product.[typeId], ProductType.typeName
+from ProductType left join Product
+on(Product.typeId = ProductType.typeId)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// -- 右外联接 right join
+
+// SQL 语言
+select [ProductNo], [ProductName], [ProductImage], [Price], Product.[typeId], ProductType.typeName
+from ProductType right join Product
+on(Product.typeId = ProductType.typeId)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="7-1-9-聚合函数"><a href="#7-1-9-聚合函数" class="headerlink" title="7.1.9 聚合函数"></a>7.1.9 聚合函数</h4><ul>
 <li><p>除了<code>count()</code>，其余的<code>avg() / sum() / max() / min()</code>均针对<strong>数字类型和日期</strong></p>
 </li>
 <li><p>计数<code>count()</code></p>
-<ul>
-<li><p>```sql<br>– count 统计记录条数，当有一列中的某个单元格值为 NULL 时，不对其进行计数<br>select COUNT(ProductName) from Product</p>
-<p>– 统计全部，count()参数可写 <em>/1<br>select count(</em>) from Product<br>select count(1) from Product</p>
-<pre class="line-numbers language-none"><code class="language-none">
-- 求均值`avg()`
-
-  - ```sql
-    select avg(Price) from Product<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
-</li>
-<li><p>求和<code>sum()</code></p>
-<ul>
-<li>```sql<br>select sum(Price) from Product<pre class="line-numbers language-none"><code class="language-none">
-- 求最值`max() / min()`
-
-  - ```sql
-    select max(Price) from Product
-    
-    select min(Price) from Product<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
 </li>
 </ul>
-<h3 id="7-1-10-排序与分组查询"><a href="#7-1-10-排序与分组查询" class="headerlink" title="7.1.10 排序与分组查询"></a>7.1.10 排序与分组查询</h3><ul>
-<li><p>排序<code>order by ... asc/desc</code></p>
-<ul>
-<li><p>```sql<br>– 排序 order by asc/desc  升序/降序<br>select * from Product</p>
-<p>– 先用 Price 降序排列，若 Price 有相同值，再用 typeId 进行二次降序排列<br>order by Price desc,typeId asc  </p>
-<pre class="line-numbers language-none"><code class="language-none">
-- 分组`group by`
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// -- count 统计记录条数，当有一列中的某个单元格值为 NULL 时，不对其进行计数
 
-  - ```sql
-    -- 分组 group by 
-    select ProductType.typeName as 类型, count(Product.ProductNo) as 数量
-    from Product left join ProductType
-    on(Product.typeId=ProductType.typeId)
-    
-    -- where
-    group by ProductType.typeName
-    order by 数量 desc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+// SQL 语言
+select COUNT(ProductName) from Product
+
+// -- 统计全部，count()参数可写 */1
+select count(*) from Product
+select count(1) from Product<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>求均值<code>avg()</code></li>
 </ul>
-</li>
+<pre class="line-numbers language-C#" data-language="C#"><code class="language-C#">// SQL
+select avg(Price) from Product<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>求和<code>sum()</code></li>
+</ul>
+<pre class="line-numbers language-C#" data-language="C#"><code class="language-C#">// SQL
+select sum(Price) from Product<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>求最值<code>max() / min()</code></li>
+</ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// SQL
+select max(Price) from Product
+
+select min(Price) from Product<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="7-1-10-排序与分组查询"><a href="#7-1-10-排序与分组查询" class="headerlink" title="7.1.10 排序与分组查询"></a>7.1.10 排序与分组查询</h4><ul>
+<li>排序<code>order by ... asc/desc</code></li>
+</ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// -- 排序 order by asc/desc  升序/降序
+
+// SQL
+select * from Product
+
+// -- 先用 Price 降序排列，若 Price 有相同值，再用 typeId 进行二次降序排列
+order by Price desc,typeId asc  
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>分组<code>group by</code></li>
+</ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// -- 分组 group by 
+
+// SQL
+select ProductType.typeName as 类型, count(Product.ProductNo) as 数量
+from Product left join ProductType
+on(Product.typeId=ProductType.typeId)
+
+// -- where
+group by ProductType.typeName
+order by 数量 desc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
 <li><p>一些==注意事项==</p>
 <ul>
 <li><blockquote>
@@ -4730,63 +4815,75 @@ File.AppendText();
 </ul>
 </li>
 </ul>
-<h2 id="7-2-C-中使用SQL"><a href="#7-2-C-中使用SQL" class="headerlink" title="7.2 C#中使用SQL"></a>7.2 C#中使用SQL</h2><h3 id="7-2-1-基本步骤"><a href="#7-2-1-基本步骤" class="headerlink" title="7.2.1 基本步骤"></a>7.2.1 基本步骤</h3><blockquote>
+<h3 id="7-2-C-中使用SQL"><a href="#7-2-C-中使用SQL" class="headerlink" title="7.2 C#中使用SQL"></a>7.2 C#中使用SQL</h3><h4 id="7-2-1-基本步骤"><a href="#7-2-1-基本步骤" class="headerlink" title="7.2.1 基本步骤"></a>7.2.1 基本步骤</h4><blockquote>
 <p>案例见<code>D:\Program Files\Microsoft Visual Studio\projects\毕设\数据库学习\用户登录\UserLogIn</code></p>
 </blockquote>
 <ul>
-<li><p>第一步：创建数据库对象</p>
+<li>第一步：创建数据库对象</li>
+</ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">/*
+字符串参数分别为：
+	Server   : 服务器名称
+	uid	     : 登录名
+	pwd      : 密码
+	database : 数据库名称
+*/
+
+SqlConnection conn = new SqlConnection("Server = LAPTOP-H5KQEA5B;uid = demo; pwd = 123456;database = SQL学习测试");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><p>```c#<br>/*<br>字符串参数分别为：<br>Server   : 服务器名称<br>uid	     : 登录名<br>pwd      : 密码<br>database : 数据库名称<br>*/</p>
-<p>SqlConnection conn = new SqlConnection(“Server = LAPTOP-H5KQEA5B;uid = demo; pwd = 123456;database = SQL学习测试”);</p>
-<pre class="line-numbers language-none"><code class="language-none">
-- 第二步：打开数据库
-
-  - ```c#
-    conn.Open();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>第二步：打开数据库</li>
 </ul>
-</li>
-<li><p>第三步：创建执行脚本对象</p>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">conn.Open();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <ul>
-<li><p>```c#<br>string qq = this.txtQQ.Text;<br>string pwd = this.txtPwd.Text;</p>
-<p>// SQL脚本代码<br>string sql = $”select count(1) from UserInfos where qq = ‘{qq}’ and pwd = ‘{pwd}’”;</p>
-<p>// 脚本对象构造函数参数：(脚本代码字符串, 数据库对象)<br>SqlCommand cmd = new SqlCommand(sql, conn);</p>
-<pre class="line-numbers language-none"><code class="language-none">
-- 第四步：执行脚本
-
-  - ```c#
-    // 执行脚本，并调用相应方法获取指定返回值
-    
-    // 如：返回脚本执行后结果的第一行第一列
-    int result = (int)cmd.ExecuteScalar();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>第三步：创建执行脚本对象</li>
 </ul>
-</li>
-<li><p>第五步：关闭数据库连接对象</p>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">string qq = this.txtQQ.Text;
+string pwd = this.txtPwd.Text;
+
+// SQL脚本代码
+string sql = $"select count(1) from UserInfos where qq = '{qq}' and pwd = '{pwd}'";
+
+// 脚本对象构造函数参数：(脚本代码字符串, 数据库对象)
+SqlCommand cmd = new SqlCommand(sql, conn);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li>```c#<br>conn.Close();<pre class="line-numbers language-none"><code class="language-none">
-
-
-### 7.2.2 防SQL注入
-
-&gt; 按 《用户登录》项目输入账号`10001` ，密码不输入`123456`，而输入`' or 1=1 --`，也会成功登录，为了避免此情况发生，在c#程序中，对代码进行处理，避免SQL注入
-
-- 首先，通过`SqlParameter`对象进行参数化
-
-  - ```c#
-    // 构造函数参数为：("@数据库元素名称", 用户输入Text)
-    
-    SqlParameter para1 = new SqlParameter("@qq", qq);
-    SqlParameter para2 = new SqlParameter("@Pwd", pwd);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>第四步：执行脚本</li>
 </ul>
-</li>
-<li><p>然后，在脚本对象<code>SqlCommand</code>后，对<code>SqlParameter</code>对象进行添加</p>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 执行脚本，并调用相应方法获取指定返回值
+
+// 如：返回脚本执行后结果的第一行第一列
+int result = (int)cmd.ExecuteScalar();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li><pre class=" language-c#"><code class="language-c#">cmd.Parameters.Add(para1);
-cmd.Parameters.Add(para2);
-</code></pre>
-</li>
+<li>第五步：关闭数据库连接对象</li>
 </ul>
-</li>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">conn.Close();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h4 id="7-2-2-防SQL注入"><a href="#7-2-2-防SQL注入" class="headerlink" title="7.2.2 防SQL注入"></a>7.2.2 防SQL注入</h4><blockquote>
+<p>按 《用户登录》项目输入账号<code>10001</code> ，密码不输入<code>123456</code>，而输入<code>' or 1=1 --</code>，也会成功登录，为了避免此情况发生，在c#程序中，对代码进行处理，避免SQL注入</p>
+</blockquote>
+<ul>
+<li>首先，通过<code>SqlParameter</code>对象进行参数化</li>
 </ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 构造函数参数为：("@数据库元素名称", 用户输入Text)
+
+SqlParameter para1 = new SqlParameter("@qq", qq);
+SqlParameter para2 = new SqlParameter("@Pwd", pwd);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>然后，在脚本对象<code>SqlCommand</code>后，对<code>SqlParameter</code>对象进行添加</li>
+</ul>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">cmd.Parameters.Add(para1);
+cmd.Parameters.Add(para2);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+
+
 
                 
             </div>
@@ -4903,9 +5000,9 @@ cmd.Parameters.Add(para2);
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="上位机">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="c#上位机开发">
                         
-                        <span class="card-title">上位机</span>
+                        <span class="card-title">c#上位机开发</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -5017,6 +5114,7 @@ cmd.Parameters.Add(para2);
 </div>
 
 
+
 <script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
@@ -5066,6 +5164,7 @@ cmd.Parameters.Add(para2);
         const expandedClass = 'expanded';
         let $tocAside = $('#toc-aside');
         let $mainContent = $('#main-content');
+        
         $('#floating-toc-btn .btn-floating').click(function () {
             if ($tocAside.hasClass(expandedClass)) {
                 $tocAside.removeClass(expandedClass).hide();
