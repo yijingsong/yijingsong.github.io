@@ -311,14 +311,14 @@ namespa">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-18
+                    2024-02-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    22.8k
+                    22.7k
                 </div>
                 
 
@@ -3609,51 +3609,19 @@ private void btnRead_Click(object sender, EventArgs e)
 </li>
 <li><p><strong>TCP</strong>协议，有<strong>三次握手</strong>，要求必须要有服务器，请求必须由客户端发起，因为服务器不知道客户端在哪。三次握手的过程：首先客户端给服务器发送消息“你有空吗？”，服务器收到客户端的消息后，回复“我有空”，最后客户端再给服务器发送消息“我知道你有空了”。<strong>只有完成三次握手连接上后，客户端才跟服务器相收发数据，否则不会进行数据的沟通</strong>。所以TCP协议<strong>安全、稳定、但是效率低</strong>（需要花时间去握手）</p>
 </li>
-<li><pre class=" language-Mermaid"><code class="language-Mermaid">sequenceDiagram
-    participant Client as 客户端
-    participant Server as 服务器
-
-    Client->>Server: 发送消息："你有空吗？"
-    Server-->>Client: 回复消息："我有空"
-    Client->>Server: 发送消息："我知道你有空了"
-<pre class="line-numbers language-none"><code class="language-none">
-  - **UDP**协议，**快速，效率高，但是不稳定，容易发生数据丢失**，客户端不管服务器是否有空，直接把消息发送到服务器，当服务器繁忙的时候不能即使对接收到的数据进行处理，进而造成数据丢失
-
-  - 两种协议各有好坏，视频传输使用的就是UDP协议
-
-
-
-#### 6.3.2 Socket通信流程
-
-- Socket通信流程图
-
-  - ```mermaid
-    graph LR
-        id1(客户端)--->id2["Socket()"]
-        id2--->id3["Connect()"]
-        id3-->id4["Send()"]
-        id4-->id5["Receive()"]
-        id5-->id6["Close()"]
-        
-        id7(服务端)-->id8["Socket()"]
-        id8-->id9["Bind()"]
-        id9-->id10["Listen()"]
-        id10-->id11["Accept()"]
-        id11-->id12["Receive()"]
-        id12-->id13["Send()"]
-        id13-->id14[捕获异常]
-        id14-->id15["Close()"]
-        
-        id11<-->|建立连接|id3
-        id4-->|发送数据|id12
-        id13-->|接收数据|id5
-        id14-->|发送数据|id6
-        %%id3<-.->id11
-        %%id4<-.->id12
-        %%id5<-.->id13
-        %%id6<-.->id14
-    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
+<li><p><img src="/2024/01/13/shang-wei-ji/image-20240206173133057.png"></p>
+</li>
+<li><p><strong>UDP</strong>协议，<strong>快速，效率高，但是不稳定，容易发生数据丢失</strong>，客户端不管服务器是否有空，直接把消息发送到服务器，当服务器繁忙的时候不能即使对接收到的数据进行处理，进而造成数据丢失</p>
+</li>
+<li><p>两种协议各有好坏，视频传输使用的就是UDP协议</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-3-2-Socket通信流程"><a href="#6-3-2-Socket通信流程" class="headerlink" title="6.3.2 Socket通信流程"></a>6.3.2 Socket通信流程</h4><ul>
+<li><p>Socket通信流程图</p>
+<ul>
+<li><p><img src="/2024/01/13/shang-wei-ji/image-20240206173230194.png"></p>
 </li>
 <li><p>服务端<code>Bind()</code>：负责绑定监听端口；<code>Listen()</code>：设置监听队列：<code>Accept()</code>：放循环中，等待客户连接</p>
 </li>
@@ -5205,7 +5173,7 @@ cmd.Parameters.Add(para2);<span aria-hidden="true" class="line-numbers-rows"><sp
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">27.6k</span>
+                        class="white-color">27.5k</span>
             
             
             
