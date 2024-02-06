@@ -4,32 +4,21 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Jupter及Anaconda常用命令, yijingsong">
-    <meta name="description" content="conda命令
+    <meta name="keywords" content="Tensorflow 2.0, yijingsong">
+    <meta name="description" content="一、神经网络设计过程1.1 神经网络训练过程
+采集大量数据对（输入特征，标签）构成数据集
+
+将数据集喂入搭建好的神经网络结构
+
+网络优化参数得到模型
+
+模型读取新输入特征
+
+输出识别结果
 
 
-命令
-作用
-
-
-
-conda list
-查询
-
-
-conda install *
-安装
-
-
-conda update *
-升级
-
-
-conda remove *
-卸载
-
-
-conda creat -n xx python">
+1.2 损失函数（loss function）
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -41,7 +30,7 @@ conda creat -n xx python">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Jupter及Anaconda常用命令 | yijingsong</title>
+    <title>Tensorflow 2.0 | yijingsong</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -270,12 +259,12 @@ conda creat -n xx python">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Jupter及Anaconda常用命令</h1>
+                    <h1 class="description center-align post-title">Tensorflow 2.0</h1>
                 </div>
             </div>
         </div>
@@ -319,21 +308,21 @@ conda creat -n xx python">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-14
+                    2024-02-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-14
+                    2024-02-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    132
+                    1k
                 </div>
                 
 
@@ -353,83 +342,214 @@ conda creat -n xx python">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="conda命令"><a href="#conda命令" class="headerlink" title="conda命令"></a>conda命令</h3><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">conda list</td>
-<td align="center">查询</td>
-</tr>
-<tr>
-<td align="center">conda install *</td>
-<td align="center">安装</td>
-</tr>
-<tr>
-<td align="center">conda update *</td>
-<td align="center">升级</td>
-</tr>
-<tr>
-<td align="center">conda remove *</td>
-<td align="center">卸载</td>
-</tr>
-<tr>
-<td align="center">conda creat -n xx python=3.6</td>
-<td align="center">创建虚拟环境</td>
-</tr>
-<tr>
-<td align="center">activate xx</td>
-<td align="center">进入虚拟环境</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="jupyter-notebook使用"><a href="#jupyter-notebook使用" class="headerlink" title="jupyter notebook使用"></a>jupyter notebook使用</h3><h4 id="打开方式"><a href="#打开方式" class="headerlink" title="打开方式"></a>打开方式</h4><blockquote>
-<p>cmd命令,在指定目录下输入jupyter notebook</p>
-</blockquote>
-<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><table>
-<thead>
-<tr>
-<th align="center">快捷键</th>
-<th align="center">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">shift+回车</td>
-<td align="center">运行</td>
-</tr>
-<tr>
-<td align="center">Tab</td>
-<td align="center">自动补全</td>
-</tr>
-<tr>
-<td align="center">shift+双击Tab</td>
-<td align="center">查看函数文档</td>
-</tr>
-</tbody></table>
-<h4 id="魔术命令"><a href="#魔术命令" class="headerlink" title="魔术命令"></a>魔术命令</h4><table>
-<thead>
-<tr>
-<th align="center">命令代码</th>
-<th align="center">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">%pwd</td>
-<td align="center">显示当前目录</td>
-</tr>
-<tr>
-<td align="center">%matplotlib inline</td>
-<td align="center">在代码下方绘制图形</td>
-</tr>
-<tr>
-<td align="center">%timeit[代码]</td>
-<td align="center">查看代码运行时间</td>
-</tr>
-</tbody></table>
+                <h2 id="一、神经网络设计过程"><a href="#一、神经网络设计过程" class="headerlink" title="一、神经网络设计过程"></a>一、神经网络设计过程</h2><h3 id="1-1-神经网络训练过程"><a href="#1-1-神经网络训练过程" class="headerlink" title="1.1 神经网络训练过程"></a>1.1 神经网络训练过程</h3><ul>
+<li><p>采集大量<strong>数据对</strong>（输入特征，标签）构成数据集</p>
+</li>
+<li><p>将数据集<strong>喂入</strong>搭建好的神经<strong>网络结构</strong></p>
+</li>
+<li><p>网络<strong>优化参数</strong>得到模型</p>
+</li>
+<li><p>模型读取新输入特征</p>
+</li>
+<li><p>输出识别结果</p>
+</li>
+</ul>
+<h3 id="1-2-损失函数（loss-function）"><a href="#1-2-损失函数（loss-function）" class="headerlink" title="1.2 损失函数（loss function）"></a>1.2 损失函数（loss function）</h3><ul>
+<li><strong>衡量预测值（y）与实际值（y_）的差距</strong></li>
+<li>定量判断 权重$W$ 和 偏置$b$ 的优劣，当损失函数输出最小时，参数$W、b$ 会出现最优值</li>
+</ul>
+<h4 id="1-2-1-均方误差（MSE）"><a href="#1-2-1-均方误差（MSE）" class="headerlink" title="1.2.1 均方误差（MSE）"></a>1.2.1 均方误差（MSE）</h4><ul>
+<li>$MSE(y,y_{}) = \frac{\sum^n_{k=0}(y-y_{})^2}{n}$</li>
+</ul>
+<h3 id="1-3-梯度"><a href="#1-3-梯度" class="headerlink" title="1.3 梯度"></a>1.3 梯度</h3><ul>
+<li>模型训练的目的是：找到一组参数$W、b$，使 $loss function$ 最小</li>
+<li><strong>损失函数输出值减小的方向，即函数梯度下降的方向</strong><ul>
+<li>梯度：函数对各参数求偏导后的向量</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-1-梯度下降"><a href="#1-3-1-梯度下降" class="headerlink" title="1.3.1 梯度下降"></a>1.3.1 梯度下降</h4><ul>
+<li>参数更新：<ul>
+<li>$w_{t+1} = w_t - lr*\frac{\partial loss}{\partial w_t}$</li>
+<li>$b_{t+1} = b_t - lr * \frac{\partial loss}{\partial b_t}$</li>
+<li>$w_{t+1} * x + b_{t+1} \rightarrow y$</li>
+</ul>
+</li>
+<li>上式中，$lr$ 为学习率（learning rate），是梯度下降的速度，是一个超参数，当 $lr$ 设置过小时，收敛过程会变得十分缓慢，过大时，梯度可能会在最小值附近来回震荡，甚至无法收敛<img src="/2024/02/06/tensorflow-2-0/image-20240206125753088.png"></li>
+</ul>
+<h3 id="1-4-反向传播"><a href="#1-4-反向传播" class="headerlink" title="1.4 反向传播"></a>1.4 反向传播</h3><ul>
+<li>从后向前，逐层求损失函数对每层神经元参数的偏导数，迭代更新所有参数</li>
+</ul>
+<h3 id="1-5-感受训练过程"><a href="#1-5-感受训练过程" class="headerlink" title="1.5 感受训练过程"></a>1.5 感受训练过程</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import tensorflow as tf
 
+# 设定可训练参数 w 的随机初始值为 5
+w = tf.Variable(tf.constant(5, dtype = tf.float32))
+
+# 学习率 lr 设置为 0.01
+lr = 0.01
+
+# 循环迭代次数 40次
+epoch = 40
+
+for epoch in range(epoch):
+    with tf.GradientTape() as tape:
+        # 损失函数 loss 定义为 (w + 1)^2
+        loss = tf.square(w + 1)
+    
+    # .gradient()，指定损失函数 loss 关于 w 求导
+    grads = tape.gradient(loss, w)
+    
+    # .assign_sub()，让变量做自减，即，w -= lr * grads
+    w.assign_sub(lr * grads)
+    print("After %s epoch, w is %f, loss is %f" % (epoch, w.numpy(), loss))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="二、Tensorflow-2-0"><a href="#二、Tensorflow-2-0" class="headerlink" title="二、Tensorflow 2.0"></a>二、Tensorflow 2.0</h2><h3 id="2-1-创建tensor"><a href="#2-1-创建tensor" class="headerlink" title="2.1 创建tensor"></a>2.1 创建tensor</h3><ul>
+<li>张量（Tensor）：<strong>多维数组</strong>（列表），可以表示0阶到n阶数组</li>
+<li>阶：张量的维数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">维数</th>
+<th align="center">阶</th>
+<th align="center">名字</th>
+<th align="center">例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0-D</td>
+<td align="center">0</td>
+<td align="center">标量 scalar</td>
+<td align="center">s = 1</td>
+</tr>
+<tr>
+<td align="center">1-D</td>
+<td align="center">1</td>
+<td align="center">向量 vector</td>
+<td align="center">v = [1, 2, 3]</td>
+</tr>
+<tr>
+<td align="center">2-D</td>
+<td align="center">2</td>
+<td align="center">矩阵 matrix</td>
+<td align="center">m = [[1, 2, 3], [4, 5 6]]</td>
+</tr>
+<tr>
+<td align="center">n-D</td>
+<td align="center">n</td>
+<td align="center">张量 tensor</td>
+<td align="center">t = [[[[…]]]]</td>
+</tr>
+</tbody></table>
+<h4 id="2-1-1-普通tensor"><a href="#2-1-1-普通tensor" class="headerlink" title="2.1.1 普通tensor"></a>2.1.1 普通tensor</h4><ul>
+<li><code>tf.constant(张量内容, dtype = 数据类型（可选）)</code></li>
+</ul>
+<p>例如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import tensorflow as tf
+
+a = tf.constant([1, 5], dtype = tf.int64)
+
+print(a)
+print(a.dtype)
+print(a.shape)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行结果：</p>
+<blockquote>
+<pre class="line-numbers language-none"><code class="language-none">tf.Tensor([1 5], shape=(2,), dtype=int64)
+
+&lt;dtype: 'int64'&gt;
+
+(2,)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h4 id="2-1-2-numpy转tensor"><a href="#2-1-2-numpy转tensor" class="headerlink" title="2.1.2 numpy转tensor"></a>2.1.2 numpy转tensor</h4><ul>
+<li><code>tf.convert_to_tensor(数据名, dtype = 数据类型（可选）)</code></li>
+</ul>
+<p>例如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import tensorflow as tf
+import numpy as np
+
+a = np.arange(0, 5)
+b = tf.convert_to_tensor(a, dtype = tf.int64)
+
+print(a)
+print(b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行结果：</p>
+<blockquote>
+<pre class="line-numbers language-none"><code class="language-none">[0 1 2 3 4]
+
+tf.Tensor([0 1 2 3 4], shape=(5,), dtype=int64)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h4 id="2-1-3-同值tensor"><a href="#2-1-3-同值tensor" class="headerlink" title="2.1.3 同值tensor"></a>2.1.3 同值tensor</h4><ul>
+<li><p><code>tf.zeros(维度)</code>：全 0 tensor</p>
+</li>
+<li><p><code>tf.ones(维度)</code>：全 1 tensor</p>
+</li>
+<li><p><code>tf.fill(维度, 指定值)</code>：全为指定值的tensor</p>
+</li>
+</ul>
+<p>例如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import tensorflow as tf
+
+a = tf.zeros([2, 3])
+b = tf.ones(4)
+c = tf.fill([2, 2], 9)
+
+print(a)
+print(b)
+print(c)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行结果：</p>
+<blockquote>
+<pre class="line-numbers language-none"><code class="language-none">tf.Tensor(
+[[0. 0. 0.]
+ [0. 0. 0.]], shape=(2, 3), dtype=float32)
+ 
+tf.Tensor([1. 1. 1. 1.], shape=(4,), dtype=float32)
+
+tf.Tensor(
+[[9 9]
+ [9 9]], shape=(2, 2), dtype=int32)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h4 id="2-1-4-统计分布tensor"><a href="#2-1-4-统计分布tensor" class="headerlink" title="2.1.4 统计分布tensor"></a>2.1.4 统计分布tensor</h4><ul>
+<li><p><code>tf.random.normal(维度, mean = 均值, stddev = 标准差)</code>：正太分布随机数，默认均值0，标准差1</p>
+</li>
+<li><p><code>tf.random.truncated_normal(维度, mean = 均值, stddev = 标准差)</code>：生成$(\mu-2\sigma, \mu+2\sigma)$之间的正态分布值，若生成值在$(\mu-2\sigma, \mu+2 \sigma)$之外，会进行重新生成，保证了取值在均值附近</p>
+</li>
+<li><p>标准差计算公式：$\sigma = \sqrt{\frac{\sum^n_{i = 1}(x_i - \bar x)^2}{n}}$</p>
+</li>
+<li><p><code>tf.random.uniform(维度, minval = 最小值, maxval = 最大值)</code>：均匀分布随机数</p>
+</li>
+</ul>
+<p>例如：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import tensorflow as tf
+
+d = tf.random.normal([2, 2], mean = 0.5, stddev = 1)
+print(d)
+
+e = tf.random.truncated_normal([2, 2], mean = 0.5, stddev = 1)
+print(e)
+
+f = tf.random.uniform([2, 2], minval = 0, maxval = 1)
+print(f)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>运行结果：</p>
+<blockquote>
+<pre class="line-numbers language-none"><code class="language-none">tf.Tensor(
+[[-1.7673643   1.8214508 ]
+ [ 1.3998327  -0.46976972]], shape=(2, 2), dtype=float32)
+ 
+tf.Tensor(
+[[ 0.9264284  -0.69317317]
+ [ 2.2075253   1.5080855 ]], shape=(2, 2), dtype=float32)
+ 
+ tf.Tensor(
+[[0.7370062  0.24481273]
+ [0.06990469 0.4966843 ]], shape=(2, 2), dtype=float32)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</blockquote>
+<h3 id="2-2-常用函数"><a href="#2-2-常用函数" class="headerlink" title="2.2 常用函数"></a>2.2 常用函数</h3>
                 
             </div>
             <hr/>
@@ -455,7 +575,7 @@ conda creat -n xx python">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yijingsong.github.io/2023/01/14/jupter-ji-anaconda-chang-yong-ming-ling/">https://yijingsong.github.io/2023/01/14/jupter-ji-anaconda-chang-yong-ming-ling/</a>
+                    <a href="https://yijingsong.github.io/2024/02/06/tensorflow-2-0/">https://yijingsong.github.io/2024/02/06/tensorflow-2-0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -536,54 +656,18 @@ conda creat -n xx python">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/01/14/python-shu-ju-fen-xi-chang-yong-bao/">
+                <a href="/2024/02/06/tensorflow-2-0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="python数据分析常用包">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Tensorflow 2.0">
                         
-                        <span class="card-title">python数据分析常用包</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-14
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            阿淞啊
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/01/14/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Tensorflow 2.0</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -594,7 +678,45 @@ conda creat -n xx python">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            阿淞啊
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/13/shang-wei-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="c#上位机开发">
+                        
+                        <span class="card-title">c#上位机开发</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-13
                             </span>
                         <span class="publish-author">
                             
