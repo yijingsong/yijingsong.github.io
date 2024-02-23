@@ -315,14 +315,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-02-22
+                    2024-02-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.9k
+                    7.3k
                 </div>
                 
 
@@ -1421,6 +1421,37 @@ print("结合计算的结果：",loss_ce2)<span aria-hidden="true" class="line-n
 [1.68795487e-04 1.03475622e-03 6.58839038e-02 2.58349207e+00
  5.49852354e-02], shape=(5,), dtype=float64)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </blockquote>
+<h3 id="3-5-拟合效果"><a href="#3-5-拟合效果" class="headerlink" title="3.5 拟合效果"></a>3.5 拟合效果</h3><p><img src="/2024/02/06/tensorflow-2-0/image-20240223153137866.png"></p>
+<ul>
+<li><p>欠拟合：对现有数据集拟合不彻底，不能有效表征各数据点</p>
+<ul>
+<li><strong>增加输入特征项</strong>，给网络更多维度得输入特征</li>
+<li><strong>增加网络参数</strong>，扩展网络规模，增加网络深度，提升模型表达力</li>
+<li>减少正则化参数</li>
+</ul>
+</li>
+<li><p>过拟合：对当前数据拟合得太好了，但对新数据难以做出正确得判断和预测，模型缺乏泛化力</p>
+<ul>
+<li><strong>数据清洗</strong>，减少噪声，使数据更纯净</li>
+<li><strong>增大训练集</strong>，让模型见到更多的数据</li>
+<li><strong>采用正则化</strong></li>
+<li>增大正则化参数</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-5-1-正则化缓解过拟合"><a href="#3-5-1-正则化缓解过拟合" class="headerlink" title="3.5.1 正则化缓解过拟合"></a>3.5.1 正则化缓解过拟合</h4><ul>
+<li>正则化：在损失函数中引入模型复杂度指标，给每个参数 $w$ 加上权重，抑制训练集中数据的噪声。正则化通常只对参数 $w$ 使用，一般不对偏置 $b$ 使用正则化</li>
+<li>$loss = loss(y,y_{-})+REGULARIZER*loss(w)$<ul>
+<li>$loss(y,y_{-})$ ：前向传播预测结果 $y$ 与实际值 $y_{-}$ 的差距，即损失函数，如：交叉熵、均方误差</li>
+<li>$REGULARIZER$ ：超参数，给出参数 $w$ 在总 $loss$ 中的比例，即正则化权重</li>
+<li>$loss(w)$ ：需要正则化的参数，有两种计算方式$\begin{cases} loss_{L1}(w)=\sum|w_i| \newline loss_{L2}(w)=\sum|w_i^2| \end{cases}$ <ul>
+<li>$L1$ 正则化大概率会使很多参数变为 $0$ ，因此该方法可通过稀疏参数，即减少参数的数量，降低模型复杂度</li>
+<li>$L2$ 正则化会使参数很接近 $0$ 但不为 $0$ ，因此该方法可通过减少参数值的大小，可以有效缓解数据集中因噪声引起的过拟合，降低模型复杂度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
                 
             </div>
@@ -1747,7 +1778,7 @@ print("结合计算的结果：",loss_ce2)<span aria-hidden="true" class="line-n
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">33.3k</span>
+                        class="white-color">33.7k</span>
             
             
             
