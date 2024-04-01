@@ -311,14 +311,14 @@ namespa">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-02-06
+                    2024-03-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    22.7k
+                    23.3k
                 </div>
                 
 
@@ -4854,9 +4854,76 @@ cmd.Parameters.Add(para2);<span aria-hidden="true" class="line-numbers-rows"><sp
 
 
 
+<h2 id="八、曲线绘制"><a href="#八、曲线绘制" class="headerlink" title="八、曲线绘制"></a>八、曲线绘制</h2><ul>
+<li>使用<strong>chart</strong>控件进行曲线绘制</li>
+</ul>
+<h3 id="8-1-关于-chart-的一些属性"><a href="#8-1-关于-chart-的一些属性" class="headerlink" title="8.1 关于 chart 的一些属性"></a>8.1 关于 chart 的一些属性</h3><ul>
+<li>假设只有一个 <code>ChartAreas</code>，即<code>ChartAreas[0]</code></li>
+</ul>
+<h4 id="8-1-1-坐标轴-显示范围-及-刻度间隔"><a href="#8-1-1-坐标轴-显示范围-及-刻度间隔" class="headerlink" title="8.1.1 坐标轴 显示范围 及 刻度间隔"></a>8.1.1 坐标轴 显示范围 及 刻度间隔</h4><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">chart1.ChartAreas[0].AxisY.Maximum = 45;  // 设置y轴 最大取值
+chart1.ChartAreas[0].AxisY.Minimum = -5;  // 设置y轴 最小取值
+chart1.ChartAreas[0].AxisY.Interval = 5;  // 设置y轴 刻度间隔
+
+chart1.ChartAreas[0].AxisX.Maximum = 45;  // 设置x轴 最大取值
+chart1.ChartAreas[0].AxisX.Minimum = -5;  // 设置x轴 最小取值
+chart1.ChartAreas[0].AxisX.Interval = 5;  // 设置x轴 刻度间隔<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="8-1-2-次网格"><a href="#8-1-2-次网格" class="headerlink" title="8.1.2 次网格"></a>8.1.2 次网格</h4><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 开启y轴次网格
+chart1.ChartAreas[0].AxisY.MinorGrid.Enabled = true;
+// 设置次网格线条样式，dash为破折号即虚线
+chart1.ChartAreas[0].AxisY.MinorGrid.LineDashStyle = ChartDashStyle.Dash;
+// 设置次网格线条颜色
+chart1.ChartAreas[0].AxisY.MinorGrid.LineColor = Color.DarkGray;
+// 设置次网格刻度间隔
+chart1.ChartAreas[0].AxisY.MinorGrid.Interval = chart1.ChartAreas[0].AxisY.Interval/2;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="8-1-3-图例"><a href="#8-1-3-图例" class="headerlink" title="8.1.3 图例"></a>8.1.3 图例</h4><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 清除图例
+chart1.Legends.Clear();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="8-1-4-条状带"><a href="#8-1-4-条状带" class="headerlink" title="8.1.4 条状带"></a>8.1.4 条状带</h4><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 实例化条状带
+StripLine stripLine1 = new StripLine();
+// 条状带宽
+stripLine1.StripWidth = 5;
+// 设置各条状带间隔，值为0，表示所有条状带重合
+stripLine1.Interval = 0;
+// 条状带底部起始刻度
+stripLine1.IntervalOffset = 3.5;
+// 条状带颜色
+stripLine1.BackColor = Color.FromArgb(120, Color.Red); //alpha 120，为透明度，取值0-255 
+
+// 将条状带添加到 ChartAreas[0] 处
+chart1.ChartAreas[0].AxisY.StripLines.Add(stripLine1);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="8-1-5-数据序列-Series"><a href="#8-1-5-数据序列-Series" class="headerlink" title="8.1.5 数据序列 Series"></a>8.1.5 数据序列 Series</h4><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 设置线宽
+chart1.Series[0].BorderWidth = 3;
+// 设置曲线类型
+chart1.Series[0].ChartType = SeriesChartType.Line;
+
+// 添加序列
+chart1.Series[0].Points.AddXY(0, 10);
+chart1.Series[0].Points.AddXY(1, 20);
+
+// 数据绑定，当 xVals,yVals 的值变化，曲线对应变化
+chart1.Series[0].Points.DataBindXY(xVals,yVals);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="8-2-一些应用"><a href="#8-2-一些应用" class="headerlink" title="8.2 一些应用"></a>8.2 一些应用</h3><h4 id="8-2-1-设置-时间轴"><a href="#8-2-1-设置-时间轴" class="headerlink" title="8.2.1 设置 时间轴"></a>8.2.1 设置 时间轴</h4><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">// 设置轴标签样式
+chart1.ChartAreas[0].AxisX.LabelStyle.Format = "HH:mm:ss";
+// 设置x轴值类型为 DateTime
+chart1.Series[0].XValueType = ChartValueType.DateTime;
+
+// 使用 ToOADate() 将时间对象转换为可显示的 数值
+chart1.ChartAreas[0].AxisX.Minimum = DateTime.Now.ToOADate();
+// 将 x轴 显示的最大时间设置为 3分钟 后的时刻
+chart1.ChartAreas[0].AxisX.Maximum = DateTime.Now.AddMinutes(3).ToOADate();
+
+// 设置 x轴 每一刻度间隔类型
+chart1.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Seconds;
+// 设置刻度间隔为 5s
+chart1.ChartAreas[0].AxisX.Interval = 5;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
+<h2 id="九、Async-Await"><a href="#九、Async-Await" class="headerlink" title="九、Async / Await"></a>九、Async / Await</h2>
                 
             </div>
             <hr/>
@@ -5004,13 +5071,13 @@ cmd.Parameters.Add(para2);<span aria-hidden="true" class="line-numbers-rows"><sp
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/03/05/liu-ji-ji-qiao/">
+                <a href="/2023/01/14/jupter-ji-anaconda-chang-yong-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="六级技巧">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Jupter及Anaconda常用命令">
                         
-                        <span class="card-title">六级技巧</span>
+                        <span class="card-title">Jupter及Anaconda常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -5021,7 +5088,7 @@ cmd.Parameters.Add(para2);<span aria-hidden="true" class="line-numbers-rows"><sp
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-14
                             </span>
                         <span class="publish-author">
                             
@@ -5173,7 +5240,7 @@ cmd.Parameters.Add(para2);<span aria-hidden="true" class="line-numbers-rows"><sp
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">33.7k</span>
+                        class="white-color">40.4k</span>
             
             
             

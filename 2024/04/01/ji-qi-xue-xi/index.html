@@ -4,32 +4,29 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Jupter及Anaconda常用命令, yijingsong">
-    <meta name="description" content="conda命令
+    <meta name="keywords" content="机器学习, yijingsong">
+    <meta name="description" content="一、数据简介
+在数据集中：
+
+一行数据称为一个样本
+
+一列数据称为一个特征
+
+有些数据有目标值（标签值）
 
 
-命令
-作用
+
+数据类型构成：
+
+数据类型一：特征值+目标值（目标值是连续或离散的）
+
+数据类型二：只有特征值，没有目标值
 
 
 
-conda list
-查询
+数据分割：
 
-
-conda install *
-安装
-
-
-conda update *
-升级
-
-
-conda remove *
-卸载
-
-
-conda creat -n xx python">
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -41,7 +38,7 @@ conda creat -n xx python">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Jupter及Anaconda常用命令 | yijingsong</title>
+    <title>机器学习 | yijingsong</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -270,12 +267,12 @@ conda creat -n xx python">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Jupter及Anaconda常用命令</h1>
+                    <h1 class="description center-align post-title">机器学习</h1>
                 </div>
             </div>
         </div>
@@ -319,21 +316,21 @@ conda creat -n xx python">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-14
+                    2024-04-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-14
+                    2024-04-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    132
+                    3k
                 </div>
                 
 
@@ -353,83 +350,354 @@ conda creat -n xx python">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="conda命令"><a href="#conda命令" class="headerlink" title="conda命令"></a>conda命令</h3><table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">conda list</td>
-<td align="center">查询</td>
-</tr>
-<tr>
-<td align="center">conda install *</td>
-<td align="center">安装</td>
-</tr>
-<tr>
-<td align="center">conda update *</td>
-<td align="center">升级</td>
-</tr>
-<tr>
-<td align="center">conda remove *</td>
-<td align="center">卸载</td>
-</tr>
-<tr>
-<td align="center">conda creat -n xx python=3.6</td>
-<td align="center">创建虚拟环境</td>
-</tr>
-<tr>
-<td align="center">activate xx</td>
-<td align="center">进入虚拟环境</td>
-</tr>
-</tbody></table>
+                <h2 id="一、数据简介"><a href="#一、数据简介" class="headerlink" title="一、数据简介"></a>一、数据简介</h2><ul>
+<li><p>在数据集中：</p>
+<ul>
+<li><p>一行数据称为一个样本</p>
+</li>
+<li><p>一列数据称为一个特征</p>
+</li>
+<li><p>有些数据有目标值（标签值）</p>
+</li>
+</ul>
+</li>
+<li><p>数据类型构成：</p>
+<ul>
+<li><p>数据类型一：特征值+目标值（目标值是连续或离散的）</p>
+</li>
+<li><p>数据类型二：只有特征值，没有目标值</p>
+</li>
+</ul>
+</li>
+<li><p>数据分割：</p>
+<ul>
+<li>一般将数据集划分为两类：<ul>
+<li>训练数据：用于训练，构建模型</li>
+<li>测试数据：在检验模型时使用，用于评估模型是否有效</li>
+</ul>
+</li>
+<li>划分比例<ul>
+<li>训练集：70%  80%  75%</li>
+<li>测试集：30%  20%  25%</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <hr>
-<h3 id="jupyter-notebook使用"><a href="#jupyter-notebook使用" class="headerlink" title="jupyter notebook使用"></a>jupyter notebook使用</h3><h4 id="打开方式"><a href="#打开方式" class="headerlink" title="打开方式"></a>打开方式</h4><blockquote>
-<p>cmd命令,在指定目录下输入jupyter notebook</p>
-</blockquote>
-<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><table>
-<thead>
-<tr>
-<th align="center">快捷键</th>
-<th align="center">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">shift+回车</td>
-<td align="center">运行</td>
-</tr>
-<tr>
-<td align="center">Tab</td>
-<td align="center">自动补全</td>
-</tr>
-<tr>
-<td align="center">shift+双击Tab</td>
-<td align="center">查看函数文档</td>
-</tr>
-</tbody></table>
-<h4 id="魔术命令"><a href="#魔术命令" class="headerlink" title="魔术命令"></a>魔术命令</h4><table>
-<thead>
-<tr>
-<th align="center">命令代码</th>
-<th align="center">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">%pwd</td>
-<td align="center">显示当前目录</td>
-</tr>
-<tr>
-<td align="center">%matplotlib inline</td>
-<td align="center">在代码下方绘制图形</td>
-</tr>
-<tr>
-<td align="center">%timeit[代码]</td>
-<td align="center">查看代码运行时间</td>
-</tr>
-</tbody></table>
+<h2 id="二、数据基本处理："><a href="#二、数据基本处理：" class="headerlink" title="二、数据基本处理："></a>二、数据基本处理：</h2><ul>
+<li>对缺失值、去除异常值等处理</li>
+</ul>
+<hr>
+<h2 id="三、特征工程"><a href="#三、特征工程" class="headerlink" title="三、特征工程"></a>三、特征工程</h2><h3 id="3-1-什么是特征工程？"><a href="#3-1-什么是特征工程？" class="headerlink" title="3.1 什么是特征工程？"></a>3.1 什么是特征工程？</h3><p>使用专业背景知识和技巧处理数据，使得特征能在机器学习算法上发挥更好作用的过程</p>
+<ul>
+<li>意义：会直接影响机器学习的效果</li>
+</ul>
+<h3 id="3-2-为什么需要特征工程？"><a href="#3-2-为什么需要特征工程？" class="headerlink" title="3.2 为什么需要特征工程？"></a>3.2 为什么需要特征工程？</h3><p>数据和特征决定了机器学习的上限，而模型和算法只是逼近这个上限</p>
+<h3 id="3-3-特征工程包含内容"><a href="#3-3-特征工程包含内容" class="headerlink" title="3.3 特征工程包含内容"></a>3.3 特征工程包含内容</h3><ul>
+<li>特征提取</li>
+<li>特征预处理</li>
+<li>特征降维</li>
+</ul>
+<h4 id="3-3-1-特征提取"><a href="#3-3-1-特征提取" class="headerlink" title="3.3.1 特征提取"></a>3.3.1 特征提取</h4><p>将<strong>任意数据</strong>（如文本图像）转换为可用于机器学习的<strong>数字特征</strong></p>
+<h4 id="3-3-2-特征预处理"><a href="#3-3-2-特征预处理" class="headerlink" title="3.3. 2 特征预处理"></a>3.3. 2 特征预处理</h4><p>通过一些<strong>转换函数</strong>将特征数据转换成更加符合算法模型的特征数据过程</p>
+<h4 id="3-3-3-特征降维"><a href="#3-3-3-特征降维" class="headerlink" title="3.3.3 特征降维"></a>3.3.3 特征降维</h4><p>在某些限定条件下，<strong>降低随机变量（特征）个数</strong>，得到一组“不相关”主变量的过程</p>
+<hr>
+<h2 id="四、机器学习"><a href="#四、机器学习" class="headerlink" title="四、机器学习"></a>四、机器学习</h2><h3 id="4-1-监督学习"><a href="#4-1-监督学习" class="headerlink" title="4.1 监督学习"></a>4.1 监督学习</h3><ul>
+<li>定义：<ul>
+<li>输入数据是由特征值和目标值组成的<ul>
+<li>输出是一个连续的值（<strong>回归</strong>）</li>
+<li>输出是有限个离散值（<strong>分类</strong>）</li>
+</ul>
+</li>
+<li>分类：k-近邻算法、贝叶斯分类、决策树与随机森林、逻辑回归、神经网络</li>
+<li>回归：线性回归、岭回归</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-2-无监督学习"><a href="#4-2-无监督学习" class="headerlink" title="4.2 无监督学习"></a>4.2 无监督学习</h3><ul>
+<li>定义：<ul>
+<li><p>输入数据是由特征值组成</p>
+</li>
+<li><p>输入数据没有被标记，也没有确定结果。样本数据类别未知，需要根据样本间的相似性对样本集进行分类（<strong>聚类</strong>，clustering），试图使类内间距最小化，类间差距最大化。</p>
+</li>
+<li><p>聚类：k-means、降维</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>		</p>
+<h3 id="4-3-半监督学习"><a href="#4-3-半监督学习" class="headerlink" title="4.3 半监督学习"></a>4.3 半监督学习</h3><ul>
+<li>定义：<ul>
+<li>输入数据有特征值，一部分有目标值，一部分没有目标值</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-4-强化学习"><a href="#4-4-强化学习" class="headerlink" title="4.4 强化学习"></a>4.4 强化学习</h3><ul>
+<li>定义：<ul>
+<li><p>自动进行决策，并可以做连续决策</p>
+</li>
+<li><p>动态过程，上一步数据的输出是下一步数据的输入</p>
+</li>
+<li><p>四要素：agent、环境状态、行动、奖励</p>
+</li>
+<li><p>算法：马尔科夫决策、动态规划</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="五、模型评估"><a href="#五、模型评估" class="headerlink" title="五、模型评估"></a>五、模型评估</h2><p>模型评估有助于表达数据的最佳模型和所选模型将来工作的性能如何，按照数据集的目标值不同，可以把模型评估分为分类模型评估和回归模型评估</p>
+<h3 id="5-1分类模型评估"><a href="#5-1分类模型评估" class="headerlink" title="5.1分类模型评估"></a>5.1分类模型评估</h3><ul>
+<li>准确率<ul>
+<li>预测正确的数占样本总数的比例</li>
+</ul>
+</li>
+<li>精确率<ul>
+<li>正确预测为正占<strong>全部预测为正</strong>的比例</li>
+</ul>
+</li>
+<li>召回率<ul>
+<li>正确预测为正占<strong>全部正样本</strong>的比例</li>
+</ul>
+</li>
+<li>F1-score<ul>
+<li>主要用于评估模型的稳健性</li>
+</ul>
+</li>
+<li>AUC指标<ul>
+<li>主要用于评估样本不均衡的情况</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-2-回归模型评估"><a href="#5-2-回归模型评估" class="headerlink" title="5.2 回归模型评估"></a>5.2 回归模型评估</h3><ul>
+<li><p>均方根误差（Root Mean Squared Error, RMSE）</p>
+<ul>
+<li>衡量回归模型误差率的常用公式，但它仅能比较误差是相同单位的模型</li>
+<li>$$RMSE=\sqrt{\frac{\sum\limits_{i=0}^n(p_i-a_i)^2}{n}}$$, $a_i$为实际值，$p_i$为预测值</li>
+</ul>
+</li>
+<li><p>相对平方误差（Relative Squared Error，RSE）</p>
+<ul>
+<li>与RMSE不同，RSE可以比较误差是不同单位的模型</li>
+<li>$$RSE=\frac{\sum\limits_{i=1}^{n}(p_i-a_i)^2}{\sum\limits_{i=1}^{n}(\bar{a}-a_i)^2}$$</li>
+</ul>
+</li>
+<li><p>平均绝对误差（Mean Absolute Error，MAE）</p>
+<ul>
+<li><p>与RMSE类似，仅能比较误差是相同单位的模型，但是误差值相对小一点</p>
+</li>
+<li><p>$$MAE=\frac{\sum\limits_{i=1}^{n}\lvert p_i-a_i \rvert}{n}$$</p>
+</li>
+</ul>
+</li>
+<li><p>相对绝对误差（Relative Absolute Error，RAE）</p>
+<ul>
+<li>可比较误差是不同单位的模型</li>
+<li>$$MAE=\frac{\sum\limits_{i=1}^{n}\lvert p_i-a_i \rvert}{\sum\limits_{i=1}^{n}\lvert \bar{a}-a_i \rvert}$$</li>
+</ul>
+</li>
+<li><p>决定系数（Coefficient of Determination）</p>
+<ul>
+<li>$R^2$汇总了回归模型的解释度，由平方和计算而得，描述回归模型所解释的因变量方差在总方差中的比例。$R^2$越大，自变量与因变量之间存在线性关系</li>
+<li>$R^2=1-\frac{\sum\limits_{i=1}^{n}(p_i-a_i)^2}{\sum\limits_{i=1}^{n}(\bar{a}-a_i)^2}$</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-3-拟合"><a href="#5-3-拟合" class="headerlink" title="5.3 拟合"></a>5.3 拟合</h3><p>用于评价训练好的模型的表现效果</p>
+<h4 id="5-3-1-欠拟合"><a href="#5-3-1-欠拟合" class="headerlink" title="5.3.1 欠拟合"></a>5.3.1 欠拟合</h4><p>学到的特征太少了，导致区分标准太粗糙，不能进行较为准确的识别</p>
+<img src="image-20230420173200827.png" style="zoom:50%;">
 
+<h4 id="5-3-2-过拟合"><a href="#5-3-2-过拟合" class="headerlink" title="5.3.2 过拟合"></a>5.3.2 过拟合</h4><p>模型在训练集表现优越，而在验证集和测试集表现不佳。学的特征太多了</p>
+<img src="image-20230420173103779.png" style="zoom:50%;">
+
+<hr>
+<h2 id="六、分类算法"><a href="#六、分类算法" class="headerlink" title="六、分类算法"></a>六、分类算法</h2><h3 id="6-1-k近邻（KNN）算法"><a href="#6-1-k近邻（KNN）算法" class="headerlink" title="6.1 k近邻（KNN）算法"></a>6.1 k近邻（KNN）算法</h3><p>通过你的“邻居”，来判断你的类别</p>
+<h4 id="6-1-1-k-近邻算法概念"><a href="#6-1-1-k-近邻算法概念" class="headerlink" title="6.1.1 k-近邻算法概念"></a>6.1.1 k-近邻算法概念</h4><p>K Nearest Neighbor算法又称KNN算法</p>
+<ul>
+<li><p>定义</p>
+<ul>
+<li>如果一个样本在特征空间中的k个最相似（特征空间中的最近邻）的样本中的大多数属于一个类别，则该样本也属于这个类别</li>
+</ul>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>字符识别</li>
+<li>文本分类</li>
+<li>图像识别</li>
+</ul>
+</li>
+<li><p>距离公式</p>
+<ul>
+<li>一般使用欧氏距离<ul>
+<li>n维空间点$a(x_{11},x_{12},\dots,x_{1n})$到$b(x_{21},x_{21},\dots,x_{2n})$的欧式距离为$$d_{12}=\sqrt{\sum\limits_{k=1}^{n}(x_{1k}-x_{2k})^2}$$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-1-2-k-近邻算法流程"><a href="#6-1-2-k-近邻算法流程" class="headerlink" title="6.1.2 k-近邻算法流程"></a>6.1.2 k-近邻算法流程</h4><p>假设有几部电影数据，要推测《唐人街探案》的电影类型</p>
+<img src="image-20230420182035231.png" style="zoom:50%;">
+
+
+
+<ul>
+<li>首先计算《唐人街探案》与每部电影的距离<ul>
+<li>如《唐人街探案》与《二次曝光》，$d=\sqrt{(23-2)^2+(3-3)^2+(17-55)^2}=43.42$</li>
+</ul>
+</li>
+</ul>
+<img src="image-20230420182613887.png" style="zoom:50%;">
+
+
+
+<ul>
+<li>指定k的取值，此处取k=5。对计算结果进行排序，取出找出距离最近的5部电影</li>
+</ul>
+<img src="image-20230420182715728.png" style="zoom:50%;">
+
+
+
+<ul>
+<li>根据k近邻，统计各类别出现频率，取频率最高的类别作为《唐人街探案》电影类型<ul>
+<li>当k=5时，《唐人街探案》的近邻分别为《功夫熊猫》、《代理情人》、《新步步惊心》、《美人鱼》、《宝贝当家》。其中喜剧片有3部，爱情片2部</li>
+<li>所以，推测《唐人街探案》为喜剧片</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-1-3-k-近邻API"><a href="#6-1-3-k-近邻API" class="headerlink" title="6.1.3 k-近邻API"></a>6.1.3 k-近邻API</h4><ul>
+<li>sklearn.neighbors.KNeighborsClassifier(n_neighbors=5)<ul>
+<li>n_neighbors：int，可选（默认5），k_neighbors查询默认使用的邻居数</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-1-4-代码过程"><a href="#6-1-4-代码过程" class="headerlink" title="6.1.4 代码过程"></a>6.1.4 代码过程</h4><p>以前文电影类型预测为例</p>
+<ul>
+<li>导入模块</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from sklearn.neighbors import KNeighborsClassifier<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>构造数据集</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">x=[[39,0,31],[3,2,65],[2,3,55],[9,38,2],[8,34,17],[5,2,57],[21,17,5],[45,2,9]]
+y=['喜剧片','动作片','爱情片','爱情片','爱情片','动作片','喜剧片','喜剧片']<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>模型训练</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 实例化API
+estimator=KNeighborsClassifier(n_neighbors=5)
+
+# 使用fit方法进行训练
+estimator.fit(x,y)
+
+# 进行预测
+estimator.predict([[23,3,17]])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="6-1-5-距离度量"><a href="#6-1-5-距离度量" class="headerlink" title="6.1.5 距离度量"></a>6.1.5 距离度量</h4><ul>
+<li><p><strong>欧式距离</strong></p>
+<ul>
+<li><strong>直线距离</strong></li>
+<li>n维空间点$a(x_{11},x_{12},\dots,x_{1n})$到$b(x_{21},x_{21},\dots,x_{2n})$的欧式距离为$$d_{12}=\sqrt{\sum\limits_{k=1}^{n}(x_{1k}-x_{2k})^2}$$</li>
+</ul>
+</li>
+<li><p><strong>曼哈顿距离</strong></p>
+<ul>
+<li>也称  城市街区距离（City Block Distance）</li>
+<li>是从一个地点驾车到另一个地点所行驶过的距离</li>
+<li><strong>水平+竖直距离</strong></li>
+<li>n维空间点$a(x_{11},x_{12},\dots,x_{1n})$到$b(x_{21},x_{21},\dots,x_{2n})$的曼哈顿距离为$d_{12}=\sum\limits_{k=1}^{n}\lvert x_{1k}-x_{2k} \rvert$</li>
+</ul>
+</li>
+<li><p><strong>切比雪夫距离</strong>（Chebyshev Distance）</p>
+<ul>
+<li><strong>八邻域</strong>方向，行走到目标点的最短距离</li>
+<li>n维空间点$a(x_{11},x_{12},\dots,x_{1n})$到$b(x_{21},x_{21},\dots,x_{2n})$的切比雪夫距离为$d_{12}=max(\lvert x_{1k}-x_{2k} \rvert)$</li>
+</ul>
+</li>
+<li><p><strong>闵可夫斯基距离</strong>（Minkowski Distance）</p>
+<ul>
+<li>闵氏距离不是一种距离，而是一组距离的定义，是对多个距离度量公式的概括性的表述</li>
+<li>n维空间点$a(x_{11},x_{12},\dots,x_{1n})$到$b(x_{21},x_{21},\dots,x_{2n})$的闵可夫斯基距离为$$d_{12}=\sqrt[p]{\sum\limits_{k=1}^{n}\lvert x_{1k}-x_{2k} \rvert^p}$$</li>
+<li>公式中，p是一个参数<ul>
+<li>当p=1时，就是曼哈顿距离</li>
+<li>当p=2时，就是欧式距离</li>
+<li>当$p\rightarrow\infty$时，就是切比雪夫距离</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>闵氏距离，包括欧氏距离、曼哈顿距离、切比雪夫距离都有着共同的<strong>缺点</strong>：</p>
+<ul>
+<li>将各个分量的量纲，即<strong>单位都相同看待</strong>了</li>
+<li>未考虑各个分量的<strong>分布（期望、方差等）可能是不同</strong>的</li>
+</ul>
+</li>
+<li><p><strong>标准化欧氏距离</strong>（Standardized Euclidean Distance）</p>
+<ul>
+<li>针对欧式距离的缺点进行的一种改进</li>
+<li>思路：既然各个分量的分布单位不一样，那先将各个分量都<strong>标准化</strong>到均值、方差相等。</li>
+<li>假设样本集X的均值为m，标准差为s，那么X的标准化变量变量可表示为：$X^*=\frac{X-m}{s}$</li>
+<li>那么标准化欧氏距离：$d_{12}=\sqrt{\sum\limits_{k=1}^{n}(\frac{x_{1k}-x_{2k}}{s_k})^2}$</li>
+<li>若将方差的倒数看成一个权重，也称之为加权欧氏距离</li>
+</ul>
+</li>
+<li><p><strong>余弦距离</strong>（Cosine Distance）</p>
+<ul>
+<li><p>几何中，夹角余弦可用来衡量两个向量方向的差异</p>
+</li>
+<li><p>机器学习中，用来衡量样本向量间的差异</p>
+</li>
+<li><p>二维空间中向量$A(x_1,y_1)$和$B(x_2,y_2)$的夹角余弦公式：$cos\theta=\frac{x_1x_2+y_1y_2}{\sqrt{x_1^2+y_1^2} \sqrt{x_2^2+y_2^2}}$</p>
+</li>
+<li><p>两个n维样本点$a(x_{11},x_{12},\dots,x_{1n})$到$b(x_{21},x_{21},\dots,x_{2n})$的夹角余弦为：$cos\theta=\frac{a \cdot b}{\lvert a \rvert \vert b \rvert}$，即$cos\theta=\frac{\sum\limits_{k=1}^{n}x_{1k}x_{2k}}{\sqrt{\sum\limits_{k=1}^{n}x_{1k}^2}\sqrt{\sum\limits_{k=1}^{n}x_{2k}^2}}$</p>
+</li>
+<li><p>夹角余弦的取值范围为$[-1,1]$。余弦越大两个向量夹角越小，反之亦然。当两个向量的方向重合时，余弦取最大值1，完全相反时取最小值-1</p>
+</li>
+</ul>
+</li>
+<li><p><strong>汉明距离</strong></p>
+<ul>
+<li>一个字符串，变到另一个字符串，需要做的最小替换次数</li>
+<li>编码解码可能会用到</li>
+</ul>
+</li>
+<li><p><strong>杰卡德距离</strong></p>
+<ul>
+<li>通过交并集进行计算</li>
+</ul>
+</li>
+<li><p><strong>马氏距离</strong></p>
+<ul>
+<li>通过样本分布进行计算</li>
+<li>与量纲无关</li>
+<li>计算建立在总体样本上</li>
+<li>要求总体样本数大于样本的维数</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-1-6-k值的选取"><a href="#6-1-6-k值的选取" class="headerlink" title="6.1.6 k值的选取"></a>6.1.6 k值的选取</h4><ul>
+<li>k太小，容易受到异常点的影响，易发生过拟合</li>
+<li>k太大，受样本均衡的影响，易发生欠拟合</li>
+</ul>
+<p><strong>近似误差</strong>：关注训练集，在训练集的训练误差，对未知测试样本会出现较大的偏差，类似于过拟合</p>
+<p><strong>估计误差</strong>：关注测试集，对测试集的测试误差，估计误差越小，对未知数据的预测能力越好</p>
+<ul>
+<li>选择较小的k值，会让近似误差减小，估计误差会增大</li>
+<li>选择较大的k值，会让近似误差增大，估计误差减小，k的增大意味着模型变得简单</li>
+</ul>
+<h3 id="6-2-kd树"><a href="#6-2-kd树" class="headerlink" title="6.2 kd树"></a>6.2 kd树</h3><h4 id="6-2-1-kd树简介"><a href="#6-2-1-kd树简介" class="headerlink" title="6.2.1 kd树简介"></a>6.2.1 kd树简介</h4><ul>
+<li><p>由于k近邻算法每次预测一个点时，都会计算该点到训练集所有点的距离<strong>（穷举搜索）</strong>，然后选出距离最近的k个点进行投票。当数据集很大时，假设有N个样本，D个特征，那么其算法复杂度为$O(DN^2)$。</p>
+</li>
+<li><p>为了避免每次预测都重新计算一次距离，kd树将<strong>距离信息保存在一棵树</strong>里，在计算之前查询距离信息，尽量避免重新计算。这样优化后的算法复杂度可降到$O(DN log(N))$。</p>
+</li>
+<li><p><strong>如果A和B距离很远，B和C距离很近，那么A和C距离也很远</strong>。</p>
+</li>
+</ul>
+<h4 id="6-2-2-kd树原理"><a href="#6-2-2-kd树原理" class="headerlink" title="6.2.2 kd树原理"></a>6.2.2 kd树原理</h4>
                 
             </div>
             <hr/>
@@ -455,7 +723,7 @@ conda creat -n xx python">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yijingsong.github.io/2023/01/14/jupter-ji-anaconda-chang-yong-ming-ling/">https://yijingsong.github.io/2023/01/14/jupter-ji-anaconda-chang-yong-ming-ling/</a>
+                    <a href="https://yijingsong.github.io/2024/04/01/ji-qi-xue-xi/">https://yijingsong.github.io/2024/04/01/ji-qi-xue-xi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -536,54 +804,18 @@ conda creat -n xx python">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2024/01/13/shang-wei-ji/">
+                <a href="/2024/04/01/ji-qi-xue-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="c#上位机开发">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="机器学习">
                         
-                        <span class="card-title">c#上位机开发</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-13
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            阿淞啊
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/01/14/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">机器学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -594,7 +826,45 @@ conda creat -n xx python">
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            阿淞啊
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/04/01/ji-qi-shi-jue/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="机器视觉">
+                        
+                        <span class="card-title">机器视觉</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-01
                             </span>
                         <span class="publish-author">
                             
@@ -726,6 +996,13 @@ conda creat -n xx python">
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 

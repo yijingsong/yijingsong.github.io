@@ -4,38 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python数据分析常用包, yijingsong">
-    <meta name="description" content="涉及python包
+    <meta name="keywords" content="机器视觉, yijingsong">
+    <meta name="description" content="一、图像预处理(图像增强)1.1 RGB转Gray$Gray=R \times 0.3+G \times 0.59+B \times 0.11$
+1.2 图像处理方法概述
 
-
-包
-作用
-
-
-
-Numpy
-科学计算
-
-
-Matplotlib
-绘图及数据可视化
-
-
-Pandas
-数据处理和清洗
-
-
-
-
-分析什么数据？
-表格型数据
-多维数组
-用一列作为键，整合多个表格的数据
-时间序列数据
-
-
-
-">
+1.3 均衡化1.3.1 直方图均衡化
+利用图像直方图对图像对比度">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -47,7 +21,7 @@ Pandas
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>python数据分析常用包 | yijingsong</title>
+    <title>机器视觉 | yijingsong</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -276,12 +250,12 @@ Pandas
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">python数据分析常用包</h1>
+                    <h1 class="description center-align post-title">机器视觉</h1>
                 </div>
             </div>
         </div>
@@ -325,21 +299,21 @@ Pandas
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-14
+                    2024-04-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-14
+                    2024-04-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.1k
                 </div>
                 
 
@@ -359,497 +333,245 @@ Pandas
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="涉及python包"><a href="#涉及python包" class="headerlink" title="涉及python包"></a>涉及python包</h3><table>
-<thead>
-<tr>
-<th align="center">包</th>
-<th align="center">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">Numpy</td>
-<td align="center">科学计算</td>
-</tr>
-<tr>
-<td align="center">Matplotlib</td>
-<td align="center">绘图及数据可视化</td>
-</tr>
-<tr>
-<td align="center">Pandas</td>
-<td align="center">数据处理和清洗</td>
-</tr>
-</tbody></table>
-<hr>
-<hr>
-<h3 id="分析什么数据？"><a href="#分析什么数据？" class="headerlink" title="分析什么数据？"></a>分析什么数据？</h3><ul>
-<li>表格型数据</li>
-<li>多维数组</li>
-<li>用一列作为键，整合多个表格的数据</li>
-<li>时间序列数据</li>
+                <h2 id="一、图像预处理-图像增强"><a href="#一、图像预处理-图像增强" class="headerlink" title="一、图像预处理(图像增强)"></a>一、图像预处理(图像增强)</h2><h3 id="1-1-RGB转Gray"><a href="#1-1-RGB转Gray" class="headerlink" title="1.1 RGB转Gray"></a>1.1 RGB转Gray</h3><p>$Gray=R \times 0.3+G \times 0.59+B \times 0.11$</p>
+<h3 id="1-2-图像处理方法概述"><a href="#1-2-图像处理方法概述" class="headerlink" title="1.2 图像处理方法概述"></a>1.2 图像处理方法概述</h3><img src="image-20230711155659517.png" style="zoom:25%;">
+
+<h3 id="1-3-均衡化"><a href="#1-3-均衡化" class="headerlink" title="1.3 均衡化"></a>1.3 均衡化</h3><h4 id="1-3-1-直方图均衡化"><a href="#1-3-1-直方图均衡化" class="headerlink" title="1.3.1 直方图均衡化"></a>1.3.1 直方图均衡化</h4><ul>
+<li>利用图像直方图对图像<strong>对比度</strong>进行调整的方法</li>
+<li>通常用来增加图像的局部对比度，而不影响整体的对比度</li>
+<li>实质是对图像进行<strong>非线性拉伸</strong>，重新分配各个像素单位中的像素点数量，是数量大致相等</li>
+<li><strong>解决图像太亮或太暗的方法</strong></li>
+<li>效果如下</li>
 </ul>
-<hr>
-<hr>
-<h3 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h3><h4 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h4><p><code>import numpy as np</code></p>
-<hr>
-<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><ul>
-<li>以数组为导向的快速数值计算</li>
-<li>灵活的广播功能</li>
-<li>具有便利的数学函数和统计方法</li>
-<li>线性代数，随机数生成，傅里叶变换</li>
+<img src="image-20230711160715766.png" style="zoom: 33%;">
+
+<h4 id="1-3-2-自适应直方图均衡化-AHE算法"><a href="#1-3-2-自适应直方图均衡化-AHE算法" class="headerlink" title="1.3.2 自适应直方图均衡化(AHE算法)"></a>1.3.2 自适应直方图均衡化(AHE算法)</h4><ul>
+<li>图像中<strong>既有特别亮也有特别暗</strong>的部分</li>
+<li>算法主要步骤<ul>
+<li>移动模板在原始图像上，按特定步长滑动</li>
+<li>每次移动后，模板区域做直方图均衡化，映射后的结果赋值给模板区域所有点</li>
+<li>每次模板滑动会覆盖相同的点，所有每个点会有不同的赋值，取其<strong>均值</strong>作为该点最终赋值</li>
 </ul>
-<hr>
-<h4 id="数组创建"><a href="#数组创建" class="headerlink" title="数组创建"></a>数组创建</h4><p><code>np.array(可迭代对象，如列表、元组)</code></p>
-<h5 id="一维数组创建举例"><a href="#一维数组创建举例" class="headerlink" title="一维数组创建举例"></a>一维数组创建举例</h5><p><code>a=np.array([1,2,3]) %列表</code></p>
-<p><code>a=np.array((1,2,3)) %元组</code></p>
-<p>两种创建方法得到的a均为:</p>
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([1, 2, 3])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
-<h5 id="二维数组创建举例"><a href="#二维数组创建举例" class="headerlink" title="二维数组创建举例"></a>二维数组创建举例</h5><p><code>a=np.array([[1,2,3],[4,5,6]]) %对可迭代对象嵌套得到多维数组</code></p>
-<p>得到的a:</p>
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([[1, 2, 3],
-    [4, 5, 6]])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="高维数组创建"><a href="#高维数组创建" class="headerlink" title="高维数组创建"></a>高维数组创建</h5><p>对可迭代对象进行嵌套实现</p>
-<hr>
-<h4 id="数组属性"><a href="#数组属性" class="headerlink" title="数组属性"></a>数组属性</h4><table>
-<thead>
-<tr>
-<th align="center">属性</th>
-<th align="center">作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">a.ndim</td>
-<td align="center">查看矩阵秩即矩阵维数</td>
-</tr>
-<tr>
-<td align="center">a.shape</td>
-<td align="center">查看矩阵形状</td>
-</tr>
-<tr>
-<td align="center">a.dtype</td>
-<td align="center">查看元素Numpy数据类型</td>
-</tr>
-</tbody></table>
-<hr>
-<h4 id="numpy方法"><a href="#numpy方法" class="headerlink" title="numpy方法"></a>numpy方法</h4><h5 id="全0数组创建"><a href="#全0数组创建" class="headerlink" title="全0数组创建"></a>全0数组创建</h5><p><code>np.zeros() %参数为矩阵形状,多维用()括起来</code></p>
-<p>举例</p>
-<p><code>np.zeros(10) </code></p>
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
-<h5 id="全1数组创建"><a href="#全1数组创建" class="headerlink" title="全1数组创建"></a>全1数组创建</h5><p><code>np.ones() %参数同样为矩阵形状,多维用()括起来</code></p>
-<p>举例</p>
-<p><code>np.ones((2,5))</code></p>
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([[1., 1., 1., 1., 1.],
-    [1., 1., 1., 1., 1.]])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="随机数组创建（有歧义，每次运行结果是一样的）"><a href="#随机数组创建（有歧义，每次运行结果是一样的）" class="headerlink" title="随机数组创建（有歧义，每次运行结果是一样的）"></a>随机数组创建（有歧义，每次运行结果是一样的）</h5><p><code>np.empty() %参数为矩阵形状,多维用()括起来</code></p>
-<h5 id="序列数组创建"><a href="#序列数组创建" class="headerlink" title="序列数组创建"></a>序列数组创建</h5><p><code>np.arange() %类似range（）</code></p>
-<p>举例</p>
-<p><code>np.arange(10) %产生0-9的序列数组</code></p>
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
-<h5 id="改变数组形状"><a href="#改变数组形状" class="headerlink" title="改变数组形状"></a>改变数组形状</h5><p><code>a.reshape() %参数为期望形状,多维可不用()括起来</code></p>
-<p>举例</p>
-<p><code>np.arange(6).reshape(2,3)</code></p>
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([[0, 1, 2],
-    [3, 4, 5]])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="绘图常用"><a href="#绘图常用" class="headerlink" title="绘图常用"></a>绘图常用</h5><p><code>np.linspace() %参数为：起始点（取），末端点（取），产生均匀分布的点数</code></p>
-<p>举例</p>
-<p><code>np.linspace(0,10,10)</code></p>
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([ 0.        ,  1.11111111,  2.22222222,  3.33333333,  4.44444444,
-     5.55555556,  6.66666667,  7.77777778,  8.88888889, 10.        ])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="创建指定数据类型"><a href="#创建指定数据类型" class="headerlink" title="创建指定数据类型"></a>创建指定数据类型</h5><p>举例</p>
-<p><code>a=np.array([1,2,3],dtype=np.float32) %将默认的int32指定为float32</code></p>
-<p><code>np.zeros(10,dtype=np.int32) %将默认的float64指定为int32</code></p>
-<h5 id="已有数组转换数据类型"><a href="#已有数组转换数据类型" class="headerlink" title="已有数组转换数据类型"></a>已有数组转换数据类型</h5><p><code>a.astype() %参数为numpy数据类型</code></p>
-<p>举例</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">a=np.array([True,False,False,True])
-a.astype(np.int16)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([1, 0, 0, 1], dtype=int16)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
-<hr>
-<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><h5 id="int"><a href="#int" class="headerlink" title="int_"></a>int_</h5><p>int16/int32/int64，分别为占16、32、64位的有符号整形；</p>
-<p>uint8常用于处理图片，uint16 32 64，无符号整型</p>
-<h5 id="float"><a href="#float" class="headerlink" title="float_"></a>float_</h5><p>float16 32 64，浮点数</p>
-<h5 id="complex"><a href="#complex" class="headerlink" title="complex"></a>complex</h5><p>complex64等，复数类型</p>
-<h5 id="bool"><a href="#bool" class="headerlink" title="bool_"></a>bool_</h5><p>True/False，占1位，布尔</p>
-<h5 id="string"><a href="#string" class="headerlink" title="string"></a>string</h5><hr>
-<h4 id="数组切片及索引"><a href="#数组切片及索引" class="headerlink" title="数组切片及索引"></a>数组切片及索引</h4><h5 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h5><p>举例</p>
-<pre class="line-numbers language-none"><code class="language-none">arr=np.arange(10)
-arr[5:8]
-
-arr[2:8:2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])   %arr=np.arange(10)
-
-array([5, 6, 7])   %arr[5:8]
-
-array([2, 4, 6])   %arr[2:8:2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<p>==注意：==</p>
-<ol>
-<li>数组视图复制，修改新数组会改变原数组</li>
-</ol>
-<pre class="line-numbers language-none"><code class="language-none">a2=arr[5:8]
-a2[0]=100<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([100,   6,   7]) %a2
-
-array([  0,   1,   2,   3,   4, 100,   6,   7,   8,   9]) %arr<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<ol start="2">
-<li>数组深层复制，使用copy()方法，新数组修改不会改变原数组</li>
-</ol>
-<pre class="line-numbers language-none"><code class="language-none">a3=arr[5:8].copy()
-a3[1]=1000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([   5, 1000,    7]) %a3
-
-array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="高维索引"><a href="#高维索引" class="headerlink" title="高维索引"></a>高维索引</h5><p>索引即可分层写，也可写一起</p>
-<pre class="line-numbers language-none"><code class="language-none">a4=np.arange(24).reshape(2,3,4)	%创建0-23序列的2*3*4矩阵
-
-%读取0页2行1列具体元素
-a4[0][2][1]
-a4[0,2,1]
-
-%读取所有页0行前3列元素
-a4[:, 0, :3]
-
-%所有页0行2列元素
-a4[:, 0, 2]
-
-%所有页所有行2到最后列元素
-a4[:, :,2:]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([[[ 0,  1,  2,  3],
-     [ 4,  5,  6,  7],
-     [ 8,  9, 10, 11]],
-
-    [[12, 13, 14, 15],
-     [16, 17, 18, 19],
-     [20, 21, 22, 23]]])		%a4
-
-9								%a4[0][2][1]
-
-9								%a4[0,2,1]
-
-array([[ 0,  1,  2],
-    [12, 13, 14]])			%a4[:, 0, :3]
-
-array([ 2, 14])					%a4[:, 0, 2]
-
-array([[[ 2,  3],
-     [ 6,  7],
-     [10, 11]],
-
-    [[14, 15],
-     [18, 19],
-     [22, 23]]])				%a4[:, :,2:]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<hr>
-<h4 id="布尔索引（条件索引）"><a href="#布尔索引（条件索引）" class="headerlink" title="布尔索引（条件索引）"></a>布尔索引（条件索引）</h4><p>举例</p>
-<pre class="line-numbers language-none"><code class="language-none">a=np.arange(10)
-a&gt;5		%个人理解为，将数组bool化，大于5为True,反之为False
-
-a[a&gt;5]	%使用布尔索引，取出数组中大于5的所有元素
-
-a[(a&gt;2)&amp;(a&lt;8)]		%取出大于2小于8的元素<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([False, False, False, False, False, False,  True,  True,  True,
-     True])			%a&gt;5
-
-array([6, 7, 8, 9])		%a[a&gt;5]
-
-array([3, 4, 5, 6, 7])	%a[(a&gt;2)&amp;(a&lt;8)]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<p>==注意：==</p>
-<ol>
-<li>对于高维数组，使用条件索引获得的元素，组成的是一维数组。</li>
-</ol>
-<p>如：</p>
-<pre class="line-numbers language-none"><code class="language-none">a=np.arange(24).reshape(2,3,4)
-a[(a&gt;10)&amp;(a%2 !=0)]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([11, 13, 15, 17, 19, 21, 23])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
-<p>2.条件取反符号  ~</p>
-<p>如：</p>
-<pre class="line-numbers language-none"><code class="language-none">a=np.arange(10)
-a[~(a&lt;5)]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([5, 6, 7, 8, 9])		%a[~(a&lt;5)]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
-<hr>
-<h4 id="广播与转置"><a href="#广播与转置" class="headerlink" title="广播与转置"></a>广播与转置</h4><h5 id="广播"><a href="#广播" class="headerlink" title="广播"></a>广播</h5><p>数组与标量值进行运算时，会广播到所有元素进行相应运算</p>
-<p>举例</p>
-<pre class="line-numbers language-none"><code class="language-none">a=np.arange(10).reshape(2,5)
-a+10		%广播到所有元素
-
-a+a			%同形状数组，对应位置元素相运算
-
-a1=np.arange(5)
-a+a1		%行数相同数组广播运算，a为2*5，b为1*5，每行元素对应运算
-
-%列数相同，也可进行运算<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([[10, 11, 12, 13, 14],
-    [15, 16, 17, 18, 19]])		%a+10
-
-array([[ 0,  2,  4,  6,  8],
-    [10, 12, 14, 16, 18]])		%a+a
-
-array([[ 0,  2,  4,  6,  8],
-    [ 5,  7,  9, 11, 13]])		%a+a1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="转置"><a href="#转置" class="headerlink" title="转置"></a>转置</h5><p>array.T，进行转置</p>
-<pre class="line-numbers language-none"><code class="language-none">a=np.arange(10).reshape(2,5)
-a
-a.T<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([[0, 1, 2, 3, 4],
-    [5, 6, 7, 8, 9]])		%a
-
-array([[0, 5],
-    [1, 6],
-    [2, 7],
-    [3, 8],
-    [4, 9]])					%a.T<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<hr>
-<h4 id="数据合并与元素添加"><a href="#数据合并与元素添加" class="headerlink" title="数据合并与元素添加"></a>数据合并与元素添加</h4><h5 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h5><p><code>%concatenate()</code></p>
-<p>参数必须为元组，里面写需合并的高维数组，另有axis进行竖直水平合并选择</p>
-<pre class="line-numbers language-none"><code class="language-none">a=np.array([[1,2],[3,4]])
-b=np.array([[5,6],[7,8]])
-np.concatenate((a,b))			%默认，竖直合并
-np.concatenate((a,b)，axis=1)	%水平合并<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([[1, 2],
-    [3, 4],
-    [5, 6],
-    [7, 8]])				%np.concatenate((a,b))
-
-array([[1, 2, 5, 6],
-    [3, 4, 7, 8]])		%np.concatenate((a,b)，axis=1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<p>==对于一维数组==，前文concate（）的用法不再适用，axis只能取0，取1会报错</p>
-<p>且，concatenate（）对一维数组进行的是水平合并</p>
-<p>​		竖直合并得用stack（）</p>
-<pre class="line-numbers language-none"><code class="language-none">a1=np.array([1,2,3,4])
-a2=np.array([5,6,7,8])
-np.concatenate((a1,a2))
-
-np.stack((a1,a2))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([1, 2, 3, 4, 5, 6, 7, 8])			%np.concatenate((a1,a2))
-
-array([[1, 2, 3, 4],
-    [5, 6, 7, 8]])					%np.stack((a1,a2))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="元素添加"><a href="#元素添加" class="headerlink" title="元素添加"></a>元素添加</h5><p>np.append(修改数组，添加的具体元素)</p>
-<pre class="line-numbers language-none"><code class="language-none">a1=np.array([1,2,3,4])
-np.append(a1,5)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([1, 2, 3, 4, 5])		%np.append(a1,5)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
-<p>==对于高维数组==，使用np.append()会得到一个一维数组。类似于concaten（），高维数组有axis参数</p>
-<pre class="line-numbers language-none"><code class="language-none">b=np.array([[5,6],[7,8]])
-np.append(b,[9,10])				%默认水平合并
-
-np.append(b,[9,10]，axis=0)		%会报错，[9,10]会被当成一维数组，应修改为[[9,10]]
-
-np.append(b,[[9,10]]，axis=0)
-
-np.append(b,[[9],[10]],axis=1)	%水平合并，应将9，10两个元素写成一列<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([[5, 6],
-    [7, 8]])			%b
-
-array([ 5,  6,  7,  8,  9, 10])			%np.append(b,[9,10])
-
-array([[ 5,  6],
-    [ 7,  8],
-    [ 9, 10]])						%np.append(b,[[9,10]]，axis=0)
-
-array([[ 5,  6,  9],
-    [ 7,  8, 10]])					%np.append(b,[[9],[10]],axis=1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="返回唯一值"><a href="#返回唯一值" class="headerlink" title="返回唯一值"></a>返回唯一值</h5><p>np.unique()</p>
-<pre class="line-numbers language-none"><code class="language-none">a=np.array([1,1,1,3,3,3,4,4,5])
-np.unique(a)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([1, 3, 4, 5])						%np.unique(a)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
-<hr>
-<h4 id="通用函数"><a href="#通用函数" class="headerlink" title="通用函数"></a>通用函数</h4><h5 id="平方根"><a href="#平方根" class="headerlink" title="平方根"></a>平方根</h5><pre class="line-numbers language-none"><code class="language-none">a=np.arange(10)
-np.sqrt(a)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([0.        , 1.        , 1.41421356, 1.73205081, 2.        ,
-    2.23606798, 2.44948974, 2.64575131, 2.82842712, 3.        ])		<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="三角函数-参数为弧度"><a href="#三角函数-参数为弧度" class="headerlink" title="三角函数(参数为弧度)"></a>三角函数(参数为弧度)</h5><pre class="line-numbers language-none"><code class="language-none">np.sin(a)
-
-np.cos(a)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([ 0.        ,  0.84147098,  0.90929743,  0.14112001, -0.7568025 ,
-    -0.95892427, -0.2794155 ,  0.6569866 ,  0.98935825,  0.41211849])
-
-array([ 1.        ,  0.54030231, -0.41614684, -0.9899925 , -0.65364362,
-     0.28366219,  0.96017029,  0.75390225, -0.14550003, -0.91113026])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="幂运算"><a href="#幂运算" class="headerlink" title="幂运算"></a>幂运算</h5><pre class="line-numbers language-none"><code class="language-none">a**2
-
-a**3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([ 0,  1,  4,  9, 16, 25, 36, 49, 64, 81], dtype=int32)
-
-array([  0,   1,   8,  27,  64, 125, 216, 343, 512, 729], dtype=int32)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="两数组对应位置元素最大值"><a href="#两数组对应位置元素最大值" class="headerlink" title="两数组对应位置元素最大值"></a>两数组对应位置元素最大值</h5><pre class="line-numbers language-none"><code class="language-none">b=np.arange(10,0,-1)
-np.maximum(a,b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([10,  9,  8,  7,  6,  5,  6,  7,  8,  9])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
-<hr>
-<h4 id="统计方法"><a href="#统计方法" class="headerlink" title="统计方法"></a>统计方法</h4><h5 id="均值"><a href="#均值" class="headerlink" title="均值"></a>均值</h5><pre class="line-numbers language-none"><code class="language-none">a=np.arange(10)
-np.mean(a)		%也可看做对象，使用a.mean()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">4.5			%np.mean(a)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
-<pre class="line-numbers language-none"><code class="language-none">a1=a.reshape(2,5)
-a1.mean(axis=0)		%按列求均值
-
-a1.mean(axis=1)		%按行求均值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">array([2.5, 3.5, 4.5, 5.5, 6.5])	%a1.mean(axis=0)
-
-array([2., 7.])						%a1.mean(axis=1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="求和"><a href="#求和" class="headerlink" title="求和"></a>求和</h5><pre class="line-numbers language-none"><code class="language-none">np.sum(a)		%a.sum()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">45<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
-<h5 id="最大值"><a href="#最大值" class="headerlink" title="最大值"></a>最大值</h5><pre class="line-numbers language-none"><code class="language-none">a1.max()		%所有元素中的最大值
-
-a1.max(0)		%每列的最大值
-
-a1.max(1)		%每行的最大值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">9
-
-array([5, 6, 7, 8, 9])
-
-array([4, 9])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="最小值"><a href="#最小值" class="headerlink" title="最小值"></a>最小值</h5><p><code>min()</code>,用法同max</p>
-<h5 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h5><pre class="line-numbers language-none"><code class="language-none">a1.std()
-
-a1.std(0)
-
-a1.std(1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">2.8722813232690143
-
-array([2.5, 2.5, 2.5, 2.5, 2.5])
-
-array([1.41421356, 1.41421356])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<h5 id="中位数"><a href="#中位数" class="headerlink" title="中位数"></a>中位数</h5><p>==注意：==</p>
-<p>numpy没有median（）方法</p>
-<pre class="line-numbers language-none"><code class="language-none">np.median(a1)
-
-np.median(a1,0)
-
-np.median(a1,1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<pre class="line-numbers language-none"><code class="language-none">4.5
-
-array([2.5, 3.5, 4.5, 5.5, 6.5])
-
-array([2., 7.])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-<hr>
-<hr>
-<h3 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h3><h4 id="导包-一般"><a href="#导包-一般" class="headerlink" title="导包(一般)"></a>导包(一般)</h4><p><code>import matplotlib.pyplot as plt</code></p>
-<p>常用的绘图命令都放在了pyplot下</p>
-<hr>
-<h4 id="线性图"><a href="#线性图" class="headerlink" title="线性图"></a>线性图</h4><h5 id="单条曲线"><a href="#单条曲线" class="headerlink" title="单条曲线"></a>单条曲线</h5><pre class="line-numbers language-none"><code class="language-none">import numpy as np
-import matplotlib.pyplot as plt
-x=np.arange(0,5)
-y=np.arange(5,10)
-plt.plot(x,y)		%若没写x，绘图时x轴取值会默认以从0开始的序列进行取值
-plt.show()			%在notebook中，有没有此语句都会输出图像<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p><img src="D:\Typora\Projects\机器学习\数据分析\figure\线性图-举例.png" alt="线性图-举例"></p>
-</blockquote>
-<h5 id="多条曲线"><a href="#多条曲线" class="headerlink" title="多条曲线"></a>多条曲线</h5><pre class="line-numbers language-none"><code class="language-none">x=[1,2,3,4]
-y=[5,6,7,8]
-y1=[1,3,5,7]
-y2=[8,2,6,3]
-
-plt.plot(x,y)
-plt.plot(x,y1)
-plt.plot(x,y2)
-plt.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p><img src="D:\Typora\Projects\机器学习\数据分析\figure\同框多线.png" alt="同框多线"></p>
-</blockquote>
-<p>==带标签==</p>
-<pre class="line-numbers language-none"><code class="language-none">plt.plot(x,y,label="A")		%label指定标签名
-plt.plot(x,y1,label="B")
-plt.plot(x,y2,label="C")
-plt.legend()				%显示标签
-plt.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><img src="D:\Typora\Projects\机器学习\数据分析\figure\多线带标签.png" alt="多线带标签"></p>
-<h5 id="与numpy配合"><a href="#与numpy配合" class="headerlink" title="与numpy配合"></a>与numpy配合</h5><pre class="line-numbers language-none"><code class="language-none">x=np.linspace(0,7,100)
-y=np.sin(x)
-plt.plot(x,y,label='sinx')
-plt.legend()
-plt.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p><img src="D:\Typora\Projects\机器学习\数据分析\figure\sinx.png" alt="sinx"></p>
-</blockquote>
+</li>
+<li><strong>缺点</strong>：会过度放大图像中相对均匀区域的噪声</li>
+</ul>
+<h4 id="1-3-3-限制对比度自适应直方图均衡-CLAHE算法"><a href="#1-3-3-限制对比度自适应直方图均衡-CLAHE算法" class="headerlink" title="1.3.3 限制对比度自适应直方图均衡(CLAHE算法)"></a>1.3.3 限制对比度自适应直方图均衡(CLAHE算法)</h4><ul>
+<li><p>相较于AHE算法，有一个<strong>直方图修剪</strong>过程，修剪后其图像对比度会更加自然</p>
+</li>
+<li><img src="image-20230711163129854.png" style="zoom:33%;">
+</li>
+<li><p>算法步骤</p>
+<ul>
+<li>图像分块</li>
+<li>先计算直方图，然后修剪直方图，最后均衡</li>
+<li>遍历各个图像块，进行<strong>块间双线性插值</strong></li>
+<li>与原图做图层滤色混合操作（可选）</li>
+</ul>
+</li>
+<li><p>效果如下</p>
+</li>
+</ul>
+<img src="image-20230711165455356.png" style="zoom:33%;">
+
+<h3 id="1-4-形态学运算"><a href="#1-4-形态学运算" class="headerlink" title="1.4 形态学运算"></a>1.4 形态学运算</h3><p>当有噪声的图像用阈值二值化后，所得到的边界是很不平滑的，物体区域具有一些错判的孔洞，背景区域散步着一些小的噪声物体，连续的开闭运算可以显著改善这种情况</p>
+<h4 id="1-4-1-膨胀"><a href="#1-4-1-膨胀" class="headerlink" title="1.4.1 膨胀"></a>1.4.1 膨胀</h4><ul>
+<li>对图像中高亮部分进行膨胀，类似于领域扩张</li>
+</ul>
+<h4 id="1-4-2-腐蚀"><a href="#1-4-2-腐蚀" class="headerlink" title="1.4.2 腐蚀"></a>1.4.2 腐蚀</h4><ul>
+<li>领域蚕食</li>
+</ul>
+<h4 id="1-4-3-开运算"><a href="#1-4-3-开运算" class="headerlink" title="1.4.3 开运算"></a>1.4.3 开运算</h4><ul>
+<li>先腐蚀再膨胀，去掉目标外的孤立点</li>
+</ul>
+<h4 id="1-4-4-闭运算"><a href="#1-4-4-闭运算" class="headerlink" title="1.4.4 闭运算"></a>1.4.4 闭运算</h4><ul>
+<li>先膨胀再腐蚀，去掉目标内的孔洞</li>
+</ul>
+<h3 id="1-5-空间域处理-滤波-卷积"><a href="#1-5-空间域处理-滤波-卷积" class="headerlink" title="1.5 空间域处理(滤波/卷积)"></a>1.5 空间域处理(滤波/卷积)</h3><h4 id="1-5-1-平滑-去噪"><a href="#1-5-1-平滑-去噪" class="headerlink" title="1.5.1 平滑/去噪"></a>1.5.1 平滑/去噪</h4><h5 id="1-5-1-1-均值滤波-很少用"><a href="#1-5-1-1-均值滤波-很少用" class="headerlink" title="1.5.1.1 均值滤波(很少用)"></a>1.5.1.1 均值滤波(很少用)</h5><ul>
+<li>均值滤波本身存在缺陷，既没有很好的去除噪声点，也破坏了图像的细节，反而使图像变得模糊</li>
+<li>效果如下</li>
+</ul>
+<img src="image-20230711181112309.png" style="zoom:33%;">
+
+<h5 id="1-5-1-2-中值滤波"><a href="#1-5-1-2-中值滤波" class="headerlink" title="1.5.1.2 中值滤波"></a>1.5.1.2 中值滤波</h5><ul>
+<li>对区域内像素取中位数</li>
+<li>对于椒盐噪声，可以较好的还原图像</li>
+<li>效果如下</li>
+</ul>
+<img src="image-20230711183054441.png" style="zoom: 33%;">
+
+<h5 id="1-5-1-3-高斯滤波"><a href="#1-5-1-3-高斯滤波" class="headerlink" title="1.5.1.3 高斯滤波"></a>1.5.1.3 高斯滤波</h5><ul>
+<li>模拟人眼，关注中心区域，离中心越远，感受到的精度越模糊</li>
+<li>有效去除高斯噪声</li>
+<li>参数<ul>
+<li>x,y是卷积参数坐标</li>
+<li>$\delta$是标准差，$\delta$越小，关注区域越集中<img src="image-20230711183916602.png" style="zoom:33%;"></li>
+</ul>
+</li>
+</ul>
+<h5 id="1-5-1-4-高斯金字塔"><a href="#1-5-1-4-高斯金字塔" class="headerlink" title="1.5.1.4 高斯金字塔"></a>1.5.1.4 高斯金字塔</h5><ul>
+<li>高斯滤波的模糊化，是为了引入高斯金字塔</li>
+<li>直接降采样损失信息，用高斯滤波来减少降采样带来的信息损失</li>
+</ul>
+<img src="image-20230711190914908.png" style="zoom:33%;">
+
+<h4 id="1-5-2-梯度-锐化"><a href="#1-5-2-梯度-锐化" class="headerlink" title="1.5.2 梯度/锐化"></a>1.5.2 梯度/锐化</h4><h5 id="1-5-2-1-Prettier"><a href="#1-5-2-1-Prettier" class="headerlink" title="1.5.2.1 Prettier"></a>1.5.2.1 Prettier</h5><h5 id="1-5-2-2-Sobel算子"><a href="#1-5-2-2-Sobel算子" class="headerlink" title="1.5.2.2 Sobel算子"></a>1.5.2.2 Sobel算子</h5><ul>
+<li>sobel滤波找竖直的线，也可以找水平的线，对于<strong>斜向的线易遗漏</strong></li>
+</ul>
+<img src="image-20230711200309925.png" style="zoom: 50%;">
+
+<img src="image-20230711200152745.png" style="zoom: 50%;">
+
+
+
+<h5 id="1-5-2-3-Laplacian算子"><a href="#1-5-2-3-Laplacian算子" class="headerlink" title="1.5.2.3 Laplacian算子"></a>1.5.2.3 Laplacian算子</h5><ul>
+<li>找突变的地方</li>
+<li>块图检测：周边高于/低于中心点</li>
+<li><strong>边缘检测</strong>：像素值快速变化的区域</li>
+<li>算子和必须是0，要满足微分等式，避免把完全平滑的区域选出来</li>
+</ul>
+<img src="image-20230711185605398.png" style="zoom:33%;">
+
+<ul>
+<li>效果如下</li>
+</ul>
+<img src="image-20230711190102480.png" style="zoom:33%;">
+
+<h2 id="二、特征检测"><a href="#二、特征检测" class="headerlink" title="二、特征检测"></a>二、特征检测</h2><h3 id="2-1-颜色特征"><a href="#2-1-颜色特征" class="headerlink" title="2.1 颜色特征"></a>2.1 颜色特征</h3><h4 id="2-1-1-量化颜色直方图"><a href="#2-1-1-量化颜色直方图" class="headerlink" title="2.1.1 量化颜色直方图"></a>2.1.1 量化颜色直方图</h4><ul>
+<li>适用空间：RGB、HSV</li>
+<li>操作<ul>
+<li>颜色空间量化，单元由单元中心代表</li>
+<li>统计落在量化单元上的像素数量</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-2-聚类颜色直方图"><a href="#2-1-2-聚类颜色直方图" class="headerlink" title="2.1.2 聚类颜色直方图"></a>2.1.2 聚类颜色直方图</h4><ul>
+<li>适用空间：LAB<ul>
+<li>LAB空间是用数字化的方法来描述人的视觉感应</li>
+<li>L代表像素<strong>亮度</strong>，取值范围是[0,100]，表示从纯黑到纯白</li>
+<li>A代表从<strong>品红色到深绿色</strong>的范围，取值范围是[127,-128]</li>
+<li>B代表从<strong>黄色到蓝色</strong>的范围，取值范围是[127,-128]</li>
+</ul>
+</li>
+</ul>
+<img src="image-20230713133746258.png" style="zoom:33%;">
+
+<ul>
+<li>操作<ul>
+<li>使用聚类算法对所有像素点颜色向量进行聚类</li>
+<li>单元由聚类中心代表</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-几何特征"><a href="#2-2-几何特征" class="headerlink" title="2.2 几何特征"></a>2.2 几何特征</h3><h4 id="2-2-1-边缘特征"><a href="#2-2-1-边缘特征" class="headerlink" title="2.2.1 边缘特征"></a>2.2.1 边缘特征</h4><ul>
+<li>边缘（Edge）<ul>
+<li>像素明显变化的区域</li>
+<li>具有丰富的语义</li>
+<li>作用<ul>
+<li>物体识别</li>
+<li>几何、视角交换</li>
+</ul>
+</li>
+<li>数学角度定义<ul>
+<li>像素值函数快速变化的区域$\rightarrow$一阶导数的极值区域</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img src="image-20230713134610371.png" style="zoom:33%;">
+
+<ul>
+<li>边缘提取<ul>
+<li>先<strong>高斯去噪（平滑图像）</strong>，使像素变化连续，再使用一阶导数获得极值</li>
+<li>导数对噪声敏感</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-2-2-基于特征点的特征描述子"><a href="#2-2-2-基于特征点的特征描述子" class="headerlink" title="2.2.2 基于特征点的特征描述子"></a>2.2.2 基于特征点的特征描述子</h4><ul>
+<li><p>从不同距离、不同方向、角度，不同的光照下观察同一个物体，物体的形状大小明暗都会有所不同，但我们依然可以判断它是同一个物体</p>
+</li>
+<li><p>理想的特征描述子应在大小、方向、明暗不同的图像中，同一特征点应具有足够相似的描述子</p>
+</li>
+<li><p>特征点</p>
+<ul>
+<li>不同视角图片之间的映射</li>
+<li>稳定局部特征点<ul>
+<li>可重复性、显著性</li>
+<li>抗图片变换（亮度、光照、平移、选择、尺度）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img src="image-20230713140445623.png" style="zoom: 50%;">
+
+<ul>
+<li>找到这些关键点后，可实现图像拼接、运动跟踪、物体识别、机器人导航、3D重建</li>
+</ul>
+<h5 id="2-2-2-1-Harris角点"><a href="#2-2-2-1-Harris角点" class="headerlink" title="2.2.2.1 Harris角点"></a>2.2.2.1 Harris角点</h5><h5 id="2-2-2-2FAST角点"><a href="#2-2-2-2FAST角点" class="headerlink" title="2.2.2.2FAST角点"></a>2.2.2.2FAST角点</h5><ul>
+<li><p>FAST角点检测是一种快速角点特征检测算法</p>
+</li>
+<li><p>FAST角点定义：若某像素点与其周围领域内足够多的像素点处于不同区域，则该像素点可能为角点</p>
+</li>
+<li><p>FAST特征点检测是对兴趣点所在圆周上的16个像素点进行判断</p>
+</li>
+<li><p>FAST角点检测算法<strong>复杂度小</strong>，检测效果好</p>
+</li>
+<li><p>FAST不产生多尺度特征，没有方向信息，会<strong>失去旋转不变性</strong></p>
+</li>
+<li><p>算法步骤</p>
+<ul>
+<li>确定一个阈值t，观察检测像素点p为中心的一个半径等于3像素的离散化的圆，这个圆边界上有<strong>16个像素</strong></li>
+<li>如果在这个圆上，有<strong>连续12个像素</strong>点，它们的像素值要么都比$I_p+t$大/小，则点p是一个角点</li>
+</ul>
+</li>
+</ul>
+<img src="image-20230713142300065.png" style="zoom: 50%;">
+
+<h2 id="三、图像分割"><a href="#三、图像分割" class="headerlink" title="三、图像分割"></a>三、图像分割</h2><p>其目的是将感兴趣目标从复杂背景中提取出来，以便进行目标识别和分析</p>
+<h3 id="3-1-阈值分割"><a href="#3-1-阈值分割" class="headerlink" title="3.1 阈值分割"></a>3.1 阈值分割</h3><h4 id="3-1-1-图像二值化"><a href="#3-1-1-图像二值化" class="headerlink" title="3.1.1 图像二值化"></a>3.1.1 图像二值化</h4><ul>
+<li>当背景与前景的灰度分布差异明显时，可以使用单个阈值处理图像</li>
+</ul>
+<h5 id="3-1-1-1-自动阈值算法"><a href="#3-1-1-1-自动阈值算法" class="headerlink" title="3.1.1.1 自动阈值算法"></a>3.1.1.1 自动阈值算法</h5><ul>
+<li>当物体与背景的直方图之间存在一个相当清晰的波谷时，这个算法工作效果很好</li>
+<li>算法步骤<ul>
+<li>(1) 为全局选定一个<strong>初始阈值T</strong></li>
+<li>(2) 用初值T对图像进行分割，把图像<strong>分割为2组像素</strong>，$G_1$由灰度值大于T的像素组成，$G_2$由小于等于的像素组成</li>
+<li>(3) 对$G_1$和$G-2$分别计算平均灰度值$m_1$和$m_2$</li>
+<li>(4) 更新阈值$T=\frac{m_1+m_2}{2}$</li>
+<li>(5) 重复(2)-(4)，直到相邻2次T值之差小于预定的$\Delta T$为止</li>
+</ul>
+</li>
+</ul>
+<img src="image-20230713150526131.png" style="zoom: 50%;">
+
+<h5 id="3-1-1-2-Otsu最佳阈值处理（最大类间差方法）"><a href="#3-1-1-2-Otsu最佳阈值处理（最大类间差方法）" class="headerlink" title="3.1.1.2 Otsu最佳阈值处理（最大类间差方法）"></a>3.1.1.2 Otsu最佳阈值处理（最大类间差方法）</h5><ul>
+<li><p>Otsu算法是一种自适应阈值确定方法，是一种全局的二值化方法</p>
+</li>
+<li><p>它根据图像的灰度特性，将图像分为前景和背景两个部分。当取最佳阈值时，两部分之间的差别最大。</p>
+</li>
+<li><p>Otsu算法采用的衡量差别的标准为最大类间方差。前景与背景之间的类间方差越大，就说明构成图像的两部分差别越大</p>
+</li>
+<li><p>当部分目标被错分为背景或部分背景被错分为目标时，都会导致两部分差别变小</p>
+</li>
+<li><p>当所取阈值的分割使类间方差最大时，意味着错分概率最小</p>
+</li>
+<li><p>算法过程</p>
+<ul>
+<li><p>假设一幅尺寸为M*N的图像中有L个不同的灰度级{0,1,2,…,L-1}，$n_i$表示灰度级为i的像素个数，$p_i$表示归一化的直方图分量</p>
+<ul>
+<li>$p_i=\frac{n_i}{MN}，\sum\limits _{i=0}^{L-1} p_i=1$</li>
+</ul>
+</li>
+<li><p>选择一个阈值$T(k)=k (0&lt;k&lt;L-1)$，用它将图像阈值分为两类</p>
+<ul>
+<li>$C_1$灰度值在[0,k]</li>
+<li>$C_2$灰度值在[k+1,L-1]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
                 
             </div>
@@ -876,7 +598,7 @@ plt.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yijingsong.github.io/2023/01/14/python-shu-ju-fen-xi-chang-yong-bao/">https://yijingsong.github.io/2023/01/14/python-shu-ju-fen-xi-chang-yong-bao/</a>
+                    <a href="https://yijingsong.github.io/2024/04/01/ji-qi-shi-jue/">https://yijingsong.github.io/2024/04/01/ji-qi-shi-jue/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -961,13 +683,13 @@ plt.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/03/05/liu-ji-ji-qiao/">
+                <a href="/2024/04/01/ji-qi-xue-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="六级技巧">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="机器学习">
                         
-                        <span class="card-title">六级技巧</span>
+                        <span class="card-title">机器学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -978,7 +700,7 @@ plt.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-05
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-01
                         </span>
                         <span class="publish-author">
                             
@@ -998,13 +720,13 @@ plt.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/01/14/jupter-ji-anaconda-chang-yong-ming-ling/">
+                <a href="/2024/04/01/openmv/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Jupter及Anaconda常用命令">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="OpenMv Cam H7">
                         
-                        <span class="card-title">Jupter及Anaconda常用命令</span>
+                        <span class="card-title">OpenMv Cam H7</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1015,7 +737,7 @@ plt.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-01
                             </span>
                         <span class="publish-author">
                             
@@ -1148,6 +870,13 @@ plt.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -1167,7 +896,7 @@ plt.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">33.7k</span>
+                        class="white-color">40.4k</span>
             
             
             

@@ -1,0 +1,1865 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="OpenMv Cam H7, yijingsong">
+    <meta name="description" content="一、图像处理背景1.1 什么是颜色颜色就是不同波长的电磁波
+
+
+
+
+1.2 LAB色域Openmv查找色块算法使用LAB模式
+Lab颜色空间中，L亮度；a的正数代表红色，负端代表绿色；b的正数代表黄色，负端代表兰色（墨水蓝，天蓝色）。不像R">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>OpenMv Cam H7 | yijingsong</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+    
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">yijingsong</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">yijingsong</div>
+        <div class="logo-desc">
+            
+            疾风亦有归途
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">OpenMv Cam H7</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <style>
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: scroll;
+    }
+</style>
+
+
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-01
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-04-01
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.6k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、图像处理背景"><a href="#一、图像处理背景" class="headerlink" title="一、图像处理背景"></a>一、图像处理背景</h2><h3 id="1-1-什么是颜色"><a href="#1-1-什么是颜色" class="headerlink" title="1.1 什么是颜色"></a>1.1 什么是颜色</h3><p>颜色就是不同波长的电磁波</p>
+<img src="image-20230225110627109-1711976615648-15.png" style="zoom:50%;">
+
+
+
+<h3 id="1-2-LAB色域"><a href="#1-2-LAB色域" class="headerlink" title="1.2 LAB色域"></a>1.2 LAB色域</h3><p>Openmv查找色块算法使用<strong>LAB模式</strong></p>
+<p>Lab颜色空间中，<strong>L亮度；a的正数代表红色，负端代表绿色；b的正数代表黄色，负端代表兰色（墨水蓝，天蓝色）</strong>。不像RGB和CMYK色彩空间，Lab颜色被设计来接近人类视觉。因此，L分量可以调整亮度对，修改a和b分量的输出色阶来做精确的颜色平衡。</p>
+<h3 id="1-3-光源"><a href="#1-3-光源" class="headerlink" title="1.3 光源"></a>1.3 光源</h3><p>保持一个稳定的光源是<strong>至关重要</strong>的，尤其在颜色算法中。亮度一变，整个颜色的值会变化的很大！</p>
+<h3 id="1-4-焦距"><a href="#1-4-焦距" class="headerlink" title="1.4 焦距"></a>1.4 焦距</h3><p>镜头焦距：是指镜头光学后<strong>主点到焦点的距离</strong>，是镜头的重要性能指标。镜头焦距的长短<strong>决定着拍摄的成像大小，视场角大小，景深大小和画面的透视强弱</strong>。当对同一距离远的同一个被摄目标拍摄时，镜头焦距长的所成的象大，镜头焦距短的所成的象小。注意<strong>焦距越长，视角越小</strong>。</p>
+<img src="image-20230225111407279-1711976615648-17.png" style="zoom: 33%;">
+
+
+
+<h2 id="二、Openmv图像处理方法"><a href="#二、Openmv图像处理方法" class="headerlink" title="二、Openmv图像处理方法"></a>二、Openmv图像处理方法</h2><h3 id="2-1-sensor模块"><a href="#2-1-sensor模块" class="headerlink" title="2.1 sensor模块"></a>2.1 sensor模块</h3><h4 id="2-1-1-导入sensor"><a href="#2-1-1-导入sensor" class="headerlink" title="2.1.1 导入sensor"></a>2.1.1 导入sensor</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">import sensor<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="2-1-2-初始化摄像头"><a href="#2-1-2-初始化摄像头" class="headerlink" title="2.1.2 初始化摄像头"></a>2.1.2 初始化摄像头</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">sensor.reset()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="2-1-3-设置图像模式"><a href="#2-1-3-设置图像模式" class="headerlink" title="2.1.3 设置图像模式"></a>2.1.3 设置图像模式</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+可选参数：
+- sensor.GRAYSCALE: 灰度图，每个像素8bit
+- sensor.RGB565: 彩图，每个像素16bit
+'''
+
+sensor.set_pixformat(sensor.RGB565)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-1-4-设置图像尺寸"><a href="#2-1-4-设置图像尺寸" class="headerlink" title="2.1.4 设置图像尺寸"></a>2.1.4 设置图像尺寸</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+可选参数太多，列举几个：
+- sensor.VGA: 640x480
+- sensor.QVGA: 320x240
+- sensor.QQVGA: 160x120
+- sensor.QQQVGA: 80x60
+'''
+
+sensor.set_framesize(sensor.QVGA)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-1-5-提取图像区域"><a href="#2-1-5-提取图像区域" class="headerlink" title="2.1.5 提取图像区域"></a>2.1.5 提取图像区域</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+设置窗口ROI
+- Region Of Interest，感兴趣区，就是在要处理的图像中提取出的要处理的区域
+
+其中，roi格式为(x, y, w, h)的tupple
+- x:ROI区域中左上角的x坐标，从0开始计数，由左往右增大
+- y:ROI区域中左上角的y坐标，同样从0开始计数，由上往下增大
+- w:ROI的宽度
+- h:ROI的高度
+'''
+
+sensor.set_windowing((640, 80)) #取图像中间的640*80区域<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-1-6-图像翻转"><a href="#2-1-6-图像翻转" class="headerlink" title="2.1.6 图像翻转"></a>2.1.6 图像翻转</h4><ul>
+<li>水平翻转</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">sensor.set_hmirror(True)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>垂直翻转</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">sensor.set_vflip(True)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>转置</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">sensor.set_transpose(True)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="2-1-7-自动增益"><a href="#2-1-7-自动增益" class="headerlink" title="2.1.7 自动增益"></a>2.1.7 自动增益</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- 自动增益，开启（True）或者关闭（False）
+- 在使用颜色追踪时，需要关闭自动增益
+'''
+
+sensor.set_auto_gain(False) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-1-8-自动白平衡"><a href="#2-1-8-自动白平衡" class="headerlink" title="2.1.8 自动白平衡"></a>2.1.8 自动白平衡</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- 自动白平衡开启（True）或者关闭（False）
+- 在使用颜色追踪时，需要关闭自动白平衡
+'''
+
+sensor.set_auto_whitebal(False) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-1-9-跳帧"><a href="#2-1-9-跳帧" class="headerlink" title="2.1.9 跳帧"></a>2.1.9 跳帧</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- 跳过n张照片，等待感光元件变稳定
+'''
+
+sensor.skip_frames(10)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-1-10-拍照"><a href="#2-1-10-拍照" class="headerlink" title="2.1.10 拍照"></a>2.1.10 拍照</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- sensor.snapshot() 拍摄一张照片
+- 返回一个image对象
+'''
+
+img = sensor.snapshot()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-1-11-获取传感器窗口宽高"><a href="#2-1-11-获取传感器窗口宽高" class="headerlink" title="2.1.11 获取传感器窗口宽高"></a>2.1.11 获取传感器窗口宽高</h4><ul>
+<li>图像宽度</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">sensor.width()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>图像高度</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">sensor.height()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="2-2-image模块"><a href="#2-2-image模块" class="headerlink" title="2.2 image模块"></a>2.2 image模块</h3><h4 id="2-2-1-获取-设置像素值"><a href="#2-2-1-获取-设置像素值" class="headerlink" title="2.2.1 获取/设置像素值"></a>2.2.1 获取/设置像素值</h4><ul>
+<li>获取像素点</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- 对于灰度图: 返回(x,y)坐标的灰度值
+- 对于彩色图: 返回(x,y)坐标的(r,g,b)的tuple
+'''
+
+image.get_pixel(x, y)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>设置像素值</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- 对于灰度图: 设置(x,y)坐标的灰度值
+- 对于彩色图: 设置(x,y)坐标的(r,g,b)的值
+'''
+
+image.set_pixel(x, y, pixel)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>举例：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">img = sensor.snapshot()
+img.get_pixel(10,10)#获取坐标（10，10）处的灰度值/rgb
+img.set_pixcel(10,10,(255,0,0))#设置坐标(10,10)的像素点为红色(255,0,0)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-2-2-获取拍摄图像宽高"><a href="#2-2-2-获取拍摄图像宽高" class="headerlink" title="2.2.2 获取拍摄图像宽高"></a>2.2.2 获取拍摄图像宽高</h4><ul>
+<li>图像宽度</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">image.width()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>图像高度</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">image.height()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>图像尺寸</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- 返回图像的大小(byte)，其值等于 长x宽
+'''
+
+image.size()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-2-3-获取图像格式"><a href="#2-2-3-获取图像格式" class="headerlink" title="2.2.3 获取图像格式"></a>2.2.3 获取图像格式</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- 灰度图返回 sensor.GRAYSCALE
+- 彩色图返回 sensor.RGB565
+'''
+
+image.format()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="2-2-4-图像运算"><a href="#2-2-4-图像运算" class="headerlink" title="2.2.4 图像运算"></a>2.2.4 图像运算</h4><ul>
+<li><strong>取反</strong>，对于二值化的图像，0(黑)变成1(白)，1(白)变成0(黑)</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">image.invert()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>与另一个图片进行<strong>与非</strong>（NAND）运算<ul>
+<li>先与后非</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">image.nand(image)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>与另一个图片进行<strong>或非</strong>（NOR）运算<ul>
+<li>先或后非</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">image.nor(image)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>与另一个图片进行<strong>异或</strong>（XOR）运算<ul>
+<li>相同为0，相异为1</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">image.xor(image)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>与另一个图片进行<strong>同或</strong>（XNOR）运算<ul>
+<li>相同为1，相异为0</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">image.xnor(image)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li><strong>减法</strong>，从这张图片减去另一个图片，经常用来做==移动检测==</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">image.difference(image)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="2-2-5-Statistics-统计信息"><a href="#2-2-5-Statistics-统计信息" class="headerlink" title="2.2.5 Statistics 统计信息"></a>2.2.5 Statistics 统计信息</h4><h5 id="2-2-5-1-创建Statistics对象"><a href="#2-2-5-1-创建Statistics对象" class="headerlink" title="2.2.5.1 创建Statistics对象"></a>2.2.5.1 创建Statistics对象</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- roi必须显示输入，否则不知道统计哪一块的像素信息
+'''
+
+image.get_statistics(roi=Auto)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="2-2-5-2-Statistics方法"><a href="#2-2-5-2-Statistics方法" class="headerlink" title="2.2.5.2 Statistics方法"></a>2.2.5.2 Statistics方法</h5><ul>
+<li>返回灰度<strong>均值</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">statistics.mean()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>返回灰度<strong>中值</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">statistics.median()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>返回灰度均值</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">statistics.mean()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>返回灰度<strong>众数</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">statistics.mode()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>返回灰度<strong>标准差</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">statistics.stdev()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>返回灰度<strong>最值</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">statistics.max()
+statistics.min()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="2-2-6-Blob-色块信息"><a href="#2-2-6-Blob-色块信息" class="headerlink" title="2.2.6 Blob 色块信息"></a>2.2.6 Blob 色块信息</h4><h5 id="2-2-6-1-创建Blob对象"><a href="#2-2-6-1-创建Blob对象" class="headerlink" title="2.2.6.1 创建Blob对象"></a>2.2.6.1 创建Blob对象</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- thresholds 为目标颜色阈值，可以是多个阈值构成的列表，即同时查找多种颜色
+- roi 感兴趣区域
+- x_stride 查找某色块时需要跳过的x像素的数量（有点卷积步长的感觉）
+- y_stride 查找某色块时需要跳过的y像素的数量
+- invert 反转阈值操作，识别阈值之外的目标
+- area_threshold 面积阈值，色块的面积，即方框面积
+- pixels_threshold 像素个数阈值，方框内的阈值像素个数
+- merge 若为True，合并待识别的多种目标颜色色块。如，当目标颜色为红色和蓝色时，红色的code为0001，蓝		 色的code为0010，当merge为True时，若色块中同时检测到两种颜色，该blob.ocde的返回值为0011
+	 （感觉不太正确）
+- margin 边界，如果设置为1，那么两个blob如果间距1一个像素点会被合并
+'''
+
+# 返回的是blob列表
+blobs=image.find_blobs(
+    thresholds=[(),()], 
+    # 必须是二维列表！元素可以是列表，也可以是元组
+    # 若为灰度图，元组由最小最大值组成(g_l,g_h)
+    # 若为RGB565,元组为LAB阈值
+    
+    roi=Auto, 
+    x_stride=2, 
+    y_stride=1, 
+    invert=False, 
+    area_threshold=10, 
+    pixels_threshold=10, 
+    merge=False, 
+    margin=0, 
+)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="2-2-6-2-blob方法"><a href="#2-2-6-2-blob方法" class="headerlink" title="2.2.6.2 blob方法"></a>2.2.6.2 blob方法</h5><ul>
+<li>返回色块<strong>外框信息</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">blob.rect()  # 外框(x,y,w,h)
+
+blob.x()
+blob.y()
+blob.w()
+blob.h()
+
+blob.cx()
+blob.cy()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>返回色块<strong>code</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">blob.code() <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>返回色块<strong>旋转角度</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">blob.rotation() # 单位为弧度<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>返回色块<strong>外框面积</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">blob.area() <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>返回色块内<strong>阈值像素个数</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">blob.pixels()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>返回色块<strong>密度</strong><ul>
+<li>密度越高，目标锁定越好</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">blob.density()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="2-2-7-绘图"><a href="#2-2-7-绘图" class="headerlink" title="2.2.7 绘图"></a>2.2.7 绘图</h4><h5 id="2-2-7-1-画直线"><a href="#2-2-7-1-画直线" class="headerlink" title="2.2.7.1 画直线"></a>2.2.7.1 画直线</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- line_tuple 的格式是(x0, y0, x1, y1)，意思是(x0, y0)到(x1, y1)的直线
+- color 显示赋值，可以是灰度值(0-255)，或者是彩色值(r, g, b)的tupple，默认白色
+- thickness 设置直线粗细
+'''
+
+image.draw_line(line_tuple, color=(255,0,0), thickness=1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="2-2-7-2-画矩形"><a href="#2-2-7-2-画矩形" class="headerlink" title="2.2.7.2 画矩形"></a>2.2.7.2 画矩形</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- rect_tuple 的格式是 (x, y, w, h)，含义同ROI
+- color
+- thickness
+- fill 若为True，用color填充矩形
+'''
+
+image.draw_rectangle(rect_tuple, color=(0,0,255),  thickness=1, fill=False)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="2-2-7-3-画圆"><a href="#2-2-7-3-画圆" class="headerlink" title="2.2.7.3 画圆"></a>2.2.7.3 画圆</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- circle_tuple的格式(x, y, radius)，中心坐标，半径
+- color
+- thickness
+- fill
+'''
+
+image.draw_circle((x, y, radius), color=White, thickness=1, fill=False)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="2-2-7-4-画十字"><a href="#2-2-7-4-画十字" class="headerlink" title="2.2.7.4 画十字"></a>2.2.7.4 画十字</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- (x,y) 十字中心位置
+- size 十字延伸长度
+- color
+- fill
+'''
+
+image.draw_cross((x, y), size=5, color=(255,0,0)), thickness=1, fill=False)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="2-2-7-5-画箭头"><a href="#2-2-7-5-画箭头" class="headerlink" title="2.2.7.5 画箭头"></a>2.2.7.5 画箭头</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- (x0, y0)到(x1, y1)的箭头
+- color
+- thickness
+'''
+
+image.draw_arrow((x0, y0, x1, y1), color=(255,0,0), thickness=1 )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="2-2-7-6-写字"><a href="#2-2-7-6-写字" class="headerlink" title="2.2.7.6 写字"></a>2.2.7.6 写字</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- x,y是坐标
+- text是要写的字符串,使用转义字符会产生相应变化
+'''
+
+image.draw_string(x, y, text, color=White) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="三、应用"><a href="#三、应用" class="headerlink" title="三、应用"></a>三、应用</h2><h3 id="3-1-AprilTag标记跟踪及测距"><a href="#3-1-AprilTag标记跟踪及测距" class="headerlink" title="3.1 AprilTag标记跟踪及测距"></a>3.1 AprilTag标记跟踪及测距</h3><h5 id="3-1-1-AprilTag识别"><a href="#3-1-1-AprilTag识别" class="headerlink" title="3.1.1 AprilTag识别"></a>3.1.1 AprilTag识别</h5><ul>
+<li>可得到Tag相对于相机的xyz换算坐标及旋转角度</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- roi，可指定，但是隔一段时间没识别到Tag会报错，中断程序运行
+- families，Tag家族，默认image.TAG36H11，其识别精度最高
+- fx, fy, cx, cy 决定位置及旋转角度
+'''
+
+image.find_apriltags(roi, families=image.TAG36H11, fx, fy, cx, cy)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="3-1-2-AprilTag类方法"><a href="#3-1-2-AprilTag类方法" class="headerlink" title="3.1.2 AprilTag类方法"></a>3.1.2 AprilTag类方法</h5><ul>
+<li>返回Tag<strong>边框信息</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">apriltag.rect() # 矩形元组（x,y,w,h）
+
+apriltag.x()
+apriltag.y()
+apriltag.w()
+apriltag.h()
+
+apriltag.cx()
+apriltag.cy()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>返回Tag标签<strong>ID</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">apriltag.id() # TAG36H11 -&gt; 0 to 586<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>返回Tag换算<strong>位置坐标</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">apriltag.x_translation()
+apriltag.y_translation()
+apriltag.z_translation()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>返回Tag<strong>旋转角度</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">apriltag.x_rotation()
+apriltag.y_rotation()
+apriltag.z_rotation()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="3-1-3-例程"><a href="#3-1-3-例程" class="headerlink" title="3.1.3 例程"></a>3.1.3 例程</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- 输出的姿态的单位是弧度，可以转换成角度
+- 位置的单位及大小跟参考物体有关，需要等比例换算
+
+- f_x 是x的像素为单位的焦距,等于2.8/3.984*sensor.width()
+- f_y 是y的像素为单位的焦距,等于2.8/2.952*sensor.height()
+
+- c_x 是图像的x中心位置
+- c_y 是图像的y中心位置
+'''
+
+import sensor, image, time, math
+
+sensor.reset()
+sensor.set_pixformat(sensor.RGB565)
+sensor.set_framesize(sensor.QQVGA) # we run out of memory if the resolution is much bigger...
+sensor.skip_frames(30)
+sensor.set_auto_gain(False)  # must turn this off to prevent image washout...
+sensor.set_auto_whitebal(False)  # must turn this off to prevent image washout...
+clock = time.clock()
+
+f_x = (2.8 / 3.984) * 160 # 默认值
+f_y = (2.8 / 2.952) * 120 # 默认值
+c_x = 160 * 0.5 # 默认值(image.w * 0.5)
+c_y = 120 * 0.5 # 默认值(image.h * 0.5)
+
+k=-4 # z轴实际距离 / Tz ，x，y轴系数应该是一样的计算方法
+
+def degrees(radians):
+    return (180 * radians) / math.pi
+
+while(True):
+    clock.tick()
+    img = sensor.snapshot()
+    for tag in img.find_apriltags(fx=f_x, fy=f_y, cx=c_x, cy=c_y): # 默认为TAG36H11
+        img.draw_rectangle(tag.rect(), color = (255, 0, 0))
+        img.draw_cross(tag.cx(), tag.cy(), color = (0, 255, 0))
+        print_args = (tag.x_translation(), tag.y_translation(), tag.z_translation(), \
+            degrees(tag.x_rotation()), degrees(tag.y_rotation()), degrees(tag.z_rotation()))
+        # 位置的单位是未知的，旋转的单位是角度
+        print('z轴距离：'+str(print_args[2]*k)+'cm')
+        #print("Tx: %f, Ty %f, Tz %f, Rx %f, Ry %f, Rz %f" % print_args)
+    print(clock.fps())<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="3-2-NCC模板匹配"><a href="#3-2-NCC模板匹配" class="headerlink" title="3.2 NCC模板匹配"></a>3.2 NCC模板匹配</h3><h4 id="3-2-1-NCC简介"><a href="#3-2-1-NCC简介" class="headerlink" title="3.2.1 NCC简介"></a>3.2.1 NCC简介</h4><ul>
+<li><p>图像匹配的方法主要有三种：<strong>基于灰度，基于特征，基于变换域</strong></p>
+</li>
+<li><p>NCC (normalized cross correlation) 算法，<strong>归一化互相关匹配</strong>法，是基于图像<strong>灰度信息</strong>的匹配方法</p>
+</li>
+<li><p>NCC算法可以<strong>有效降低光照对图像比较结果的影响</strong></p>
+</li>
+<li><p>NCC最终结果在0到1之间，<strong>容易量化比较结果</strong>，只要给出一个阈值就可以判断结果的好与坏</p>
+</li>
+<li><p><strong>缺点</strong>：只能匹配与模板图片大小和角度基本一致的图案，可从多角度多大小保存多个模板去克服</p>
+</li>
+</ul>
+<h4 id="3-2-2-相关函数"><a href="#3-2-2-相关函数" class="headerlink" title="3.2.2 相关函数"></a>3.2.2 相关函数</h4><ul>
+<li>导入模板图像</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- 模板图像必须为灰度的pgm图像，IDE存取的是bmp格式，可在https://convertio.co/zh/bmp-pgm/在线转换
+- path 为导入模板图像路径，一般将模板图像存在同一文件夹下，直接写相对路径（文件名.pgm）
+'''
+
+image.Image(path)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>模板匹配</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- template 是进行匹配的导入的模板
+- threshold 相似度阈值，越大准确率越高，但匹配速率会降低
+- roi
+- step 查找模板时跳过的像素数量，跳过像素可提高算法运行速度
+- search 模板匹配算法，有 image.SEARCH_DS 和 image.SEARCH_EX，一般选用image.SEARCH_EX，匹配更   为全面（若模板位于图像边缘周围，image.SEARCH_DS可能无法成功搜索），但运行速度会低一点
+'''
+
+image.find_template(template, threshold, roi, step=2, search=image.SEARCH_EX)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-2-3-例程"><a href="#3-2-3-例程" class="headerlink" title="3.2.3 例程"></a>3.2.3 例程</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">import time, sensor, image
+from image import SEARCH_EX, SEARCH_DS
+
+sensor.reset()
+
+sensor.set_contrast(1) # 设置对比度
+sensor.set_gainceiling(16) # 设置增益上限
+sensor.set_framesize(sensor.QQVGA)
+sensor.set_pixformat(sensor.GRAYSCALE)
+
+# 用列表存下多个模板文件名
+templates = ["/0.pgm", "/1.pgm", "/2.pgm", "/6.pgm"] #保存多个模板
+
+clock = time.clock()
+
+while (True):
+    clock.tick()
+    img = sensor.snapshot()
+    
+	# 遍历列表进行模板匹配
+    for t in templates:
+        template = image.Image(t)
+        r = img.find_template(template, 0.70, step=4, search=SEARCH_EX)
+        
+        if r:
+            img.draw_rectangle(r)
+            print(t) #打印模板名字
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-3-扫码"><a href="#3-3-扫码" class="headerlink" title="3.3 扫码"></a>3.3 扫码</h3><h4 id="3-3-1-二维码"><a href="#3-3-1-二维码" class="headerlink" title="3.3.1 二维码"></a>3.3.1 二维码</h4><h5 id="3-3-1-1-样例"><a href="#3-3-1-1-样例" class="headerlink" title="3.3.1.1 样例"></a>3.3.1.1 样例</h5><img src="image-20230716144928915-1711976615648-16.png" style="zoom:33%;">
+
+<h5 id="3-3-1-2-调用函数"><a href="#3-3-1-2-调用函数" class="headerlink" title="3.3.1.2 调用函数"></a>3.3.1.2 调用函数</h5><ul>
+<li>二维码<strong>读取</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- [roi]可不写
+'''
+
+image.find_qrcodes([roi])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><strong>畸变矫正</strong>，去除镜头造成的图像鱼眼效果</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- 消解镜头的桶形畸变,得到一个更为平展的二维码
+- strength 该值确定了对图像进行去鱼眼效果的程度
+- zoom 对图像进行缩放的倍数
+- x_corr/y_corr 一般不用，没了解
+'''
+
+image.lens_corr(strength=1.8, zoom=1.0, x_corr=0.0, y_corr=0.0)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="3-3-1-3-qrcode类方法"><a href="#3-3-1-3-qrcode类方法" class="headerlink" title="3.3.1.3 qrcode类方法"></a>3.3.1.3 qrcode类方法</h5><ul>
+<li>常见，返回<strong>边框信息</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">qrcode.rec()
+qrcode.x()
+qrcode.y()
+qrcode.w()
+qrcode.h()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>返回二维码<strong>信息</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">qrcode.payload()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="3-3-1-4-例程"><a href="#3-3-1-4-例程" class="headerlink" title="3.3.1.4 例程"></a>3.3.1.4 例程</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">import sensor, image
+
+sensor.reset()
+sensor.set_pixformat(sensor.RGB565)
+sensor.set_framesize(sensor.QQVGA) # can be QVGA on M7...
+sensor.skip_frames(30)
+sensor.set_auto_gain(False) # must turn this off to prevent image washout...
+
+while(True):
+    img = sensor.snapshot()
+    img.lens_corr(1.8) # strength of 1.8 is good for the 2.8mm lens.
+    for code in img.find_qrcodes():
+        print(code)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-3-2-条形码"><a href="#3-3-2-条形码" class="headerlink" title="3.3.2 条形码"></a>3.3.2 条形码</h4><h5 id="3-3-2-1-样例"><a href="#3-3-2-1-样例" class="headerlink" title="3.3.2.1 样例"></a>3.3.2.1 样例</h5><img src="image-20230716150916140-1711976615648-18.png" style="zoom:50%;">
+
+<h5 id="3-3-2-2-调用函数"><a href="#3-3-2-2-调用函数" class="headerlink" title="3.3.2.2 调用函数"></a>3.3.2.2 调用函数</h5><ul>
+<li>一维码<strong>读取</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- 同样，[roi]可不写，进行全图扫描
+'''
+
+image.find_barcodes([roi])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="3-3-2-3-barcode类方法"><a href="#3-3-2-3-barcode类方法" class="headerlink" title="3.3.2.3 barcode类方法"></a>3.3.2.3 barcode类方法</h5><ul>
+<li>常见，返回<strong>边框信息</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">barcode.rec()
+barcode.x()
+barcode.y()
+barcode.w()
+barcode.h()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>返回条形码<strong>信息</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">barcode.payload()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>返回条形在图像中<strong>被扫描的次数</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">barcode.quality()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="3-3-2-4-例程"><a href="#3-3-2-4-例程" class="headerlink" title="3.3.2.4 例程"></a>3.3.2.4 例程</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">import sensor, image, time, math
+
+sensor.reset()
+sensor.set_pixformat(sensor.GRAYSCALE)
+sensor.set_framesize(sensor.VGA) # High Res!
+sensor.set_windowing((640, 80)) # V Res of 80 == less work (40 for 2X the speed).
+sensor.skip_frames(30)
+sensor.set_auto_gain(False)  # must turn this off to prevent image washout...
+sensor.set_auto_whitebal(False)  # must turn this off to prevent image washout...
+clock = time.clock()
+
+
+while(True):
+    clock.tick()
+    img = sensor.snapshot()
+    codes = img.find_barcodes()
+    for code in codes:
+        img.draw_rectangle(code.rect())
+        print_args = (code.payload(), (180 * code.rotation()) / math.pi, code.quality(), clock.fps())
+        print("Payload \"%s\", rotation %f (degrees), quality %d, FPS %f" % print_args)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-3-3-Datamatrix"><a href="#3-3-3-Datamatrix" class="headerlink" title="3.3.3 Datamatrix"></a>3.3.3 Datamatrix</h4><p>基本没遇到，懒得写了</p>
+<h3 id="3-4-巡线"><a href="#3-4-巡线" class="headerlink" title="3.4 巡线"></a>3.4 巡线</h3><h4 id="3-4-1-无岔口"><a href="#3-4-1-无岔口" class="headerlink" title="3.4.1 无岔口"></a>3.4.1 无岔口</h4><h2 id="四、pyb外设模块"><a href="#四、pyb外设模块" class="headerlink" title="四、pyb外设模块"></a>四、pyb外设模块</h2><h3 id="4-1-LED调用"><a href="#4-1-LED调用" class="headerlink" title="4.1 LED调用"></a>4.1 LED调用</h3><ul>
+<li>需要导入模块</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from pyb import LED<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>可用灯</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">LED(1) -&gt; 红LED
+LED(2) -&gt; 绿LED
+LED(3) -&gt; 蓝LED
+LED(4) -&gt; 红外LED，两个<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>使用方法</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">led = LED(1) # 红led
+
+led.on()#亮
+led.off()#灭<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-2-时间相关函数"><a href="#4-2-时间相关函数" class="headerlink" title="4.2 时间相关函数"></a>4.2 时间相关函数</h3><ul>
+<li><strong>延时</strong>函数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">pyb.delay(50) # 延时 50 毫秒
+
+pyb.udelay(us) # 延时微秒<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>计录<strong>使用时间</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">pyb.millis() # 插件重置后，返回毫秒数<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>算<strong>时间差</strong></li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- 计算当前时刻，与start时刻的时间差
+'''
+
+start = pyb.millis()
+pyb.elapsed_millis(start)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="4-3-Servo控制舵机"><a href="#4-3-Servo控制舵机" class="headerlink" title="4.3 Servo控制舵机"></a>4.3 Servo控制舵机</h3><ul>
+<li>导入模块</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from pyb import Servo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>创建舵机对象</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- Servo(1) -&gt; P7 (PD12)
+- Servo(2) -&gt; P8 (PD13)
+- Servo(3) -&gt; P9 (PD14)
+'''
+
+s1 = Servo(1) # servo on position 1 (P7)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>控制角度</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">s1.angle(45) # move to 45 degrees
+s1.angle(-60, 1500) # move to -60 degrees in 1500ms
+
+s1.speed(50) # 连续运动时才需要设置速度<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="4-4-UART通信"><a href="#4-4-UART通信" class="headerlink" title="4.4 UART通信"></a>4.4 UART通信</h3><ul>
+<li>引脚</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">引脚</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">UART 3 RX</td>
+<td align="center">P5 (PB11)</td>
+</tr>
+<tr>
+<td align="center">UART 3 TX</td>
+<td align="center">P4 (PB10)</td>
+</tr>
+<tr>
+<td align="center">UART 1 RX</td>
+<td align="center">P0 (PB15)</td>
+</tr>
+<tr>
+<td align="center">UART 1 TX</td>
+<td align="center">P1 (PB14)</td>
+</tr>
+</tbody></table>
+<ul>
+<li>导入模块</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from pyb import UART<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>初始化串口</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">uart = UART(3, 9600)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>传出数据</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">uart.write("Hello World!\r")<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>读取数据</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">UART.readline() # 读一行
+UART.any() # 返回已经读入的字节数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="4-5-光源扩展"><a href="#4-5-光源扩展" class="headerlink" title="4.5 光源扩展"></a>4.5 光源扩展</h3><ul>
+<li>导包</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">import time
+from pyb import Pin, Timer<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ul>
+<li>定义变量并设置亮度</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 50kHz pin6 timer2 channel1
+light = Timer(2, freq=50000).channel(1, Timer.PWM, pin=Pin("P6"))
+light.pulse_width_percent(100) # 控制亮度 0~100
+
+while (True):
+    time.sleep_ms(1000)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="五、图像预处理"><a href="#五、图像预处理" class="headerlink" title="五、图像预处理"></a>五、图像预处理</h2><h3 id="5-1-畸变校正"><a href="#5-1-畸变校正" class="headerlink" title="5.1 畸变校正"></a>5.1 畸变校正</h3><ul>
+<li>去除镜头的<strong>鱼眼</strong>效果</li>
+<li><img src="image-20230717202535971-1711976615648-19.png" style="zoom:50%;"></li>
+<li>畸变校正函数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- strength 确定去鱼眼效果的程度
+- zoom 对图像进行缩放的倍数
+'''
+
+image.lens_corr(strength=1.8, zoom=1.0, x_corr=0.0, y_corr=0.0)
+
+# 使用例子
+img = sensor.snapshot().lens_corr(strength = 1.8, zoom = 1.0)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-2-二值化"><a href="#5-2-二值化" class="headerlink" title="5.2 二值化"></a>5.2 二值化</h3><ul>
+<li>根据阈值将图像划分为二值图像</li>
+<li>二值化函数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- thresholds 将该阈值范围内的像素设置为白色
+  - 对于灰度图，该阈值元组需要包含两个值，最小灰度和最大灰度
+  - 对于RGB565图，阈值元组需要有六个值，LAB三个通道的范围
+- invert 翻转二值化结果，将黑变白，白变黑
+'''
+
+image.binary([thresholds], invert=False)
+
+# 例子，针对RGB565图像中的红色部分进行二值化
+img.binary([(24, 57, 22, 83, 39, -10)],invert=True)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-3-直方图"><a href="#5-3-直方图" class="headerlink" title="5.3 直方图"></a>5.3 直方图</h3><ul>
+<li>没看明白到底有啥用</li>
+<li>调用函数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">img.get_histogram(bins=8)
+
+# 例子
+while(True):
+    clock.tick()
+    img = sensor.snapshot()
+    # Gets the grayscale histogram for the image into 8 bins.
+    # Bins defaults to 256 and may be between 2 and 256.
+    print(img.get_histogram(bins=8))
+    print(clock.fps())<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-4-图像滤波"><a href="#5-4-图像滤波" class="headerlink" title="5.4 图像滤波"></a>5.4 图像滤波</h3><h4 id="5-4-1-自适应直方图均衡"><a href="#5-4-1-自适应直方图均衡" class="headerlink" title="5.4.1 自适应直方图均衡"></a>5.4.1 自适应直方图均衡</h4><ul>
+<li><p>改善图像<strong>对比度</strong></p>
+</li>
+<li><p>自适应直方图均衡将图像<strong>分割成区域</strong>，然后均衡这些区域中的直方图，以改善图像对比度</p>
+</li>
+<li><p>使用效果</p>
+<ul>
+<li><img src="image-20230717210346666-1711976615648-20.png" style="zoom: 80%;"></li>
+</ul>
+</li>
+<li><p>调用函数</p>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- adaptive 设置为True，将在图像上运行自适应直方图均衡化
+- clip_limit 用于限制自适应直方图均衡的对比度， 使用较小的值(例如10)可以生成良好的对比度受限图像
+'''
+
+image.histeq(adaptive=False, clip_limit=-1)
+
+# 例子
+img = sensor.snapshot().histeq(adaptive=True, clip_limit=3)
+print(clock.fps())<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="5-4-2-中值滤波"><a href="#5-4-2-中值滤波" class="headerlink" title="5.4.2 中值滤波"></a>5.4.2 中值滤波</h4><ul>
+<li>在<strong>保留边缘</strong>的条件下，中值滤波是用来<strong>平滑表面</strong>的最佳滤波，但是<strong>运行速度极慢</strong></li>
+<li>调用函数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- Size 是内核大小。取1是3x3内核，取2是5x5内核或更大内核
+- percentile 控制内核中所使用值的百分位数，默认每个像素使用相邻的第五十个百分位数（中心）替换
+- threshold 设置为True，启动图像的自适应阈值处理，根据环境像素的亮度（核函数周围的像素的亮度有关），   将像素设置为1或者0
+'''
+
+median(size, percentile=0.5, threshold=False)
+
+# 例子
+img.median(1, percentile=0.5)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="5-4-3-中点滤波"><a href="#5-4-3-中点滤波" class="headerlink" title="5.4.3 中点滤波"></a>5.4.3 中点滤波</h4><ul>
+<li>跟中值滤波有区别，没看懂！！！</li>
+<li>调用函数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- Size 内核大小
+- bias 图像混合的程度
+- threshold 设置为True，启动图像的自适应阈值处理，根据环境像素的亮度（核函数周围的像素的亮度有关），   将像素设置为1或者0
+'''
+
+image.midpoint(size, bias=0.5, threshold=False)
+
+# 例子
+img.midpoint(1, bias=0.5)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="5-4-4-高斯滤波"><a href="#5-4-4-高斯滤波" class="headerlink" title="5.4.4 高斯滤波"></a>5.4.4 高斯滤波</h4><ul>
+<li>平滑图像</li>
+<li>使用效果<ul>
+<li><img src="image-20230717213020972-1711976615648-21.png" style="zoom:80%;"></li>
+</ul>
+</li>
+<li>调用函数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- size
+- unsharp 设置为True，不仅进行高斯滤波操作，还执行非锐化掩模操作，提高边缘的图像清晰度
+- mul 用来与卷积像素结果相乘的数字
+- add 与卷积结果相加的数字
+- threshold 设置为True，启动图像的自适应阈值处理，根据环境像素的亮度（核函数周围的像素的亮度有关），   将像素设置为1或者0
+'''
+
+image.gaussian(size, unsharp=False, mul, add=0, threshold=False)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="5-4-5-自定义卷积函数"><a href="#5-4-5-自定义卷积函数" class="headerlink" title="5.4.5 自定义卷积函数"></a>5.4.5 自定义卷积函数</h4><ul>
+<li>通过自行设计过滤器内核对图像进行卷积</li>
+<li>使用函数</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">'''
+- size 设置内核大小，内核的大小控制为((size*2)+1)x((size*2)+1)像素
+- kernel 内核，可为一个元组或一个取值[-128:127]的列表
+- mul
+- add
+- threshold
+'''
+
+image.morph(size, kernel, mul, add=0, threshold=False)
+
+# 使用例子
+kernel_size = 1 # 3x3==1, 5x5==2, 7x7==3, etc.
+kernel = [-2, -1,  0, \
+          -1,  1,  1, \
+           0,  1,  2]
+img = sensor.snapshot()
+# Run the kernel on every pixel of the image.
+img.morph(kernel_size, kernel)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">阿淞啊</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://yijingsong.github.io/2024/04/01/openmv/">https://yijingsong.github.io/2024/04/01/openmv/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">阿淞啊</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/04/01/ji-qi-shi-jue/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="机器视觉">
+                        
+                        <span class="card-title">机器视觉</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            阿淞啊
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/02/06/tensorflow-2-0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Tensorflow 2.0">
+                        
+                        <span class="card-title">Tensorflow 2.0</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            阿淞啊
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023-2024</span>
+            
+            <a href="/about" target="_blank">阿淞啊</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">40.4k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "1";
+                        var startDate = "14";
+                        var startHour = "22";
+                        var startMinute = "20";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/yijingsong" class="tooltipped" target="_blank" data-tooltip="我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1633684763" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1633684763" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="mailto:1633684763@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我: 1633684763@qq.com" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="https://blog.csdn.net/qq_46372372" class="tooltipped" target="_blank" data-tooltip="CSDN博客: https://blog.csdn.net/qq_46372372" data-position="top" data-delay="50">
+        <i class="fab fa-csdn">C</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+    
+    <script type="text/javascript">
+        //只在桌面版网页启用特效
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+        }
+        </script>
+                
+
+</body>
+
+</html>
