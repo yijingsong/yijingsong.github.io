@@ -307,14 +307,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-04-02
+                    2024-04-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    2.7k
                 </div>
                 
 
@@ -561,6 +561,232 @@ if __name__ == "__main__":
     highTimes = range(300, 550, 50) # 测试发现5V直流电机，以50为步长，占空比至少得为60%才能启动  
     for highTime in highTimes:
         motorSpeed(highTime)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-4-按键开关"><a href="#3-4-按键开关" class="headerlink" title="3.4 按键开关"></a>3.4 按键开关</h3><ul>
+<li>按下后松开手指，按键会自动抬起，机械开关在按下抬起过程中均有一个<strong>抖动</strong>的情况</li>
+</ul>
+<img src="image-20240406101941839.png" style="zoom:40%;">
+
+<ul>
+<li><strong>消抖</strong>，过滤震荡波<ul>
+<li>硬件消抖，接入一个 $RC$ 电路</li>
+<li>软件滤波，通过在程序中<strong>延时，跳过震荡波</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="3-4-1-例程目的"><a href="#3-4-1-例程目的" class="headerlink" title="3.4.1 例程目的"></a>3.4.1 例程目的</h4><ul>
+<li>按键控制直流电机加速、减速、开启、停止，理解 $Pin.IN$</li>
+</ul>
+<h4 id="3-4-2-硬件电路"><a href="#3-4-2-硬件电路" class="headerlink" title="3.4.2 硬件电路"></a>3.4.2 硬件电路</h4><ul>
+<li>硬件电路由按键模块、 $5V$ 直流电机、$ULN2003D$ 电机驱动模块、$ESP32$​​、若干导线组成<ul>
+<li>其中按键模块电路及电机驱动模块分别如下</li>
+</ul>
+</li>
+</ul>
+<p><img src="image-20240406103335320.png" style="zoom:40%;"><img src="image-20240402211436758.png" style="zoom:40%;"></p>
+<h4 id="3-4-3-实现思路"><a href="#3-4-3-实现思路" class="headerlink" title="3.4.3 实现思路"></a>3.4.3 实现思路</h4><ul>
+<li>配置 $4$ 个 $GPIO \quad mode$ 为 $Pin.IN$ ，以监听开关按键是否被按下</li>
+<li>配置 $1$ 个 $GPIO \quad mode$ 为 $Pin.OUT$ ，对直流电机进行启停加减速控制</li>
+</ul>
+<h4 id="3-4-4-实现代码"><a href="#3-4-4-实现代码" class="headerlink" title="3.4.4 实现代码"></a>3.4.4 实现代码</h4><ul>
+<li><strong>button.py</strong></li>
+<li>监测按键状态</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from machine import Pin
+import time
+
+class ButtonScan:
+    keys_ID = [] # 存放按键引脚编号
+    keys = [] # 存放按键对象
+    flag = 1 # 标记按键开关状态
+    # 获取按键引脚
+    def __init__(self, keys_ID):
+        self.keys_ID = keys_ID
+        
+        for key_ID in self.keys_ID:
+            self.keys.append(Pin(key_ID, Pin.IN, Pin.PULL_UP)) # 因为按键接地，所有Pin.IN引脚设置默认状态为上拉高电平
+            
+        self.flag = 1;
+    
+    # 获取按键按下信息
+    def getKey(self):
+        # 当flag为1，有任一开关被按下，获取该开关引脚对象
+        if self.flag == 1 and any(key.value() == 0 for key in self.keys):
+            time.sleep_ms(10)
+            self.flag = 0
+            for index, key in enumerate(self.keys):
+                if key.value() == 0:
+                    return index
+        
+        # 当所有开关都弹起的时候，置flag为1，等待下次开关按下
+        elif all(key.value() == 1 for key in self.keys):
+            self.flag = 1
+        
+        return None
+
+if __name__ == "__main__":
+    keys_ID = [14, 27, 26]
+    demo = ButtonScan(keys_ID)
+    print(demo.keys_ID)
+    motor = Pin(15, Pin.OUT)
+    while True:
+        k = demo.getKey()
+        if k != None:
+            if keys_ID[k] == 14:
+                motor.value(1)
+                
+            elif keys_ID[k] == 27:
+                motor.value(0)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><strong>main.py</strong></li>
+<li>导入 $button.py$ 中的 $ButtonScan$ 类，进行按键监测并控制电机的启停加减速</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from machine import Pin
+import time
+from buttons import ButtonScan
+
+motor = Pin(15, Pin.OUT, Pin.PULL_DOWN) # 直流电机引脚
+keys_ID = [14, 27, 26, 25] # 按键引脚编号
+highTime = 300 # 加减速默认开始脉冲时长300ms，周期为500ms，占空比60%
+
+# 设定占空比以调节转速
+def motorSpeed(highTime = 250, periodTime = 500, motorTime = 3000):
+    start = time.ticks_ms()
+    while True:
+        delta = time.ticks_ms() - start
+        if (delta &lt;= motorTime):
+            motor.value(1)
+            time.sleep_us(highTime)
+            motor.value(0)
+            time.sleep_us(periodTime - highTime)
+        else:
+	        return
+	    
+def keyFunc(k):
+    global highTime
+    if keys_ID[k] == 14:
+        print(highTime)
+        motorSpeed(highTime)
+        highTime += 50
+        if highTime &gt; 500:
+            highTime =  500
+        
+        
+    elif keys_ID[k] == 27:
+        print(highTime)
+        motorSpeed(highTime)
+        highTime -= 50
+        if highTime &lt; 300:
+            highTime =  300
+        
+    
+    elif keys_ID[k] == 26:
+        motor.value(1)
+        
+    elif keys_ID[k] == 25:
+        motor.value(0)
+
+if __name__ == "__main__":
+    demo = ButtonScan(keys_ID)
+    while True:
+        k = demo.getKey()
+        if k != None:
+            keyFunc(k)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-5-步进电机"><a href="#3-5-步进电机" class="headerlink" title="3.5 步进电机"></a>3.5 步进电机</h3><ul>
+<li>将电脉冲信号转换为角位移/线位移，是一种开环控制元件</li>
+<li>工作原理</li>
+</ul>
+<img src="image-20240406161306236.png" style="zoom:40%;">
+
+<ul>
+<li>$28BYJ48$​ 五相四线步进电机工作参数<ul>
+<li>重点关注电压、步进角度、减速比</li>
+</ul>
+</li>
+</ul>
+<img src="image-20240406161507226.png" style="zoom: 40%;">
+
+<h4 id="3-5-1-例程目的"><a href="#3-5-1-例程目的" class="headerlink" title="3.5.1 例程目的"></a>3.5.1 例程目的</h4><ul>
+<li>按键控制 $28BYJ48$ 步进电机加速减速正反转停止</li>
+</ul>
+<h4 id="3-5-2-硬件电路"><a href="#3-5-2-硬件电路" class="headerlink" title="3.5.2 硬件电路"></a>3.5.2 硬件电路</h4><ul>
+<li>五相四线步进电机 $28BYJ48$ 、$ULN2003$ 驱动模块、按键模块、$ESP32$​ 、杜邦线若干</li>
+</ul>
+<p><img src="image-20240402211436758.png" style="zoom:40%;"><img src="image-20240406103335320.png" style="zoom:40%;"></p>
+<h4 id="3-5-3-实现思路"><a href="#3-5-3-实现思路" class="headerlink" title="3.5.3 实现思路"></a>3.5.3 实现思路</h4><ul>
+<li><p>将 $28BYJ48$ 接到 $J5$  端子上</p>
+</li>
+<li><p>使用 $buttons.py$ 中的 $ButtonScan$ 获取按键信息，进而实现启停正反转加减速的控制</p>
+</li>
+</ul>
+<h4 id="3-5-4-实现代码"><a href="#3-5-4-实现代码" class="headerlink" title="3.5.4 实现代码"></a>3.5.4 实现代码</h4><ul>
+<li>调用 $ButtonScan$ 对象</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from machine import Pin
+import time
+from buttons import ButtonScan
+
+motorIDs = [15, 2, 0, 4] # 步进电机引脚编号
+motor = [] # 存储步进电机引脚对象
+for motorID in motorIDs:
+    motor.append(Pin(motorID, Pin.OUT, Pin.PULL_DOWN))
+    
+keys_ID = [14, 27, 26, 25] # 按键编号
+
+speed = 1 # 延时ms，延时越短速度越快，反之越慢，speed取值设置为1-5
+speed_min = 1
+speed_max = 5
+# 步进电机旋转步序 
+turns = [[1,0,0,0],
+         [1,1,0,0],
+         [0,1,0,0],
+         [0,1,1,0],
+         [0,0,1,0],
+         [0,0,1,1],
+         [0,0,0,1],
+         [1,0,0,1]]
+
+# 设定步进电机正反转加减速
+def keyFunc(direc, speed):
+    for turn in turns[::direc]:
+        for i in range(4):
+            motor[i].value(turn[i])
+        time.sleep_ms(speed)
+
+if __name__ == "__main__":
+    demo = ButtonScan(keys_ID)
+    k = None
+    direc = 1
+    speed = 1
+    on = False
+    while True:
+        k = demo.getKey() # 返回按键索引值
+        if k != None:
+            # 正反转
+            if keys_ID[k] == 14:
+                direc = 1
+                on = not on
+
+            elif keys_ID[k] == 27:
+                direc = -1
+                on = not on
+            
+            # 加减速
+            elif keys_ID[k] == 26:
+                speed += 1
+                if speed &gt; speed_max:
+                    speed = speed_max
+                
+            elif keys_ID[k] == 25:
+                speed -= 1
+                if speed &lt; speed_min:
+                    speed = speed_min
+        if on: # 开启步进电机，执行旋转步序
+            keyFunc(direc, speed) 
+        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -888,7 +1114,7 @@ if __name__ == "__main__":
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">42.1k</span>
+                        class="white-color">43.1k</span>
             
             
             
