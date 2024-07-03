@@ -307,14 +307,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-04-06
+                    2024-04-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    2.9k
                 </div>
                 
 
@@ -371,6 +371,14 @@ p0.value(x) # x=0低电平，x=1高电平
 # 方法二
 p0.on() # 高电平
 p0.off() # 低电平<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="1-2-1-4-中断"><a href="#1-2-1-4-中断" class="headerlink" title="1.2.1.4 中断"></a>1.2.1.4 中断</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python"># handler : 中断执行的回调函数
+# trigger : 触发中断的方式 Pin.IRQ_FALLING、Pin.IRQ_RISING
+#						 Pin.IRQ_LOW_LEVEL、Pin.IRQ_HIGH_LEVEL
+# 注意：对于handler函数，要将对应的Pin对象传入参数表，即 def handler(p0)
+p0.irq(handler, trigger)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 
 <h4 id="1-2-2-time-对象"><a href="#1-2-2-time-对象" class="headerlink" title="1.2.2 time 对象"></a>1.2.2 time 对象</h4><h5 id="1-2-2-1-延时"><a href="#1-2-2-1-延时" class="headerlink" title="1.2.2.1 延时"></a>1.2.2.1 延时</h5><pre class="line-numbers language-python" data-language="python"><code class="language-python">import time
 
@@ -788,7 +796,15 @@ if __name__ == "__main__":
             keyFunc(direc, speed) 
         <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="3-6-中断"><a href="#3-6-中断" class="headerlink" title="3.6 中断"></a>3.6 中断</h3><ul>
+<li>外部中断：上升沿、下降沿、低电平、高电平触发模式</li>
+</ul>
+<img src="./ESP32/image-20240407214859477.png" alt="image-20240407214859477" style="zoom:40%;">
 
+<ul>
+<li>定时器中断</li>
+</ul>
+<h4 id="3-6-1-例程目的"><a href="#3-6-1-例程目的" class="headerlink" title="3.6.1 例程目的"></a>3.6.1 例程目的</h4><h4 id="3-6-2-硬件电路"><a href="#3-6-2-硬件电路" class="headerlink" title="3.6.2 硬件电路"></a>3.6.2 硬件电路</h4><h4 id="3-6-3-实现思路"><a href="#3-6-3-实现思路" class="headerlink" title="3.6.3 实现思路"></a>3.6.3 实现思路</h4><h4 id="3-6-4-实现代码"><a href="#3-6-4-实现代码" class="headerlink" title="3.6.4 实现代码"></a>3.6.4 实现代码</h4>
                 
             </div>
             <hr/>
@@ -1114,7 +1130,7 @@ if __name__ == "__main__":
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">43.1k</span>
+                        class="white-color">43.3k</span>
             
             
             
