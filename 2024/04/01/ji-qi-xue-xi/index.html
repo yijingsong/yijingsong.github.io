@@ -323,14 +323,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-07-08
+                    2024-07-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.7k
+                    5.3k
                 </div>
                 
 
@@ -796,6 +796,24 @@ x_normalized = scaler.fit_transform(x)<span aria-hidden="true" class="line-numbe
 <p>划分的结果如下：</p>
 <img src="image-20240708105557393.png" style="zoom:50%;">
 
+<h4 id="6-2-5-最近邻域搜索"><a href="#6-2-5-最近邻域搜索" class="headerlink" title="6.2.5 最近邻域搜索"></a>6.2.5 最近邻域搜索</h4><p>使用 $6.2.4$ 的样本集 $T$</p>
+<ol>
+<li><p>查找点 $(2.1,3.1)$​</p>
+<p>在 $(7,2)$ 点测试到达 $(5,4)$ ，在 $(5,4)$ 测试到达 $(2,3)$ ，然后 $search_path$ 中的结点为 $&lt;(7,2), (5,4), (2,3)&gt;$ ，从 $search_path$ 中取出当前最佳结点 $nearest \ (2,3)$ ，计算 $(2.1,3.1)$ 与 $nearest$ 的欧氏距离 $dist$ 为 $0.141$ ；</p>
+<p>然后回溯至 $(5,4)$ ，以 $(2.1,3.1)$ 为圆心，$dist = 0.141$ 为半径画圆，并不能与超平面 $y=4$ 相交，所以不必跳转到结点 $(5,4)$ 的右子空间去搜索，因为右子空间内不可能有更近样本点了；</p>
+<p>于是，再回溯到 $(7,2)$ ，同样，以 $(2.1,3.1)$ 为圆心，$dist = 0.141$ 为半径画圆，并不能与超平面 $x=7$ 相交，所以不必跳转到结点 $(7,2)$ 的右子空间去搜索；</p>
+<p>至此， $search_path$ 为空，结束整个搜索，返回 $nearest\ (2,3)$ 作为 $(2.1,3.1)$ 的最近邻点，最近距离 $dist$ 为0.141。</p>
+<img src="QQ_1721096546907.png" style="zoom:67%;">
+</li>
+<li><p>查到点 $(2,4.5)$​</p>
+<p>在 $(7,2)$ 点测试到达 $(5,4)$ ，在 $(5,4)$ 测试到达 $(4,7)$ ，然后 $search_path$ 中的结点为 $&lt;(7,2), (5,4), (4,7)&gt;$ ，从 $search_path$ 中取出当前最佳结点 $nearest \ (4,7)$ ，计算 $(2,4.5)$ 与 $nearest$ 的欧氏距离 $dist$ 为 $3.202$ ；</p>
+<p>然后回溯至 $(5,4)$ ，以 $(2,4.5)$ 为圆心，$dist = 3.202$ 为半径画圆，与超平面 $y=4$ 相交，所以需要跳转到结点 $(5,4)$ 的左子空间去搜索，所以要将 $(2,3)$ 加入到 $search_path$ 中，现在 $search_path$ 中的结点为 $&lt;(7,2), (2,3)&gt;$ ，另外，$(5,4)$ 与 $(2,4.5)$ 的距离为 $3.04 &lt; dist=3.202$ ，所以将 $(5,4)$ 赋给 $nearest$ ，并且 $dist = 3.04$；</p>
+<p>回溯到 $(2,3)$ 叶子结点，直接判断 $(2,3)$ 是否离 $(2,4.5)$ 更近，计算得距离为 $1.5$ ，所以 $nearest$ 更新为 $(2,3)$ ，$dist$ 更新为 $1.5$ ；</p>
+<p>回溯到 $(7,2)$ ，同样，以 $(2,4.5)$ 为圆心，$dist = 1.5$ 为半径画圆，并不能与超平面 $x=7$ 相交，所以不必跳转到结点 $(7,2)$ 的右子空间去搜索；</p>
+<p>至此， $search_path$ 为空，结束整个搜索，返回 $nearest\ (2,3)$ 作为 $(2,4。5)$ 的最近邻点，最近距离 $dist$ 为 $1.5$​。</p>
+<img src="QQ_1721096481009.png" style="zoom:67%;"></li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -1119,7 +1137,7 @@ x_normalized = scaler.fit_transform(x)<span aria-hidden="true" class="line-numbe
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">45.1k</span>
+                        class="white-color">45.7k</span>
             
             
             
