@@ -24,7 +24,8 @@
 
 
 
-数">
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -328,7 +329,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.1k
+                    6.2k
                 </div>
                 
 
@@ -367,20 +368,6 @@
 </li>
 </ul>
 </li>
-<li><p>数据分割：</p>
-<ul>
-<li>一般将数据集划分为两类：<ul>
-<li>训练数据：用于训练，构建模型</li>
-<li>测试数据：在检验模型时使用，用于评估模型是否有效</li>
-</ul>
-</li>
-<li>划分比例<ul>
-<li>训练集：70%  80%  75%</li>
-<li>测试集：30%  20%  25%</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 <hr>
 <h3 id="1-2-scikit-learn-数据集介绍"><a href="#1-2-scikit-learn-数据集介绍" class="headerlink" title="1.2 scikit-learn 数据集介绍"></a>1.2 scikit-learn 数据集介绍</h3><h4 id="1-2-1-API介绍"><a href="#1-2-1-API介绍" class="headerlink" title="1.2.1 API介绍"></a>1.2.1 API介绍</h4><ul>
@@ -392,7 +379,7 @@
 </li>
 <li><code>datasets.fetch_*(data_home=None)</code><ul>
 <li>获取大规模数据，需要从网上下载</li>
-<li>$data_home$ 表示数据下载的目录，默认是 $… /scikit_learn_data/$</li>
+<li>$data_home$ 表示数据下载的目录，默认是 ~/scikit_learn_data/</li>
 </ul>
 </li>
 </ul>
@@ -497,7 +484,42 @@ iris_plot(iris_d, 'Sepal_Width', 'Petal_Length')
 
 <img src="QQ_1721183162371.png" style="zoom: 25%;">
 
-<h3 id="1-4-数据集划分"><a href="#1-4-数据集划分" class="headerlink" title="1.4 数据集划分"></a>1.4 数据集划分</h3><h2 id="二、数据基本处理："><a href="#二、数据基本处理：" class="headerlink" title="二、数据基本处理："></a>二、数据基本处理：</h2><ul>
+<h3 id="1-4-数据集划分"><a href="#1-4-数据集划分" class="headerlink" title="1.4 数据集划分"></a>1.4 数据集划分</h3><p>数据集一般被划分为两类：</p>
+<ul>
+<li>训练数据：用于训练，<strong>构建模型</strong></li>
+<li>测试数据：在检验模型时使用，用于<strong>评估模型是否有效</strong></li>
+</ul>
+<p>划分比例</p>
+<ul>
+<li>训练集：70%  80%  75%</li>
+<li>测试集：30%  20%  25%</li>
+</ul>
+<p><strong>数据集划分API</strong></p>
+<ul>
+<li><code>sklearn.model_selection.train_test_split(x,y,test_size,random_state)</code><ul>
+<li>$x$：数据集特征值</li>
+<li>$y$：数据集标签值</li>
+<li>$test_size$：测试集占比，float</li>
+<li>$random_state$：随机数种子，按指定序列进行随机采样</li>
+<li>返回值：x_train, x_test, y_train, y_test</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+iris = load_iris()
+
+x_train,x_test,y_train,y_test=train_test_split(iris.data,iris.target,random_state=22,test_size=0.2)
+
+print(f"x_train:{x_train.shape}")
+print(f"x_test:{x_test.shape}")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="二、数据基本处理："><a href="#二、数据基本处理：" class="headerlink" title="二、数据基本处理："></a>二、数据基本处理：</h2><ul>
 <li>对缺失值、去除异常值等处理</li>
 </ul>
 <hr>
