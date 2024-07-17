@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="机器学习, yijingsong">
-    <meta name="description" content="一、数据简介
+    <meta name="description" content="一、数据1.1 数据简介
 在数据集中：
 
 一行数据称为一个样本
@@ -24,9 +24,7 @@
 
 
 
-数据分割：
-
-">
+数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -323,14 +321,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-07-16
+                    2024-07-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.3k
+                    6.1k
                 </div>
                 
 
@@ -350,7 +348,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、数据简介"><a href="#一、数据简介" class="headerlink" title="一、数据简介"></a>一、数据简介</h2><ul>
+                <h2 id="一、数据"><a href="#一、数据" class="headerlink" title="一、数据"></a>一、数据</h2><h3 id="1-1-数据简介"><a href="#1-1-数据简介" class="headerlink" title="1.1 数据简介"></a>1.1 数据简介</h3><ul>
 <li><p>在数据集中：</p>
 <ul>
 <li><p>一行数据称为一个样本</p>
@@ -385,7 +383,121 @@
 </li>
 </ul>
 <hr>
-<h2 id="二、数据基本处理："><a href="#二、数据基本处理：" class="headerlink" title="二、数据基本处理："></a>二、数据基本处理：</h2><ul>
+<h3 id="1-2-scikit-learn-数据集介绍"><a href="#1-2-scikit-learn-数据集介绍" class="headerlink" title="1.2 scikit-learn 数据集介绍"></a>1.2 scikit-learn 数据集介绍</h3><h4 id="1-2-1-API介绍"><a href="#1-2-1-API介绍" class="headerlink" title="1.2.1 API介绍"></a>1.2.1 API介绍</h4><ul>
+<li><code>skleran.datasets</code><ul>
+<li>加载获取流行数据集</li>
+<li><code>datasets.load_*()</code><ul>
+<li>获取小规模数据集，数据集包含在 $datasets$ 中</li>
+</ul>
+</li>
+<li><code>datasets.fetch_*(data_home=None)</code><ul>
+<li>获取大规模数据，需要从网上下载</li>
+<li>$data_home$ 表示数据下载的目录，默认是 $… /scikit_learn_data/$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-2-1-1-sklearn小数据集"><a href="#1-2-1-1-sklearn小数据集" class="headerlink" title="1.2.1.1 sklearn小数据集"></a>1.2.1.1 sklearn小数据集</h5><ul>
+<li><code>sklearn.datasets.load_iris()</code><ul>
+<li>加载并返回鸢尾花数据集</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">类别</td>
+<td align="left">3</td>
+</tr>
+<tr>
+<td align="left">特征</td>
+<td align="left">4</td>
+</tr>
+<tr>
+<td align="left">样本数量</td>
+<td align="left">150</td>
+</tr>
+<tr>
+<td align="left">单个类别数量</td>
+<td align="left">50</td>
+</tr>
+</tbody></table>
+<h5 id="1-2-1-2-sklearn大数据集"><a href="#1-2-1-2-sklearn大数据集" class="headerlink" title="1.2.1.2 sklearn大数据集"></a>1.2.1.2 sklearn大数据集</h5><ul>
+<li><code>sklearn.datasets.fetch_20newsgroups(data_home=None,subset="train")</code><ul>
+<li>$subset$ ，选择要加载的数据集，可选 $train, test, all$ </li>
+<li>训练集的训练，测试集的测试，两者的全部</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2-2-sklearn数据集返回值介绍"><a href="#1-2-2-sklearn数据集返回值介绍" class="headerlink" title="1.2.2 sklearn数据集返回值介绍"></a>1.2.2 sklearn数据集返回值介绍</h4><ul>
+<li><code>load</code>和<code>fetch</code>返回的数据类型是字典 $datasets.base.Bunch$​ <ul>
+<li>$data$: 特征数据数组，是 [n_samples * n_features] 的二维 numpy.ndarray 数组</li>
+<li>$target$: 标签数组，是 n_samples 的一维 numpy.ndarray 数组</li>
+<li>$DESCR$: 数据描述</li>
+<li>$feature_names$: 特征名，新闻数据、手写数字、回归数据集没有</li>
+<li>$target_names$: 标签名</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from sklearn.datasets import load_iris
+
+iris = load_iris()
+
+print("特征值：\n", iris.data)
+print("目标值：\n", iris.target)
+print("特征类别：\n", iris.feature_names)
+print("目标类别：\n", iris.target_names)
+print("数据集描述：\n", iris.DESCR)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1-3-查看数据分布"><a href="#1-3-查看数据分布" class="headerlink" title="1.3 查看数据分布"></a>1.3 查看数据分布</h3><p>通过创建一些图，以查看不同类别是如何通过特征来区分的。在理想情况下，标签类将由一个或多个特征对完美分割，在现实世界中，这种理想情况会很少发生。</p>
+<ul>
+<li>$seaborn$ 介绍<ul>
+<li>$seaborn$ 基于 $Matplotlib$ 核心库进行了更高级的 API 封装，可以轻松画出更漂亮的图形，其配色更加舒服，图形元素更加细腻</li>
+<li><code>seaborn.lmplot(x,y,data,hue,fit_reg)</code> 是一个非常有用的方法，在绘二维散点图时，自动完成回归拟合<ul>
+<li>$x,y$：横纵坐标列名</li>
+<li>$data$：关联的数据集，pandas数据</li>
+<li>$hue$：按数据指定类别进行分类显示</li>
+<li>$fit_reg$：是否进行线性拟合，bool</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from sklearn.datasets import load_iris, fetch_20newsgroups
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# 解决图表标题显示中文为方框的情形
+plt.rcParams['font.sans-serif'] = ['SimHei']  # 指定默认字体
+plt.rcParams['axes.unicode_minus'] = False  # 解决保存图像是负号'-'显示为方块的问题
+
+iris = load_iris()
+
+iris_d = pd.DataFrame(data=iris.data, columns=['Sepal_Length', 'Sepal_Width', 'Petal_Length', 'Petal_Width'])
+# 添加列数据
+iris_d["target"] = iris.target
+print(iris_d)
+
+
+def iris_plot(data, col1, col2):
+    sns.lmplot(x=col1, y=col2, data=data, hue="target", fit_reg=False)
+    plt.title("鸢尾花数据显示")
+    plt.show()
+
+
+iris_plot(iris_d, 'Sepal_Width', 'Petal_Length')
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="QQ_1721183162371.png" style="zoom: 25%;">
+
+<h3 id="1-4-数据集划分"><a href="#1-4-数据集划分" class="headerlink" title="1.4 数据集划分"></a>1.4 数据集划分</h3><h2 id="二、数据基本处理："><a href="#二、数据基本处理：" class="headerlink" title="二、数据基本处理："></a>二、数据基本处理：</h2><ul>
 <li>对缺失值、去除异常值等处理</li>
 </ul>
 <hr>
@@ -470,6 +582,7 @@
 </ul>
 </li>
 </ul>
+<hr>
 <h3 id="5-2-回归模型评估"><a href="#5-2-回归模型评估" class="headerlink" title="5.2 回归模型评估"></a>5.2 回归模型评估</h3><ul>
 <li><p>均方根误差（Root Mean Squared Error, RMSE）</p>
 <ul>
@@ -500,10 +613,11 @@
 <li><p>决定系数（Coefficient of Determination）</p>
 <ul>
 <li>$R^2$汇总了回归模型的解释度，由平方和计算而得，描述回归模型所解释的因变量方差在总方差中的比例。$R^2$越大，自变量与因变量之间存在线性关系</li>
-<li>$R^2=1-\frac{\sum\limits_{i=1}^{n}(p_i-a_i)^2}{\sum\limits_{i=1}^{n}(\bar{a}-a_i)^2}$</li>
+<li>$R^2=1-\frac{\sum\limits_{i=1}^{n}(p_i-a_i)^2}{\sum\limits_{i=1}^{n}(\bar{a}-a_i)^2}$​</li>
 </ul>
 </li>
 </ul>
+<hr>
 <h3 id="5-3-拟合"><a href="#5-3-拟合" class="headerlink" title="5.3 拟合"></a>5.3 拟合</h3><p>用于评价训练好的模型的表现效果</p>
 <h4 id="5-3-1-欠拟合"><a href="#5-3-1-欠拟合" class="headerlink" title="5.3.1 欠拟合"></a>5.3.1 欠拟合</h4><p>学到的特征太少了，导致区分标准太粗糙，不能进行较为准确的识别</p>
 <img src="image-20230420173200827.png" style="zoom:50%;">
@@ -762,6 +876,7 @@ x_normalized = scaler.fit_transform(x)<span aria-hidden="true" class="line-numbe
 <li>选择较小的k值，会让近似误差减小，估计误差会增大</li>
 <li>选择较大的k值，会让近似误差增大，估计误差减小，k的增大意味着模型变得简单</li>
 </ul>
+<hr>
 <h3 id="6-2-kd树"><a href="#6-2-kd树" class="headerlink" title="6.2 kd树"></a>6.2 kd树</h3><p>实现k近邻算法时，需要考虑的问题是<strong>如何对训练数据进行快速k近邻搜索</strong>，这在特征空间的维数大及训练数据容量大时很有必要</p>
 <p>k近邻最简单的实现是<strong>线性扫描（穷举搜索）</strong>，即要计算输入实例与每一个训练实例的距离。计算并存储好以后，再查找k近邻。<strong>当训练集很大时，计算非常耗时</strong></p>
 <p>为提高knn的搜索效率，可以考虑使用特殊的结构存储训练数据，以减小计算距离的次数</p>
@@ -799,8 +914,8 @@ x_normalized = scaler.fit_transform(x)<span aria-hidden="true" class="line-numbe
 <h4 id="6-2-5-最近邻域搜索"><a href="#6-2-5-最近邻域搜索" class="headerlink" title="6.2.5 最近邻域搜索"></a>6.2.5 最近邻域搜索</h4><p>使用 $6.2.4$ 的样本集 $T$</p>
 <ol>
 <li><p>查找点 $(2.1,3.1)$​</p>
-<p>在 $(7,2)$ 点测试到达 $(5,4)$ ，在 $(5,4)$ 测试到达 $(2,3)$ ，然后 $search_path$ 中的结点为 $&lt;(7,2), (5,4), (2,3)&gt;$ ，从 $search_path$ 中取出当前最佳结点 $nearest \ (2,3)$ ，计算 $(2.1,3.1)$ 与 $nearest$ 的欧氏距离 $dist$ 为 $0.141$ ；</p>
-<p>然后回溯至 $(5,4)$ ，以 $(2.1,3.1)$ 为圆心，$dist = 0.141$ 为半径画圆，并不能与超平面 $y=4$ 相交，所以不必跳转到结点 $(5,4)$ 的右子空间去搜索，因为右子空间内不可能有更近样本点了；</p>
+<p>在 $(7,2)$ 点测试到达 $(5,4)$ ，在 $(5,4)$ 测试到达 $(2,3)$ ，然后 $search_path$ 中的结点为 $&lt;(7,2), (5,4), (2,3)&gt;$ <strong>【将查找点 $(2.1,3.1)$ 从根结点开始，根据当前比较结点划分子空间时选用的基准维度，与当前结点进行大小比对，小了进入左子空间，大了进入右子空间；同理再跟子空间内的结点进行对比，直至到达叶结点，进而产生一条 $search_path$】</strong> ，从 $search_path$ 中取出当前最佳结点 $nearest \ (2,3)$ ，计算 $(2.1,3.1)$ 与 $nearest$ 的欧氏距离 $dist$ 为 $0.141$ ；</p>
+<p>然后回溯至 $(5,4)$ ，以 $(2.1,3.1)$ 为圆心，$dist = 0.141$ 为半径画圆 <strong>【与回溯结点划分子空间基准维度坐标值判断相交，相交进入回溯结点另一子空间，并将子空间结点加入到 $search_path$ 中，不相交则按 $search_path$ 继续回溯】</strong>，并不能与超平面 $y=4$ 相交，所以不必跳转到结点 $(5,4)$ 的右子空间去搜索，因为右子空间内不可能有更近样本点了；</p>
 <p>于是，再回溯到 $(7,2)$ ，同样，以 $(2.1,3.1)$ 为圆心，$dist = 0.141$ 为半径画圆，并不能与超平面 $x=7$ 相交，所以不必跳转到结点 $(7,2)$ 的右子空间去搜索；</p>
 <p>至此， $search_path$ 为空，结束整个搜索，返回 $nearest\ (2,3)$ 作为 $(2.1,3.1)$ 的最近邻点，最近距离 $dist$ 为0.141。</p>
 <img src="QQ_1721096546907.png" style="zoom:67%;">
@@ -813,6 +928,7 @@ x_normalized = scaler.fit_transform(x)<span aria-hidden="true" class="line-numbe
 <p>至此， $search_path$ 为空，结束整个搜索，返回 $nearest\ (2,3)$ 作为 $(2,4。5)$ 的最近邻点，最近距离 $dist$ 为 $1.5$​。</p>
 <img src="QQ_1721096481009.png" style="zoom:67%;"></li>
 </ol>
+<hr>
 
                 
             </div>
@@ -1137,7 +1253,7 @@ x_normalized = scaler.fit_transform(x)<span aria-hidden="true" class="line-numbe
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">45.7k</span>
+                        class="white-color">46.5k</span>
             
             
             
