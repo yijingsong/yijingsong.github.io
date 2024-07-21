@@ -322,14 +322,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-07-17
+                    2024-07-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.2k
+                    8.4k
                 </div>
                 
 
@@ -442,6 +442,7 @@ print("特征类别：\n", iris.feature_names)
 print("目标类别：\n", iris.target_names)
 print("数据集描述：\n", iris.DESCR)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<hr>
 <h3 id="1-3-查看数据分布"><a href="#1-3-查看数据分布" class="headerlink" title="1.3 查看数据分布"></a>1.3 查看数据分布</h3><p>通过创建一些图，以查看不同类别是如何通过特征来区分的。在理想情况下，标签类将由一个或多个特征对完美分割，在现实世界中，这种理想情况会很少发生。</p>
 <ul>
 <li>$seaborn$ 介绍<ul>
@@ -484,7 +485,8 @@ iris_plot(iris_d, 'Sepal_Width', 'Petal_Length')
 
 <img src="QQ_1721183162371.png" style="zoom: 25%;">
 
-<h3 id="1-4-数据集划分"><a href="#1-4-数据集划分" class="headerlink" title="1.4 数据集划分"></a>1.4 数据集划分</h3><p>数据集一般被划分为两类：</p>
+<hr>
+<h3 id="1-4-数据集分割"><a href="#1-4-数据集分割" class="headerlink" title="1.4 数据集分割"></a>1.4 数据集分割</h3><p>数据集一般被划分为两类：</p>
 <ul>
 <li>训练数据：用于训练，<strong>构建模型</strong></li>
 <li>测试数据：在检验模型时使用，用于<strong>评估模型是否有效</strong></li>
@@ -494,6 +496,9 @@ iris_plot(iris_d, 'Sepal_Width', 'Petal_Length')
 <li>训练集：70%  80%  75%</li>
 <li>测试集：30%  20%  25%</li>
 </ul>
+<p>需要注意的是，划分数据集时，要尽可能保持数据分布的一致性，避免因数据划分过程引入额外的偏差而对最终结果产生影响</p>
+<p>保留类别数据比例的采样方式称为分层采用</p>
+<h4 id="1-4-1-留出法"><a href="#1-4-1-留出法" class="headerlink" title="1.4.1 留出法"></a>1.4.1 留出法</h4><p>”留出法“（hold-out）直接将数据集划分为<strong>两个互斥集合</strong>，用一个集合训练出模型后，用另一个数据集来测试其误差，作为对泛化误差的估计。在使用留出法时，一般要采用若干次随机划分、重复进行实验评估后取平均值作为留出法的评估结果。</p>
 <p><strong>数据集划分API</strong></p>
 <ul>
 <li><code>sklearn.model_selection.train_test_split(x,y,test_size,random_state)</code><ul>
@@ -515,11 +520,105 @@ x_train,x_test,y_train,y_test=train_test_split(iris.data,iris.target,random_stat
 print(f"x_train:{x_train.shape}")
 print(f"x_test:{x_test.shape}")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<ul>
+<li><code>sklearn.model_selection.LeaveOneOut</code>，留一法，简称 $LOO$​​，即每次抽取一个样本作为测试集<ul>
+<li>优点<ul>
+<li>留一法使用的训练集和初始数据集相比只少了一个样本，这使得在绝大多数情况下，留一法中被实际评估的模型与期望评估的模型很相似。因此留一法的评估结果往往被认为是比较准确的</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>在数据集比较大的时候，训练m个模型的计算开销是难以忍受的</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from sklearn.model_selection import LeaveOneOut
+
+data = [1,2,3,4]
+loo = LeaveOneOut()
+
+for train, test in loo.split(data):
+    print("%s, %s" %(train, test))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="1-4-2-交叉验证法"><a href="#1-4-2-交叉验证法" class="headerlink" title="1.4.2 交叉验证法"></a>1.4.2 交叉验证法</h4><p>将拿到的训练数据，分为训练和验证集。以下图为例，将数据分为4份，其中一份作为验证集，然后经过4次测试，每次更换不同的验证集，得到4组模型的结果，取平均值作为最终结果，又称4折交叉验证</p>
+<p>之前将数据分为训练集和测试集，但为了使训练得到的<strong>模型结果更加准确可信</strong>（下图对4折交叉验证的四次结果求平均值，得到模型准确率为78.75%），做以下处理：</p>
+<ul>
+<li>训练集：训练集+验证集</li>
+<li>测试集：测试集</li>
+</ul>
+<img src="QQ_1721354183539.png" style="zoom: 50%;">
+
+<h5 id="1-4-2-1-GridSearchCV"><a href="#1-4-2-1-GridSearchCV" class="headerlink" title="1.4.2.1 GridSearchCV"></a>1.4.2.1 GridSearchCV</h5><p>在机器学习中，需要手动指定的参数，叫超参数，如k近邻的k值。但是手动设置过程繁琐，需要对模型预设几种超参数组合，每组超参数都采用交叉验证来进行评估，最后选出最优参数组合建立模型。</p>
+<img src="QQ_1721354605257.png" style="zoom:50%;">
+
+<p> <strong>调用API：</strong></p>
+<ul>
+<li><h2 id="sklearn-model-selection-GridSearchCV-estimator-param-grid-None-cv-None-对估计器的指定参数值进行详尽搜索-estimator-：估计器对象-param-grid-：估计器参数-dict-“n-neighbors”-1-3-5-cv-：指定几折交叉验证"><a href="#sklearn-model-selection-GridSearchCV-estimator-param-grid-None-cv-None-对估计器的指定参数值进行详尽搜索-estimator-：估计器对象-param-grid-：估计器参数-dict-“n-neighbors”-1-3-5-cv-：指定几折交叉验证" class="headerlink" title="sklearn.model_selection.GridSearchCV(estimator,param_grid=None,cv=None)- 对估计器的指定参数值进行详尽搜索- $estimator$：估计器对象- $param_grid$：估计器参数(dict){“n_neighbors”:[1,3,5]}- $cv$：指定几折交叉验证"></a><code>sklearn.model_selection.GridSearchCV(estimator,param_grid=None,cv=None)</code><br>- 对估计器的指定参数值进行详尽搜索<br>- $estimator$：估计器对象<br>- $param_grid$：估计器参数(dict){“n_neighbors”:[1,3,5]}<br>- $cv$：指定几折交叉验证</h2><ul>
+<li>$fit$：输入训练数据</li>
+<li>$score$：准确率</li>
+<li>结果分析：<ul>
+<li>$best_score_$：在交叉验证中验证的最好结果</li>
+<li>$best_estimator_$：最好的参数模型</li>
+<li>$cv_results_$：每次交叉验证后的验证集准确率结果和训练集准确率结果</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-4-2-2-KFold-StratifiedKFold"><a href="#1-4-2-2-KFold-StratifiedKFold" class="headerlink" title="1.4.2.2 KFold &amp; StratifiedKFold"></a>1.4.2.2 KFold &amp; StratifiedKFold</h5><p><strong>调用API：</strong></p>
+<ul>
+<li><p><code>sklearn.model_selection.KFold</code>，随机采样</p>
+</li>
+<li><p><code>sklearn.model_selection.StratifiedKFold</code>，<strong>分层采样</strong></p>
+</li>
+<li><p>参数</p>
+<ul>
+<li><code>n_splits</code>：表示划分几等份</li>
+<li><code>shuffle</code>：在划分数据集时，是否进行洗牌<ul>
+<li>若为False，其效果等同于 random_state等于整数，每次划分的结果相同</li>
+<li>若为True，每次划分的结果都不一样，表示经过洗牌，随机取样</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>属性</p>
+<ul>
+<li>split(X,y=None,groups=None)：将数据集分成训练集和测试集，返回索引生成器</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from sklearn.model_selection import KFold,StratifiedKFold
+import numpy as np
+
+x=np.array([[1,2,3,4],[11,12,13,14],[21,22,23,24]])
+y=np.array([1,1,0])
+
+folder = KFold(n_splits=2,random_state=None,shuffle = False)
+sfolder = StratifiedKFold(n_splits=2,random_state=None,shuffle=False)
+
+print("KFold划分结果:")
+for train,test in folder.split(x,y):
+    print(train,test)
 
 
+print("SKFold划分结果:")
+for train,test in sfolder.split(x,y):
+    print(train,test)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-<h2 id="二、数据基本处理："><a href="#二、数据基本处理：" class="headerlink" title="二、数据基本处理："></a>二、数据基本处理：</h2><ul>
+<h4 id="1-4-3-自助法"><a href="#1-4-3-自助法" class="headerlink" title="1.4.3 自助法"></a>1.4.3 自助法</h4><ul>
+<li>优点<ul>
+<li>自助法在数据集较小，难以有效划分训练/数据集时很有用</li>
+<li>自助法能从初始数据集中产生多个不同的训练集，对集成学习等方法有很大好处</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>自助法产生的数据改变了初始数据集的分布，会引入估计误差，因此，在初始数据量足够的时候，留出法和交叉验证法更常用</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="二、数据基本处理"><a href="#二、数据基本处理" class="headerlink" title="二、数据基本处理"></a>二、数据基本处理</h2><ul>
 <li>对缺失值、去除异常值等处理</li>
 </ul>
 <hr>
@@ -534,7 +633,15 @@ print(f"x_test:{x_test.shape}")<span aria-hidden="true" class="line-numbers-rows
 <li>特征降维</li>
 </ul>
 <h4 id="3-3-1-特征提取"><a href="#3-3-1-特征提取" class="headerlink" title="3.3.1 特征提取"></a>3.3.1 特征提取</h4><p>将<strong>任意数据</strong>（如文本图像）转换为可用于机器学习的<strong>数字特征</strong></p>
-<h4 id="3-3-2-特征预处理"><a href="#3-3-2-特征预处理" class="headerlink" title="3.3. 2 特征预处理"></a>3.3. 2 特征预处理</h4><p>通过一些<strong>转换函数</strong>将特征数据转换成更加符合算法模型的特征数据过程</p>
+<h4 id="3-3-2-特征预处理（跳转-6-1-6-解决量纲不一致）"><a href="#3-3-2-特征预处理（跳转-6-1-6-解决量纲不一致）" class="headerlink" title="3.3. 2 特征预处理（跳转 6.1.6 解决量纲不一致）"></a>3.3. 2 特征预处理（跳转 6.1.6 解决量纲不一致）</h4><p>通过一些<strong>转换函数</strong>将特征数据<strong>转换成更加符合算法模型的特征数据</strong>过程</p>
+<img src="QQ_1721271809300.png" style="zoom: 67%;">
+
+<ul>
+<li><strong>为什么要进行归一化/标准化？</strong><ul>
+<li>特征的单位或者大小相差较大，或者某特征的方差相比其他特征要大出几个数量级，容易影响（支配）目标结果，使得一些算法无法学习到其他的特征</li>
+</ul>
+</li>
+</ul>
 <h4 id="3-3-3-特征降维"><a href="#3-3-3-特征降维" class="headerlink" title="3.3.3 特征降维"></a>3.3.3 特征降维</h4><p>在某些限定条件下，<strong>降低随机变量（特征）个数</strong>，得到一组“不相关”主变量的过程</p>
 <hr>
 <h2 id="四、机器学习"><a href="#四、机器学习" class="headerlink" title="四、机器学习"></a>四、机器学习</h2><h3 id="4-1-监督学习"><a href="#4-1-监督学习" class="headerlink" title="4.1 监督学习"></a>4.1 监督学习</h3><ul>
@@ -648,7 +755,7 @@ print(f"x_test:{x_test.shape}")<span aria-hidden="true" class="line-numbers-rows
 <img src="image-20230420173103779.png" style="zoom:50%;">
 
 <hr>
-<h2 id="六、分类算法"><a href="#六、分类算法" class="headerlink" title="六、分类算法"></a>六、分类算法</h2><h3 id="6-1-k近邻（KNN）算法"><a href="#6-1-k近邻（KNN）算法" class="headerlink" title="6.1 k近邻（KNN）算法"></a>6.1 k近邻（KNN）算法</h3><p>通过你的“邻居”，来判断你的类别</p>
+<h2 id="六、分类算法——k近邻"><a href="#六、分类算法——k近邻" class="headerlink" title="六、分类算法——k近邻"></a>六、分类算法——k近邻</h2><h3 id="6-1-k近邻（KNN）算法"><a href="#6-1-k近邻（KNN）算法" class="headerlink" title="6.1 k近邻（KNN）算法"></a>6.1 k近邻（KNN）算法</h3><p>通过你的“邻居”，来判断你的类别</p>
 <h4 id="6-1-1-k-近邻算法概念"><a href="#6-1-1-k-近邻算法概念" class="headerlink" title="6.1.1 k-近邻算法概念"></a>6.1.1 k-近邻算法概念</h4><p>K Nearest Neighbor算法又称KNN算法</p>
 <ul>
 <li><p>定义</p>
@@ -950,6 +1057,155 @@ x_normalized = scaler.fit_transform(x)<span aria-hidden="true" class="line-numbe
 <p>至此， $search_path$ 为空，结束整个搜索，返回 $nearest\ (2,3)$ 作为 $(2,4。5)$ 的最近邻点，最近距离 $dist$ 为 $1.5$​。</p>
 <img src="QQ_1721096481009.png" style="zoom:67%;"></li>
 </ol>
+<hr>
+<h3 id="6-3-案例：鸢尾花种类预测"><a href="#6-3-案例：鸢尾花种类预测" class="headerlink" title="6.3 案例：鸢尾花种类预测"></a>6.3 案例：鸢尾花种类预测</h3><h4 id="6-3-1-再识K近邻"><a href="#6-3-1-再识K近邻" class="headerlink" title="6.3.1 再识K近邻"></a>6.3.1 再识K近邻</h4><ul>
+<li><code>sklearn.neighbors.KNeighborsClassifier(n_neighbors=5,algorithm='auto')</code><ul>
+<li>$n_ neighbors$：默认使用的邻居数，int</li>
+<li>$algorithm$​：可选{‘auto’, ‘ball_tree’, ‘kd_tree’, ‘brute’}<ul>
+<li>auto：算法自己决定合适的搜索算法</li>
+<li>brute：蛮力搜索，即线性扫描，当训练集很大时，计算非常耗时</li>
+<li>kd_tree：构造kd树存储数据以便对其进行快速检索的树形结构，kd树也就是数据结构里的二叉树。以中值切分构造的树，每一个结点都是一个超矩形，在维度小于20时效率高</li>
+<li>ball_tree：为了克服kd_tree在高纬失效而发明的，其构造过程是以质心c和半径r分割样本空间，每一个结点都是一个超球体</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-3-2-鸢尾花种类预测"><a href="#6-3-2-鸢尾花种类预测" class="headerlink" title="6.3.2 鸢尾花种类预测"></a>6.3.2 鸢尾花种类预测</h4><h5 id="6-3-2-1-数据集介绍"><a href="#6-3-2-1-数据集介绍" class="headerlink" title="6.3.2.1 数据集介绍"></a>6.3.2.1 数据集介绍</h5><p>iris数据集是常用的分类实验数据集，由Fisher，1936年收集整理。iris也称鸢尾花卉数据集，是一类多重变量分析的数据集。关于数据集具体介绍：</p>
+<img src="QQ_1721274858522.png" style="zoom: 33%;">
+
+<h5 id="6-3-2-2-步骤分析"><a href="#6-3-2-2-步骤分析" class="headerlink" title="6.3.2.2 步骤分析"></a>6.3.2.2 步骤分析</h5><ul>
+<li>1.获取数据集</li>
+<li>2.数据基本处理</li>
+<li>3.特征工程</li>
+<li>4.机器学习（模型训练）</li>
+<li>5.模型评估</li>
+</ul>
+<h5 id="6-3-2-3-代码过程"><a href="#6-3-2-3-代码过程" class="headerlink" title="6.3.2.3 代码过程"></a>6.3.2.3 代码过程</h5><ul>
+<li>导入模块</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>从sklearn中获取数据集，然后进行数据分割</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 1.获取数据
+iris = load_iris()
+# 2.数据基本处理
+x_train,x_test,y_train,y_test=train_test_split(iris.data,iris.target,test_size=0.2,random_state=22)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>进行数据标准化（特征值标准化）</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 3.特征工程
+transfer = StandardScaler()
+x_train=transfer.fit_transform(x_train)
+x_test=transfer.fit_transform(x_test)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>模型训练预测</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 4.模型训练
+estimator=KNeighborsClassifier(n_neighbors=9)
+estimator.fit(x_train,y_train)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>训练结果评估</li>
+</ul>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"># 比对真实值与预测值
+y_predict=estimator.predict(x_test)
+print("预测结果为：\n",y_predict)
+print("对比真实值和预测值：\n",y_predict==y_test)
+
+# 计算准确率
+score=estimator.score(x_test,y_test)
+print("准确率为；\n",score)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h3 id="6-4-案例：鸢尾花种类预测——增加k值调优"><a href="#6-4-案例：鸢尾花种类预测——增加k值调优" class="headerlink" title="6.4 案例：鸢尾花种类预测——增加k值调优"></a>6.4 案例：鸢尾花种类预测——增加k值调优</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+
+# 1.获取数据
+iris = load_iris()
+
+# 2.数据基本处理
+x_train,x_test,y_train,y_test=train_test_split(iris.data,iris.target,test_size=0.2,random_state=20)
+
+# 3.特征工程——特征预处理
+transfer = StandardScaler()
+x_train=transfer.fit_transform(x_train)
+x_test=transfer.fit_transform(x_test)
+
+# 4.机器学习——KNN
+# 4.1实例化一个估计器
+estimator=KNeighborsClassifier()
+
+# 4.2模型调优  交叉验证，网格搜索
+param_dict={"n_neighbors":[1,3,5]}
+estimator=GridSearchCV(estimator,param_grid=param_dict,cv=3)
+
+# 4.3模型训练
+estimator.fit(x_train,y_train)
+
+# 5.模型评估
+# 5.1预测值结果输出
+y_predict=estimator.predict(x_test)
+print("对比真实值和预测值：\n",y_predict==y_test)
+
+# 5.2准确率计算
+score=estimator.score(x_test,y_test)
+print("准确率为；\n",score)
+
+# 5.3打印交叉验证结果信息
+print("在交叉验证中验证的最好结果：\n",estimator.best_score_)
+print("最好的参数模型：\n",estimator.best_estimator_)
+print("每次交叉验证后的准确率结果：\n",estimator.cv_results_)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h3 id="6-5-KNN算法总结"><a href="#6-5-KNN算法总结" class="headerlink" title="6.5 KNN算法总结"></a>6.5 KNN算法总结</h3><ul>
+<li>优点<ul>
+<li>简单有效</li>
+<li>重新训练的代价低</li>
+<li>适合类域交叉的样本<ul>
+<li>knn算法主要靠周围有限的邻近的样本，而不是靠判别类域的方法来确定所属类别的，因此对于类域交叉或重叠较多的待分样本集来说，knn较其他方法更为合适</li>
+</ul>
+</li>
+<li>适合大样本自动分类<ul>
+<li>该算法比较适用于样本容量比较大的类域的自动分类，而那些样本容量较小的类域采用这种算法比较容易产生误分</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>惰性学习<ul>
+<li>knn算法是懒散学习方法（lazy learning，基本上不学习），一些积极学习的算法要快很多</li>
+</ul>
+</li>
+<li>类别评分不是规格化<ul>
+<li>不像一些通过概率评分的分类</li>
+</ul>
+</li>
+<li>输出可解释性不高<ul>
+<li>决策树的输出可解释性就较强</li>
+</ul>
+</li>
+<li>对不均衡的样本不擅长<ul>
+<li>当样本不平衡时，如一个类的样本容量大，而其他类样本容量很小时，有可能导致当输入一个新样本时，该样本的·k个邻居中大容量类的样本占多数。该算法只计算最近的邻居样本，某一类的样本数量很大时，那么这类样本并不接近目标样本，或者这类样本很靠近目标样本，可以采用权值的方法（距离近的样本权值大）来改进</li>
+</ul>
+</li>
+<li>计算量大<ul>
+<li>常用的解决方法是事先对已知样本点进行剪辑，事先去除对分类作用不大的样本</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <hr>
 
                 
@@ -1275,7 +1531,7 @@ x_normalized = scaler.fit_transform(x)<span aria-hidden="true" class="line-numbe
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">46.5k</span>
+                        class="white-color">48.8k</span>
             
             
             
